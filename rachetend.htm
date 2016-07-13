@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd html 4.0 transitional//EN">
+<html>
+<head><title></title>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<script src="dojo-release-1.11.2/dojo/dojo.js"></script>
+<script src="rachet.js"></script>
+
+<META content="MShtml 6.00.2600.0" name=GENERATOR>
+</head>
+<body bgColor=#e8e8e8><!--Создаем таблицу-->
+<table><!--Создаем ячейку вертикальную-->
+  <tbody>
+  <tr><!--Создаем ячейку горизонтальную и вставляем в нее картинку-->
+    <td><IMG height=212 src="komatsu.jpg" 
+      width=286></td><!--Во вторую ячейку горизонтальную вставляем текст заголовка-->
+    <td align=middle><font face=serif size=5>РАСЧЕТ 
+      ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО<BR>КОМПЛЕКСА КАРЬЕРА</font> 
+</td></tr></tbody></table><!-- Закрываем таблицу--><BR><BR>
+<P align=center>ИСХОДНЫЕ ДАННЫЕ ДЛЯ ПРОГРАММЫ<BR>(вводятся пользователем)</P>
+<SCRIPT language=javascript>
+//Функции запускаются по мере загрузки страницы все подряд
+
+</SCRIPT>
+
+<form name=EscKub><!--Данные представлены в виде таблицы, чтобы выровнять вертикально ячейки для данных друг под другом-->
+<table><!--Указана граница в 1px, чтобы таблицу--><!--можно было видеть Если убрать border=1 bordercolor=black границ таблицы не будет видно-->
+  <tbody>
+  <tr>
+    <td>Емкость ковша экскаватора(Ee)</td>
+    <td><select onchange="getContinueCirclus()+getrabDnei()+getМэу() " 
+      name=kubesk>, м3 <option value=0-3 selected>0-3</option> <option 
+        value=5>5</option> <option value=6-8>6-8</option> <option 
+        value=10-20>10-20</option></select>м3</td></tr>
+  <tr>
+    <td>уточните значение(Ee)</td>
+    <td><input size=5 name=sharpkubesk>, м3</td></tr>
+  <tr>
+    <td>Вид горной массы </td>
+    <td><select 
+      onchange="getKoofPorodaKN() + getKoofPorodaKP()+ getNamePoroda()" 
+      name=nameporoda ;> <option value=песок selected>песок, суглинок</option> 
+        <option value=глина>глина, уголь</option> <option 
+        value=щебень>щебень(разрыхленный известняк)</option> <option 
+        value=руда>руда(разрыхленные изверженные породы)</option></select></td></tr>
+  <tr>
+    <td>Годовой объем добычи(перевозки)(Wг)</td>
+    <td><input size=10 name=dobicha>, тыс. м3</td></tr>
+  <tr>
+    <td>Расстояние транспортирования(среднее)<BR>автотранспортом(Lтр)</td>
+    <td><input size=8 name=rast>, км</td></tr>
+  <tr>
+    <td>Грузоподъемность самосвала(ga)</td>
+    <td><select> 
+      onchange="getAvtoSpeed()+ getAmortizacia()+ getNormaTo()+ getNormaAvtorezina()+ getrashodTopliva()+ getSoderganieGaraga ()+getStoimStroitelstva()+getStoimDorogi()" 
+      name=avtogruz ;> <option value=27-45 selected>27-45</option> <option 
+        value=45-75>45-75</option> <option value=75-130>75-130</option> <option 
+        value=130-200>130-200</option></select>, т</td></tr>
+  <tr>
+    <td>уточните грузоподъемность самосвала(ga)</td>
+    <td><input size=8 name=gruzavto>, т</td></tr>
+  <tr>
+    <td>Плотность(объемный вес) горной массы(y)</td>
+    <td><input size=8 name=plotnst>, т/м3</td></tr>
+  <tr>
+    <td>Район проведения работ</td>
+    <td><select onchange=" getPrd()+getrabDnei()" name=region ;> <option 
+        value=северный selected>северный</option> <option 
+        value=средний>средний</option></select></td></tr></tbody></table><!--Конец таблицы--><!--Далле по порядку идут формы куда возвращаются промежуточные --><!--результаты, например Kn, Kp, Va, W г, K т.г и т.д. Они обозначены как hidden т.е. --><!--не видимы. Если их изменить на text поля в которые возвращаются--><!--промежуточные результаты станут видимыми и можно будет проверить работают ли все формулы--><pre> 
+<table><tbody><tr><td><input onclick=getALL()+makeNewWindow() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font> </tr></tbody></table></tr></td> 
+
+<font size=2>РЕЗУЛЬТАТЫ РАСЧЕТОВ ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО КОМПЛЕКСА</font>
+</form>
+<form name=Calculate>
+<table>
+<tbody>
+<tr>
+<td align=middle><font size=2><B>Введенные пользователем данные</B></font></td></tr>
+<tr><td><font size=2>Емкость ковша экскаватора (Ee)</font></td><td><input size=10 name=sharpkubesk2><font size=2>, м3</font></td></tr>
+<tr><td><font size=2>Теоретическая продолж. цикла экскав.(тц)</font></td><td><input size=10 name=concirk><font size=2>, с</font></td></tr>
+<tr><td><font size=2>Кооф. наполнения ковша(Kn)</font></td><td><input size=10 name=koofporodakn></td></tr>
+<tr><td><font size=2>Кооф. разрыхления породы в ковше(Kp)</font></td><td><input size=10 name=koofporodakp></td></tr>
+<tr><td><font size=2>Продолжительность смены(Тсм)</font></td><td><input size=10 value=8 name=Tcm><font size=2>, ч</font></td></tr>
+<tr><td><font size=2>Кооф. использования экскав. в течении смены(n)</font></td></td><td><input size=10 value=0.7 name=n></td></tr>
+<tr><td><font size=2>Годовой объем добычи(перевозок)в массиве(Wг)</font></td><td><input size=10 name=dobicha2><font size=2>,тыс. м3</font></td></tr>
+<tr><td><font size=2>Число рабочих смен в году</font></td><td><input size=10 name=rabdnei><font size=2>,смен</font></td></tr>
+<tr><td><font size=2>Вид горной массы </font></td><td><input size=10 name=nameporoda2></td></tr>
+<tr><td><font size=2>Район работ </font></td><td><input size=10 name=region2></td></tr></font>
+<tr><td><font size=2>Плотность горной массы (y)</font></td><td><input size=10 name=plotnst2></td></tr>
+<tr><td><font size=2>Скорость движения автосамосв. (Va)</font></td><td><input size=10 name=speed><font size=2>, км/ч</font></td></tr>
+<tr><td><font size=2>Грузоподъемность самосвала (Ga) </font></td><td><input size=10 name=gruzavto2><font size=2>, т</font></td></tr>
+<tr><td><font size=2>Длина транспортирования(L тр)</font></td><td><input size=10 name=rast2><font size=2>, км</font></td><font size=2></tr>
+<tr><td><font size=2>Время разгрузки автосамосв. (tr)</font></td><td><input size=10 value=1 name=z><font size=2>, мин</font></td></tr>
+<tr><td><font size=2>Время маневров и прочих задержек в пути,мин</font></td><td><input size=10 value=2-4 name=x><font size=2>, мин</font></td></tr>
+<tr><td><font size=2>Кооф. использования смены,(простои автосамосв.) </font></td><td><input size=10 value=0.9 name=t></td></tr>
+<tr><td><font size=2>Число рабочих дней в году предприят. (прд)</font></td><td><input size=10 name=prd><font size=2>, смен</font></td></tr>
+<tr><td align=middle><font size=2><B>Результаты расчетов</B></font></td></tr>
+<tr><td><font size=2>1.Сменная производит. экскав.(O э см)</font></td><td><input size=10 name=output1><font size=2>,м3/см</font></td></tr>
+<tr><td><font size=2>2.Кол-во экскав. в забоях(N э.заб)</font></td><td><input size=10 name=output2><font size=2><font size=2>, ед</font></font></td>
+<tr><td><font size=2>3.Кол-во экскав. на вспомогат. раб.(N э.вс)</font></td><td><input size=10 name=output3><font size=2>, ед</font></td></tr>
+<tr><td><font size=2>4.Общее необходим. кол-во экскав.(N э.общ)</font></td><td><input size=10 name=output><font size=2>, ед</font></td></tr>
+<tr><td><font size=2>5.Время погрузки автосам. экскав.(T погр)</font></td><td><input size=10 name=output4><font size=2>, мин</font></td></tr>
+<tr><td><font size=2>6.Время движен. гружен. автосам. (t гр)</font></td></td><td><input size=10 name=output5><font size=2>, мин</font></td></tr>
+<tr><td><font size=2>7.Время движен. порожняк. автосам.( t пор)</font></td><td><input size=10 name=output6><font size=2>, мин</font></td></tr>
+<tr><td><font size=2>8.Время одного рейса автосам.(tr)</font></td><td><input size=10 name=output7><font size=2>, мин</font></td></tr>
+<tr><td><font size=2>9.Сменная производит. одного автосам.(Q а.см)</font></td><td><input size=10 name=output8><font size=2>, т/смену</font></td></tr>
+<tr><td><font size=2>10.Расч. сменный парк автосам.(N р.см)</font></td><td><input size=10 name=output9><font size=2>, ед</font></td></tr>
+<tr><td><font size=2>11.Сут. пробег автосам.(L сут)</font></td><td><input size=10 name=output10><font size=2>, км</font></td></tr>
+<tr><td><font size=2>12.Кооф. технич. готовности парка(Ktg)</font></td><td><input size=10 name=output16><font size=2>,ед</font></td></tr>
+<tr><td><font size=2>13.Год. пробег автосам.(L год)</font></td><td><input size=10 name=output11><font size=2>, км</font></td></tr>
+<tr><td><font size=2>14.Инвентарный парк автосам.(N сут)</font></td><td><input size=10 name=output12><font size=2>,ед</font></td></tr>
+<tr><td><font size=2>15.Среднегод. производит. 1 автосам.(Q 1а год)</font></td><td><input size=10 name=output13><font size=2>, тыс. ткм/ год</font></td></tr></tbody></table>
+
+</font>
+</pre>
+</form>
+<font face=serif size=5>ЭКОНОМИЧЕСКИЙ 
+РАСЧЕТ</font><BR>экскаваторно-автомобильного комплекса<BR></font>Исходные данные 
+<form name=Economic>
+<pre><table border=0><tbody>
+<tr><td>Стоимость автосамосвала (Ca)</td><td><input size=10 name=StoimEcs>, тыс. руб</font></td></tr>
+<tr><td>Стоимость экскаватора (Cэ)</td><td><input size=10 name=Сэ>,тыс. руб</font></td></tr></font>
+<tr><td>Тарифная ставка шофера(Tc)</td><td><input size=10 name=tarifstavka>, руб/ч</font></td></tr>
+<tr><td>Продолжительность смены (Tcм)</td><td><input size=10 name=prodsmeni>, ч</font></td></tr>
+<tr><td>Цена 1 кг дизтоплива(Цгор)</td><td><input size=10 name=Цгор>, руб/кг</font></td></tr>
+<tr><td>Стоимость 1 кВтч электроэнергии(Цэл)</td><td><input size=10 name=Цэл>, руб/кВтч</font></td></tr>
+<tr><td>Форма хранения автосамосвалов</td><td><select onchange=getStoimStroitelstva() name=tipstroy ;> <option value=открытое selected>открытое</option> <option value=в гараже>в гараже</option></select></td></tr>
+<tr><td>Категория дороги</td><td><select onchange=getStoimDorogi() name=katdorogi ;> <option value=первая selected>первая</option> <option value=вторая>вторая</option></select></td></tr>
+<tr><td>Режим работы карьера</td><td><select onchange=getКсп()+getregimKariera2() name=kolichestvodnei ;> <option value=305 selected>305</option> <option value=254>254</option></select>, дн &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Прерывная раб. неделя<td></td>
+<tr><td></td><td><input size=3 value=357>, дн <input type=checkbox onchange=getКсп() name=nepreriv> <font color=darkred>Если непрерывная раб. неделя, обязательно нажать на пустой квадрат</font></td></tr>
+</tbody></table>
+</form>
+<table><tbody>
+<tr><td><input onclick=getЭAll() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font> </td></tr></tbody></table>
+<form name=EconomicCalculate>
+<table><tbody>
+<tr><td align=middle><font size=2><B>Введенные пользователем данные</B></font></td></tr>
+<tr><td><font size=2>Стоимость автосамосвала (Ca)</font></td><td><input size=10 name=StoimEcs2><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на хранение автосамосвала(Cх)</font></td><td><input size=10 name=zatratisave><font size=2>, руб</font></td></tr>
+<tr><td><font size=2>Затраты на строительство дороги(Cдор)</font></td><td><input size=10 name=zatratidorogi><font size=2>, руб</font></td></tr>
+<tr><td><font size=2>Режим работы карьера</font></td><td><input size=10 name=kolichestvodnei2><font size=2>, дн</font></td></tr>
+<tr><td><font size=2>Коэфициент списочного состава (Ксп)</font></td><td><input size=10 name=koofspissostava></td></tr>
+<tr><td><font size=2>Норма амортизационных отчислений на автотранспорт(Аа)</font></td><td><input size=10 name=amortizacia><font size=2>, %</font></td></tr>
+<tr><td><font size=2>Норма затрат на ТО автомобиля(Сто)</font></td><td><input size=10 name=normato><font size=2>, руб</font></td></tr>
+<tr><td><font size=2>Норма затрат на авторезину(Сш)</font></td><td><input size=10 name=normaavtorezina><font size=2>, руб</font></td></tr>
+<tr><td><font size=2>Расход топлива на 100 км пробега(Сгор)</font></td><td><input size=10 name=rashodtopliva><font size=2>, кг</font></td></tr>
+<tr><td><font size=2>Расход дизтоплива(Рдт)</font></td><td><input size=10 name=Рдт><font size=2>, т</font></td></tr>
+<tr><td><font size=2>Норма затрат на содержание автогаража(Эгж1)</font></td><td><input size=10 name=Эгж1><font size=2>, руб</font></td></tr>
+<tr><td><font size=2>Установленная мощность электродвигателя экскаватора(Мэу)</font></td><td><input size=10 name=Мэу><font size=2>, кВт</font></td></tr>
+<tr><td><font size=2>Расход электроэнергии за год(Рэл)</font></td><td><input size=10 name=Рэл><font size=2>,тыс.кВт.ч/год</font></td></tr></font>
+<tr><td align=middle><font size=2><B>Результаты экономического расчета</font></B></td></tr>
+<tr><td><font size=2>Затраты на автосамосвалы(Ка)</font></td><td><input size=10 name=avtozatrat><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на строительство гаража(Каг)</font></td><td><input size=10 name=garagzatrat><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на строит-во 1км. карьерной дороги(Кдор)</font></td><td><input size=10 name=dorogizatrat><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на автотранспорт всего (Ко)</font></td><td><input size=10 name=zatratiavtoall><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Списочный состав шоферов (n спис)</font></td><td><input size=10 name=nспис><font size=2>, чел.</font></td></tr>
+<tr><td><font size=2>Затраты на заработную плату шоферов (Эзш)</font></td><td><input size=10 name=Эзш><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на заработную плату рабочих вспомогательных служб (Эзвс)</font></td><td><input size=10 name=Эзвс><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на заработную плату рабочих всего (Эз о)</font></td><td><input size=10 name=Эзо><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Сумма амортизационных отчислений на автотранспорт (Эам)</font></td><td><input size=10 name=Эам><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на техническое обслуживание и текущий ремонт (Э то)</font></td><td><input size=10 name=Это><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на замену, восстановление и ремонт шин(Эш)</font></td><td><input size=10 name=Эш><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на горючее(Эгор)</font></td><td><input size=10 name=Эгор><font size=2>,тыс. руб</font></td></tr>
+<tr><td><font size=2>Затраты на смазочные материалы(Эм)</font></td><td><input size=10 name=Эм><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Затраты на содержание автогаража(Эгж)</font></td><td><input size=10 name=Эгж><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Эксплуатационные затраты на содержание и ремонт автодорог(Эдор)</font></td><td><input size=10 name=Эдор><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Эксплуатационные затраты на автлотранспорт всего(Эао)</font></td><td><input size=10 name=Эао><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Капитальные затраты на экскаваторы(Кэ)</font></td><td><input size=10 name=Кэ><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Затраты на заработную плату машинистов экскаваторов(Эз э)</font></td><td><input size=10 name=Эзэ><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Затраты на заработную плату рабочих вспомогательных служб(Эз всп)</font></td><td><input size=10 name=Эзвсп><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Затраты на заработную плату рабочих всего(Эз оэ)</font></td><td><input size=10 name=Эзоэ><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Сумма амортизационных отчислений на экскаваторы(Эаэ)</font></td><td><input size=10 name=Эаэ><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Затраты на техническое обслуживание и текущий ремонт(Этоэ)</font></td><td><input size=10 name=Этоэ><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Затраты на смазочные материалы и др. материалы(Эмэ)</font></td><td><input size=10 name=Эмэ><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Затраты на электроэнергию(Ээл)</font></td><td><input size=10 name=Ээл><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font size=2>Эксплуатационные затраты на экскаваторы всего(Ээо)</font></td><td><input size=10 name=Ээо><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font color=navy size=1>КАПИТАЛЬНЫЕ ЗАТРАТЫ ВСЕГО</font></td><td><input size=10 name=Квсего><font size=2>,тыс. руб/год</font></td></tr>
+<tr><td><font color=navy size=1>ЭКСПЛУАТАЦИОННЫЕ ЗАТРАТЫ ВСЕГО</font></td><td><input size=10 name=Эвсего><font size=2>,тыс. руб/год</font></td></tr></tbody></table>
+</form>
+</pre></body></html>
