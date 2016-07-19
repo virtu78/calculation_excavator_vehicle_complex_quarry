@@ -1,21 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//Dtd html 4.0 transitional//EN">
 <html>
-<head><title></title>
+<head>
+<title>
+</title>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1251">
-<link rel="stylesheet" type="text/css" src="js/dojo-release-1.11.2/dojo/resources/dojo.css" />
+<link rel="stylesheet" type="text/css" href="js/dojo-release-1.11.2/dijit/themes/soria/soria.css" >
+<link rel="stylesheet" type="text/css" href="js/dojo-release-1.11.2/dojo/resources/dojo.css" >
+
 <script type="text/javascript"  src="js/dojo-release-1.11.2/dojo/dojo.js" djConfig="parseOnLoad:true, isDebug:true">
 </script>
+<script language=javascript>
+dojo.require("dojo.parser");
+dojo.require("dojo.number");
+dojo.require("dijit.form.TextBox");
+dojo.require("dijit.form.ValidationTextBox");
+dojo.require("dijit.form.Button");
+dojo.require("dijit.form.NumberSpinner");
+dojo.require("dijit.form.Slider");
 
+</script>
 <script type="text/javascript">/*dojo.addOnLoad(function(){
 dojo.require});
 /*Все содержимое, которое загружается посредством dojo.require, используется здесь...*/</script>
 <script type="text/javascript" src="rachet.js"></script>
-
-<meta content="MShtml 6.00.2600.0" name=GENERATOR>
 </head>
-<body bgColor=#e8e8e8><!--Создаем таблицу-->
-<table><!--Создаем ячейку вертикальную-->
-  <tbody>
+<body class = "soria"><!--Создаем таблицу-->
+<table border="1"><!--Создаем ячейку вертикальную-->
+  
   <tr><!--Создаем ячейку горизонтальную и вставляем в нее картинку-->
     <td><IMG height=212 src="komatsu.jpg" 
       width=286></td><!--Во вторую ячейку горизонтальную вставляем текст заголовка-->
@@ -23,23 +34,26 @@ dojo.require});
       ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО<BR>КОМПЛЕКСА КАРЬЕРА</font> 
 </td></tr></tbody></table><!-- Закрываем таблицу--><BR><BR>
 <P align=center>ИСХОДНЫЕ ДАННЫЕ ДЛЯ ПРОГРАММЫ<BR>(вводятся пользователем)</P>
-<script language=javascript>
-//Функции запускаются по мере загрузки страницы все подряд
 
-</script>
 
 <form name=EscKub><!--Данные представлены в виде таблицы, чтобы выровнять вертикально ячейки для данных друг под другом-->
-<table><!--Указана граница в 1px, чтобы таблицу--><!--можно было видеть Если убрать border=1 bordercolor=black границ таблицы не будет видно-->
-  <tbody>
+<table border="1"><!--Указана граница в 1px, чтобы таблицу--><!--можно было видеть Если убрать border=1 bordercolor=black границ таблицы не будет видно-->
+  
   <tr>
     <td>Емкость ковша экскаватора(Ee)</td>
     <td><select onchange="getContinueCirclus()+getrabDnei()+getМэу() " 
       name=kubesk>, м3 <option value=0-3 selected>0-3</option> <option 
         value=5>5</option> <option value=6-8>6-8</option> <option 
-        value=10-20>10-20</option></select>м3</td></tr>
+        value=10-20>10-20</option></select></td><td>, м3</td></tr>
   <tr>
     <td>уточните значение(Ee)</td>
-    <td><input size=5 name=sharpkubesk>, м3</td></tr>
+    <td >
+	<input type = "text" 
+	maxlength=2
+	name="sharpkubesk"
+	dojoType="dijit.form.TextBox"
+	trim="true"
+	propercase="true"></td><td>, м3</td></tr>
   <tr>
     <td>Вид горной массы </td>
     <td><select 
@@ -47,38 +61,70 @@ dojo.require});
       name=nameporoda ;> <option value=песок selected>песок, суглинок</option> 
         <option value=глина>глина, уголь</option> <option 
         value=щебень>щебень(разрыхленный известняк)</option> <option 
-        value=руда>руда(разрыхленные изверженные породы)</option></select></td></tr>
+        value=руда>руда(разрыхленные изверженные породы)</option></select></td><td></td></tr>
   <tr>
     <td>Годовой объем добычи(перевозки)(Wг)</td>
-    <td><input size=10 name=dobicha>, тыс. м3</td></tr>
+    <td><input type = "text" 
+	maxlength=10
+	name="dobicha"
+	dojoType="dijit.form.TextBox"
+	trim="true"
+	propercase="true"></td><td>, тыс. м3</td></tr>
   <tr>
     <td>Расстояние транспортирования(среднее)<BR>автотранспортом(Lтр)</td>
-    <td><input size=8 name=rast>, км</td></tr>
+    <td><input type = "text" 
+	maxlength=6
+	name="rast"
+	dojoType="dijit.form.TextBox"
+	trim="true"
+	propercase="true"></td><td>, км</td></tr>
   <tr>
     <td>Грузоподъемность самосвала(ga)</td>
     <td><select> 
       onchange="getAvtoSpeed()+ getAmortizacia()+ getNormaTo()+ getNormaAvtorezina()+ getrashodTopliva()+ getSoderganieGaraga ()+getStoimStroitelstva()+getStoimDorogi()" 
       name=avtogruz ;> <option value=27-45 selected>27-45</option> <option 
         value=45-75>45-75</option> <option value=75-130>75-130</option> <option 
-        value=130-200>130-200</option></select>, т</td></tr>
+        value=130-200>130-200</option></select></td><td>, т</td></tr>
   <tr>
     <td>уточните грузоподъемность самосвала(ga)</td>
-    <td><input size=8 name=gruzavto>, т</td></tr>
+    <td><input type = "text" 
+	maxlength=6
+	name="gruzavto"
+	dojoType="dijit.form.TextBox"
+	trim="true"
+	propercase="true" ></td><td>, т</td></tr>
   <tr>
     <td>Плотность(объемный вес) горной массы(y)</td>
-    <td><input size=8 name=plotnst>, т/м3</td></tr>
+    <td><div  dojoType="dijit.form.HorizontalSlider" name="plotnst"
+	value="3"
+	maximum="10"
+	minimum="1"
+	showButtons="false"
+	style="margin:5px; width:200; height:20;">
+	<script type="dojo/method" event="onChange" args="newValue">
+	console.log(dojo.number.format(newValue,{places:1, pattern:'#mg'}));</script>
+	<ol dojoType="dijit.form.HorizontalRuleLabels" container="topDecoration"
+	style="height:10px; font-size:75%; color:gray;" count="6">
+	</ol>
+	<div dojoType="dijit.form.HorizontalRule" container="topDecoration" 
+	count=6	style="height:5px;" >
+	</div>
+	</div>
+	</td>
+	<td>, т/м3</td>
+	</tr>
   <tr>
     <td>Район проведения работ</td>
-    <td><select onchange=" getPrd()+getrabDnei()" name=region ;> <option 
-        value=северный selected>северный</option> <option 
-        value=средний>средний</option></select></td></tr></tbody></table><!--Конец таблицы--><!--Далле по порядку идут формы куда возвращаются промежуточные --><!--результаты, например Kn, Kp, Va, W г, K т.г и т.д. Они обозначены как hidden т.е. --><!--не видимы. Если их изменить на text поля в которые возвращаются--><!--промежуточные результаты станут видимыми и можно будет проверить работают ли все формулы--><pre> 
-<table><tbody><tr><td><input onclick=getALL()+makeNewWindow() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font> </tr></tbody></table></tr></td> 
+    <td><select onchange=" getPrd()+getrabDnei()" name=region ;> 
+	<option value=северный selected>северный</option> 
+	<option value=средний>средний</option></select></td><td></td></tr></table><!--Конец таблицы--><!--Далле по порядку идут формы куда возвращаются промежуточные --><!--результаты, например Kn, Kp, Va, W г, K т.г и т.д. Они обозначены как hidden т.е. --><!--не видимы. Если их изменить на text поля в которые возвращаются--><!--промежуточные результаты станут видимыми и можно будет проверить работают ли все формулы--><pre> 
+<table border="1"><tr><td><input onclick=getALL()+makeNewWindow() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font> </tr></table></tr></td> 
 
 <font size=2>РЕЗУЛЬТАТЫ РАСЧЕТОВ ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО КОМПЛЕКСА</font>
 </form>
 <form name=Calculate>
-<table>
-<tbody>
+<table border="1">
+
 <tr>
 <td align=middle><font size=2><B>Введенные пользователем данные</B></font></td></tr>
 <tr><td><font size=2>Емкость ковша экскаватора (Ee)</font></td><td><input size=10 name=sharpkubesk2><font size=2>, м3</font></td></tr>
@@ -122,7 +168,7 @@ dojo.require});
 <font face=serif size=5>ЭКОНОМИЧЕСКИЙ 
 РАСЧЕТ</font><BR>экскаваторно-автомобильного комплекса<BR></font>Исходные данные 
 <form name=Economic>
-<pre><table border=0><tbody>
+<pre><table border=0>
 <tr><td>Стоимость автосамосвала (Ca)</td><td><input size=10 name=StoimEcs>, тыс. руб</font></td></tr>
 <tr><td>Стоимость экскаватора (Cэ)</td><td><input size=10 name=Сэ>,тыс. руб</font></td></tr></font>
 <tr><td>Тарифная ставка шофера(Tc)</td><td><input size=10 name=tarifstavka>, руб/ч</font></td></tr>
@@ -135,10 +181,10 @@ dojo.require});
 <tr><td></td><td><input size=3 value=357>, дн <input type=checkbox onchange=getКсп() name=nepreriv> <font color=darkred>Если непрерывная раб. неделя, обязательно нажать на пустой квадрат</font></td></tr>
 </tbody></table>
 </form>
-<table><tbody>
+<table border="1">
 <tr><td><input onclick=getЭAll() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font> </td></tr></tbody></table>
 <form name=EconomicCalculate>
-<table><tbody>
+<table border="1">
 <tr><td align=middle><font size=2><B>Введенные пользователем данные</B></font></td></tr>
 <tr><td><font size=2>Стоимость автосамосвала (Ca)</font></td><td><input size=10 name=StoimEcs2><font size=2>,тыс. руб</font></td></tr>
 <tr><td><font size=2>Затраты на хранение автосамосвала(Cх)</font></td><td><input size=10 name=zatratisave><font size=2>, руб</font></td></tr>
@@ -180,6 +226,6 @@ dojo.require});
 <tr><td><font size=2>Затраты на электроэнергию(Ээл)</font></td><td><input size=10 name=Ээл><font size=2>,тыс. руб/год</font></td></tr>
 <tr><td><font size=2>Эксплуатационные затраты на экскаваторы всего(Ээо)</font></td><td><input size=10 name=Ээо><font size=2>,тыс. руб/год</font></td></tr>
 <tr><td><font color=navy size=1>КАПИТАЛЬНЫЕ ЗАТРАТЫ ВСЕГО</font></td><td><input size=10 name=Квсего><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font color=navy size=1>ЭКСПЛУАТАЦИОННЫЕ ЗАТРАТЫ ВСЕГО</font></td><td><input size=10 name=Эвсего><font size=2>,тыс. руб/год</font></td></tr></tbody></table>
+<tr><td><font color=navy size=1>ЭКСПЛУАТАЦИОННЫЕ ЗАТРАТЫ ВСЕГО</font></td><td><input size=10 name=Эвсего><font size=2>,тыс. руб/год</font></td></tr></table>
 </form>
 </pre></body></html>
