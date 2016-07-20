@@ -22,41 +22,30 @@
 .col{
     display:table-cell; 
     border:1px solid black;
+	width:70%; 
 }
- 
-.c50{
-   width:50%;   
-}
- 
 </style>
 </head>
-<body>
+<body class "claro">
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" />
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/resources/dojo.css" />
 <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
             data-dojo-config="async: true"></script>
-<script>
-require([
-            'dojo/dom',
-            'dojo/dom-construct'
-        ], function (dom, domConstruct) {
-            var greetingNode = dom.byId('greeting');
-            domConstruct.place('<em> Dojo!</em>', greetingNode);
-        });
-</script>
 <script type="text/javascript" src="rachet.js"></script>
-
+<form>
 <div class="wrapper">
     <div class="table">
         <div class="row">
-            <div class="col c50"><img height=212 src="komatsu.jpg" width=286></div>
-			<div class="col c50"><h1 id="greeting">РАСЧЕТ ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО<br>КОМПЛЕКСА КАРЬЕРА</h1> </div>
+            <div class="col"><h1 align=center id="greeting">РАСЧЕТ ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО<br>КОМПЛЕКСА КАРЬЕРА</h1> </div>
+			<div class="col"></div>
 	    </div>
         <div class="row">
-            <div class="col c50"><p align=center>ИСХОДНЫЕ ДАННЫЕ ДЛЯ ПРОГРАММЫ<br>(вводятся пользователем)</p></div>
-			<div class="col c50"></div>
+            <div class="col"><p align=center>ИСХОДНЫЕ ДАННЫЕ ДЛЯ ПРОГРАММЫ<br>(вводятся пользователем)</p></div>
+			<div class="col"></div>
         </div>  
 		<div class="row">
-            <div class="col c50">Емкость ковша экскаватора(Ee)</div>
-			<div class="col c50">
+            <div class="col">Емкость ковша экскаватора(Ee)</div>
+			<div class="col">
 				<select onchange="getContinueCirclus()+getrabDnei()+getМэу()" name=kubatura_excavatora>
 					<option value=0-3 selected>0-3</option> 
 					<option value=5>5</option> 
@@ -66,12 +55,12 @@ require([
 			</div>
         </div> 
 		<div class="row">
-			<div class="col c50">Уточните значение(Ee)</div>
-            <div class="col c50"><input type = "text" maxlength=2 name="tocnaya_kubatura_excavatora">, м.куб</div>
+			<div class="col">Уточните значение(Ee)</div>
+            <div class="col"><input type = "text" maxlength=2 name="tocnaya_kubatura_excavatora">, м.куб</div>
 		</div> 
 		<div class="row">
-			<div class="col c50">Вид горной массы</div>
-			<div class="col c50">
+			<div class="col">Вид горной массы</div>
+			<div class="col">
 				<select onchange="getKoofPorodaKN() + getKoofPorodaKP()+ getNamePoroda()" name=nameporoda ;> <option value=песок selected>песок, суглинок</option> 
 					<option value=глина>глина, уголь</option> 
 					<option value=щебень>щебень(разрыхленный известняк)</option> 
@@ -80,16 +69,16 @@ require([
 			</div>
         </div>
 		<div class="row">
-			<div class="col c50">Годовой объем добычи(перевозки)(Wг)</div>
-            <div class="col c50"><input type = "text" maxlength=10 name="godovoi_objem_dobichi">, тыс. куб</div>
+			<div class="col">Годовой объем добычи(перевозки)(Wг)</div>
+            <div class="col"><input type = "text" maxlength=10 name="godovoi_objem_dobichi">, тыс. куб</div>
 		</div> 
 		<div class="row">
-			<div class="col c50">Расстояние транспортирования(среднее)<br>автотранспортом(Lтр)</div>
-            <div class="col c50"><input type = "text" maxlength=6 name="rastoyanie_tranpotrtirovanya">, км</div>
+			<div class="col">Расстояние транспортирования(среднее)<br>автотранспортом(Lтр)</div>
+            <div class="col"><input type = "text" maxlength=6 name="rastoyanie_tranpotrtirovanya">, км</div>
 		</div> 
 		<div class="row">
-			<div class="col c50">Грузоподъемность самосвала(ga)</div>
-			<div class="col c50">
+			<div class="col">Грузоподъемность самосвала(ga)</div>
+			<div class="col">
 				<select onchange="getAvtoSpeed()+ getAmortizacia()+ getNormaTo()+ getNormaAvtorezina()+ getrashodTopliva()+ getSoderganieGaraga ()+getStoimStroitelstva()+getStoimDorogi()" name=avtogruz> 
 					<option value=27-45 selected>27-45</option> 
 					<option value=45-75>45-75</option> 
@@ -99,12 +88,12 @@ require([
 			</div>
         </div>
 		<div class="row">
-			<div class="col c50">Уточните грузоподъемность самосвала(ga)</div>
-            <div class="col c50"><input type = "text" 	maxlength=6	name="gruzavto">, т</div>
+			<div class="col">Уточните грузоподъемность самосвала(ga)</div>
+            <div class="col"><input type = "text" 	maxlength=6	name="gruzavto">, т</div>
 		</div> 
 		<div class="row">
-			<div class="col c50">Район проведения работ</div>
-			<div class="col c50">
+			<div class="col">Район проведения работ</div>
+			<div class="col">
 				<select onchange=" getPrd()+getrabDnei()" name=region ;> 
 					<option value=северный selected>северный</option> 
 					<option value=средний>средний</option>
@@ -112,280 +101,398 @@ require([
 			</div>
         </div>    
         <div class="row">
-            <div class="col c50"><input onclick=getALL()+makeNewWindow() type=button value=ВЫЧИСЛИТЬ name=5></div>
-			<div class="col c50"><font size=2>ВСЕ ПАРАМЕТРЫ</font></div>
+            <div class="col"><input onclick=getALL()+makeNewWindow() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font></div>
+			<div class="col"></div>
         </div>
         <div class="row">
-			<div class="col c50"><p align=center>РЕЗУЛЬТАТЫ РАСЧЕТОВ<br>ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО КОМПЛЕКСА</p></div>
-			<div class="col c50"></div>
+			<div class="col"><p align=center>РЕЗУЛЬТАТЫ РАСЧЕТОВ<br>ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО КОМПЛЕКСА</p></div>
+			<div class="col"></div>
 		</div>  
 		<div class="row">        
-            <div class="col c50"><font size=2><b>Введенные пользователем данные</b></font></div>
-			<div class="col c50"></div>
+            <div class="col"><font size=2><b>Введенные пользователем данные</b></font></div>
+			<div class="col"></div>
         </div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Емкость ковша экскаватора (Ee)</font></div>
-            <div class="col c50"><input size=10 name=sharpkubesk2><font size=2>, м3</font></div>
+			<div class="col"><font size=2>Емкость ковша экскаватора (Ee)</font></div>
+            <div class="col"><input size=10 name=sharpkubesk2><font size=2>, м3</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Теоретическая продолж. цикла экскав.(тц)</font></div>
-            <div class="col c50"><input size=10 name=concirk><font size=2>, с</font></div>
+			<div class="col"><font size=2>Теоретическая продолж. цикла экскав.(тц)</font></div>
+            <div class="col"><input size=10 name=concirk><font size=2>, с</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Кооф. наполнения ковша(Kn)</font></div>
-            <div class="col c50"><input size=10 name=koofporodakn></div>
+			<div class="col"><font size=2>Кооф. наполнения ковша(Kn)</font></div>
+            <div class="col"><input size=10 name=koofporodakn></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Продолжительность смены(Тсм)</font></div>
-            <div class="col c50"><input size=10 value=8 name=Tcm><font size=2>, ч</font></div>
+			<div class="col"><font size=2>Продолжительность смены(Тсм)</font></div>
+            <div class="col"><input size=10 value=8 name=Tcm><font size=2>, ч</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Кооф. использования экскав. в течении смены(n)</font></div>
-            <div class="col c50"><input size=10 value=0.7 name=n></font></div>
+			<div class="col"><font size=2>Кооф. использования экскав. в течении смены(n)</font></div>
+            <div class="col"><input size=10 value=0.7 name=n></font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Годовой объем добычи(перевозок)в массиве(Wг)</font></div>
-            <div class="col c50"><input size=10 name=dobicha2><font size=2>,тыс. м3</font></div>
+			<div class="col"><font size=2>Годовой объем добычи(перевозок)в массиве(Wг)</font></div>
+            <div class="col"><input size=10 name=dobicha2><font size=2>,тыс. м3</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Число рабочих смен в году</font></div>
-            <div class="col c50"><input size=10 name=rabdnei><font size=2>,смен</font></div>
+			<div class="col"><font size=2>Число рабочих смен в году</font></div>
+            <div class="col"><input size=10 name=rabdnei><font size=2>,смен</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Вид горной массы </font></div>
-            <div class="col c50"><input size=10 name=nameporoda2></div>
+			<div class="col"><font size=2>Вид горной массы </font></div>
+            <div class="col"><input size=10 name=nameporoda2></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Район работ </font></div>
-            <div class="col c50"><input size=10 name=region2></div>
+			<div class="col"><font size=2>Район работ </font></div>
+            <div class="col"><input size=10 name=region2></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Район работ </font></div>
-            <div class="col c50"><input size=10 name=region2></div>
+			<div class="col"><font size=2>Плотность горной массы (y)</font></div>
+            <div class="col"><input size=10 name=plotnst2></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Плотность горной массы (y)</font></div>
-            <div class="col c50"><input size=10 name=plotnst2></div>
+			<div class="col"><font size=2>Скорость движения автосамосв. (Va)</font></div>
+            <div class="col"><input size=10 name=speed><font size=2>, км/ч</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Скорость движения автосамосв. (Va)</font></div>
-            <div class="col c50"><input size=10 name=speed><font size=2>, км/ч</font></div>
+			<div class="col"><font size=2>Грузоподъемность самосвала (Ga) </font></div>
+            <div class="col"><input size=10 name=gruzavto2><font size=2>, т</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Грузоподъемность самосвала (Ga) </font></div>
-            <div class="col c50"><input size=10 name=gruzavto2><font size=2>, т</font></div>
+			<div class="col"><font size=2>Длина транспортирования(L тр)</font></div>
+            <div class="col"><input size=10 name=rast2><font size=2>, км</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Длина транспортирования(L тр)</font></div>
-            <div class="col c50"><input size=10 name=rast2><font size=2>, км</font></div>
+			<div class="col"><font size=2>Время разгрузки автосамосв. (tr)</font></div>
+            <div class="col"><input size=10 value=1 name=z><font size=2>, мин</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Время разгрузки автосамосв. (tr)</font></div>
-            <div class="col c50"><input size=10 value=1 name=z><font size=2>, мин</font></div>
+			<div class="col"><font size=2>Время маневров и прочих задержек в пути,мин</font></div>
+            <div class="col"><input size=10 value=2-4 name=x><font size=2>, мин</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Время маневров и прочих задержек в пути,мин</font></div>
-            <div class="col c50"><input size=10 value=2-4 name=x><font size=2>, мин</font></div>
+			<div class="col"><font size=2>Кооф. использования смены,(простои автосамосв.) </font></div>
+            <div class="col"><input size=10 value=0.9 name=t></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>Кооф. использования смены,(простои автосамосв.) </font></div>
-            <div class="col c50"><input size=10 value=0.9 name=t></div>
-		</div> 
-		<div class="row">
-			<div class="col c50"><font size=2>Число рабочих дней в году предприят. (прд)</font></div>
-            <div class="col c50"><input size=10 name=prd><font size=2>, смен</font></div>
+			<div class="col"><font size=2>Число рабочих дней в году предприят. (прд)</font></div>
+            <div class="col"><input size=10 name=prd><font size=2>, смен</font></div>
 		</div> 
 		<div class="row">        
-            <div class="col c50"><font size=2><b>Результаты расчетов</b></font></div>
-			<div class="col c50"></div>
+            <div class="col"><font size=2><b>Результаты расчетов</b></font></div>
+			<div class="col"></div>
         </div> 
 		<div class="row">
-			<div class="col c50"><font size=2>1. Сменная производит. экскав.(O э см)</font></div>
-            <div class="col c50"><input size=10 name=output1><font size=2>,м3/см</font></div>
+			<div class="col"><font size=2>1. Сменная производит. экскав.(O э см)</font></div>
+            <div class="col"><input size=10 name=output1><font size=2>,м3/см</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>2. Кол-во экскав. в забоях(N э.заб)</font></div>
-            <div class="col c50"><input size=10 name=output2><font size=2>, ед</font></div>
+			<div class="col"><font size=2>2. Кол-во экскав. в забоях(N э.заб)</font></div>
+            <div class="col"><input size=10 name=output2><font size=2>, ед</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>3. Кол-во экскав. на вспомогат. раб.(N э.вс)</font></div>
-            <div class="col c50"><input size=10 name=output3><font size=2>, ед</font></div>
+			<div class="col"><font size=2>3. Кол-во экскав. на вспомогат. раб.(N э.вс)</font></div>
+            <div class="col"><input size=10 name=output3><font size=2>, ед</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>4. Общее необходим. кол-во экскав.(N э.общ)</font></div>
-            <div class="col c50"><input size=10 name=output4><font size=2>, ед</font></div>
+			<div class="col"><font size=2>4. Общее необходим. кол-во экскав.(N э.общ)</font></div>
+            <div class="col"><input size=10 name=output4><font size=2>, ед</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>5. Время погрузки автосам. экскав.(T погр)</font></div>
-            <div class="col c50"><input size=10 name=output5><font size=2>, мин</font></div>
+			<div class="col"><font size=2>5. Время погрузки автосам. экскав.(T погр)</font></div>
+            <div class="col"><input size=10 name=output5><font size=2>, мин</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>6. Время движен. гружен. автосам. (t гр)</font></div>
-            <div class="col c50"><input size=10 name=output6><font size=2>, мин</font></div>
+			<div class="col"><font size=2>6. Время движен. гружен. автосам. (t гр)</font></div>
+            <div class="col"><input size=10 name=output6><font size=2>, мин</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>7. Время движен. порожняк. автосам.( t пор)</font></div>
-            <div class="col c50"><input size=10 name=output7><font size=2>, мин</font></div>
+			<div class="col"><font size=2>7. Время движен. порожняк. автосам.( t пор)</font></div>
+            <div class="col"><input size=10 name=output7><font size=2>, мин</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>8. Время одного рейса автосам.(tr)</font></div>
-            <div class="col c50"><input size=10 name=output8><font size=2>, мин</font></div>
+			<div class="col"><font size=2>8. Время одного рейса автосам.(tr)</font></div>
+            <div class="col"><input size=10 name=output8><font size=2>, мин</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>9. Сменная производит. одного автосам.(Q а.см)</font></div>
-            <div class="col c50"><input size=10 name=output9><font size=2>, т/смену</font></div>
+			<div class="col"><font size=2>9. Сменная производит. одного автосам.(Q а.см)</font></div>
+            <div class="col"><input size=10 name=output9><font size=2>, т/смену</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>10. Расч. сменный парк автосам.(N р.см)</font></div>
-            <div class="col c50"><input size=10 name=output10><font size=2>, ед</font></div>
+			<div class="col"><font size=2>10. Расч. сменный парк автосам.(N р.см)</font></div>
+            <div class="col"><input size=10 name=output10><font size=2>, ед</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>11. Сут. пробег автосам.(L сут)</font></div>
-            <div class="col c50"><input size=10 name=output11><font size=2>, км</font></div>
+			<div class="col"><font size=2>11. Сут. пробег автосам.(L сут)</font></div>
+            <div class="col"><input size=10 name=output11><font size=2>, км</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>12. Кооф. технич. готовности парка(Ktg)</font></div>
-            <div class="col c50"><input size=10 name=output12><font size=2>,ед</font></div>
+			<div class="col"><font size=2>12. Кооф. технич. готовности парка(Ktg)</font></div>
+            <div class="col"><input size=10 name=output12><font size=2>,ед</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>13. Год. пробег автосам.(L год)</font></div>
-            <div class="col c50"><input size=10 name=output13><font size=2>, км</font></div>
+			<div class="col"><font size=2>13. Год. пробег автосам.(L год)</font></div>
+            <div class="col"><input size=10 name=output13><font size=2>, км</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>14. Инвентарный парк автосам.(N сут)</font></div>
-            <div class="col c50"><input size=10 name=output14><font size=2>,ед</font></div>
+			<div class="col"><font size=2>14. Инвентарный парк автосам.(N сут)</font></div>
+            <div class="col"><input size=10 name=output14><font size=2>,ед</font></div>
 		</div> 
 		<div class="row">
-			<div class="col c50"><font size=2>15. Среднегод. производит. 1 автосам.(Q 1а год)</font></div>
-            <div class="col c50"><input size=10 name=output15><font size=2>, тыс. ткм/ год</font></div>
+			<div class="col"><font size=2>15. Среднегод. производит. 1 автосам.(Q 1а год)</font></div>
+            <div class="col"><input size=10 name=output15><font size=2>, тыс. ткм/ год</font></div>
 		</div> 
-
-		
-		
-		
-		
-		
-		
-		
-		
+		<div class="row">
+			<div class="col"><p align=center><font face=serif size=5>ЭКОНОМИЧЕСКИЙ РАСЧЕТ</font><br>экскаваторно-автомобильного комплекса<br>Исходные данные</font></p></div>
+			<div class="col"></div>
+		</div>  
+		<div class="row">
+			<div class="col"><font size=2>Стоимость автосамосвала (Ca)</font></div>
+			<div class="col"><input size=10 name=StoimEcs><font size=2>, тыс. руб</font></div>
+		</div>  
+		<div class="row">
+			<div class="col"><font size=2>Стоимость экскаватора (Cэ)</font></div>
+			<div class="col"><input size=10 name=Сэ><font size=2>,тыс. руб</font></div>
+		</div>  
+		<div class="row">
+			<div class="col"><font size=2>Тарифная ставка шофера(Tc)</font></div>
+			<div class="col"><input size=10 name=tarifstavka><font size=2>, руб/ч</font></div>
+		</div>  
+		<div class="row">
+			<div class="col"><font size=2>Продолжительность смены (Tcм)</font></div>
+			<div class="col"><input size=10 name=prodsmeni><font size=2>, ч</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Цена 1 кг дизтоплива(Цгор)</font></div>
+			<div class="col"><input size=10 name=Цгор><font size=2>, руб/кг</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Стоимость 1 кВтч электроэнергии(Цэл)</font></div>
+			<div class="col"><input size=10 name=Цэл><font size=2>, руб/кВтч</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Форма хранения автосамосвалов</font></div>
+			<div class="col">
+				<select onchange=getStoimStroitelstva() name=tipstroy> 
+					<option value=открытое selected>открытое</option> 
+					<option value=вгараже>в гараже</option>
+				</select>
+			</div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Категория дороги</font></div>
+			<div class="col">
+				<select onchange=getStoimDorogi() name=katdorogi>
+					<option value=первая selected>первая</option> 
+					<option value=вторая>вторая</option>
+				</select>
+			</div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Стоимость 1 кВтч электроэнергии(Цэл)</font></div>
+			<div class="col"><input size=10 name=Цэл><font size=2>, руб/кВтч</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Режим работы карьера</font></div>
+			<div class="col">
+				<select onchange=getКсп()+getregimKariera2() name=kolichestvodnei> 
+					<option value=305 selected>305</option> 
+					<option value=254>254</option>
+				</select><font size=2>, дн&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Прерывная раб. неделя</font>
+			</div>
+		</div> 
+		<div class="row">
+			<div class="col"></div>
+			<div class="col"><input size=3 value=357><font size=2>, дн</font><input type=checkbox onchange=getКсп() name=nepreriv><font size=2 color=darkred>Если непрерывная раб. неделя, нажать на квадрат</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><input onclick=getЭAll() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font></div>
+			<div class="col"></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2><b>Введенные пользователем данные</b></font></div>
+			<div class="col"></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Стоимость автосамосвала (Ca)</font></div>
+			<div class="col"><input size=10 name=StoimEcs2><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на хранение автосамосвала(Cх)</font></div>
+			<div class="col"><input size=10 name=zatratisave><font size=2>, руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на строительство дороги(Cдор)</font></div>
+			<div class="col"><input size=10 name=zatratidorogi><font size=2>, руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Режим работы карьера</font></div>
+			<div class="col"><input size=10 name=kolichestvodnei2><font size=2>, дн</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Коэфициент списочного состава (Ксп)</font></div>
+			<div class="col"><input size=10 name=koofspissostava></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Норма амортизационных отчислений на автотранспорт(Аа)</font></div>
+			<div class="col"><input size=10 name=amortizacia><font size=2>, %</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Норма затрат на ТО автомобиля(Сто)</font></div>
+			<div class="col"><input size=10 name=normato><font size=2>, руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Норма затрат на авторезину(Сш)</font></div>
+			<div class="col"><input size=10 name=normaavtorezina><font size=2>, руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Расход топлива на 100 км пробега(Сгор)</font></div>
+			<div class="col"><input size=10 name=rashodtopliva><font size=2>, кг</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Расход дизтоплива(Рдт)</font></div>
+			<div class="col"><input size=10 name=Рдт><font size=2>, т</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Норма затрат на содержание автогаража(Эгж1)</font></div>
+			<div class="col"><input size=10 name=Эгж1><font size=2>, руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Норма затрат на содержание автогаража(Эгж1)</font></div>
+			<div class="col"><input size=10 name=Эгж1><font size=2>, руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Установленная мощность электродвигателя экскаватора(Мэу)</font></div>
+			<div class="col"><input size=10 name=Мэу><font size=2>, кВт</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Расход электроэнергии за год(Рэл)</font></div>
+			<div class="col"><input size=10 name=Рэл><font size=2>,тыс.кВт.ч/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2><b>Результаты экономического расчета</b></font></div>
+			<div class="col"></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на автосамосвалы(Ка)</font></div>
+			<div class="col"><input size=10 name=avtozatrat><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на автосамосвалы(Ка)</font></div>
+			<div class="col"><input size=10 name=avtozatrat><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на строительство гаража(Каг)</font></div>
+			<div class="col"><input size=10 name=garagzatrat><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на строительство гаража(Каг)</font></div>
+			<div class="col"><input size=10 name=garagzatrat><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на строит-во 1км. карьерной дороги(Кдор)</font></div>
+			<div class="col"><input size=10 name=dorogizatrat><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на автотранспорт всего (Ко)</font></div>
+			<div class="col"><input size=10 name=zatratiavtoall><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на автотранспорт всего (Ко)</font></div>
+			<div class="col"><input size=10 name=zatratiavtoall><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Списочный состав шоферов (n спис)</font></div>
+			<div class="col"><input size=10 name=nспис><font size=2>, чел.</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на заработную плату шоферов (Эзш)</font></div>
+			<div class="col"><input size=10 name=Эзш><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на заработную плату рабочих вспомогательных служб (Эзвс)</font></div>
+			<div class="col"><input size=10 name=Эзвс><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на заработную плату рабочих всего (Эз о)</font></div>
+			<div class="col"><input size=10 name=Эзо><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Сумма амортизационных отчислений на автотранспорт (Эам)</font></div>
+			<div class="col"><input size=10 name=Эам><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на техническое обслуживание и текущий ремонт (Э то)</font></div>
+			<div class="col"><input size=10 name=Это><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на горючее(Эгор)</font></div>
+			<div class="col"><input size=10 name=Эгор><font size=2>,тыс. руб</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на смазочные материалы(Эм)</font></div>
+			<div class="col"><input size=10 name=Эм><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на содержание автогаража(Эгж)</font></div>
+			<div class="col"><input size=10 name=Эгж><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Эксплуатационные затраты на содержание и ремонт автодорог(Эдор)</font></div>
+			<div class="col"><input size=10 name=Эдор><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Эксплуатационные затраты на автлотранспорт всего(Эао)</font></div>
+			<div class="col"><input size=10 name=Эао><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Капитальные затраты на экскаваторы(Кэ)</font></div>
+			<div class="col"><input size=10 name=Кэ><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на заработную плату машинистов экскаваторов(Эз э)</font></div>
+			<div class="col"><input size=10 name=Эзэ><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на заработную плату рабочих вспомогательных служб(Эз всп)</font></div>
+			<div class="col"><input size=10 name=Эзвсп><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на заработную плату рабочих всего(Эз оэ)</font></div>
+			<div class="col"><input size=10 name=Эзоэ><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Сумма амортизационных отчислений на экскаваторы(Эаэ)</font></div>
+			<div class="col"><input size=10 name=Эаэ><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на техническое обслуживание и текущий ремонт(Этоэ)</font></div>
+			<div class="col"><input size=10 name=Этоэ><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на смазочные материалы и др. материалы(Эмэ)</font></div>
+			<div class="col"><input size=10 name=Эмэ><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Затраты на электроэнергию(Ээл)</font></div>
+			<div class="col"><input size=10 name=Ээл><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font size=2>Эксплуатационные затраты на экскаваторы всего(Ээо)</font></div>
+			<div class="col"><input size=10 name=Ээо><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font color=navy size=2>КАПИТАЛЬНЫЕ ЗАТРАТЫ ВСЕГО</font></div>
+			<div class="col"><input size=10 name=Квсего><font size=2>,тыс. руб/год</font></div>
+		</div> 
+		<div class="row">
+			<div class="col"><font color=navy size=2>ЭКСПЛУАТАЦИОННЫЕ ЗАТРАТЫ ВСЕГО</font></div>
+			<div class="col"><input size=10 name=Эвсего><font size=2>,тыс. руб/год</font></div>
+		</div> 
 	</div>
-
-	
-	
-	
-	
-	
-	
-	
-	
 </div>
-
-
-
-
-
-
-
-
-<table border="1">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<font face=serif size=5>ЭКОНОМИЧЕСКИЙ 
-РАСЧЕТ</font><BR>экскаваторно-автомобильного комплекса<BR></font>Исходные данные 
-<form name=primary_data_economic_racheta>
-<table border="1">
-<tr><td>Стоимость автосамосвала (Ca)</td><td><input size=10 name=StoimEcs>, тыс. руб</font></td></tr>
-<tr><td>Стоимость экскаватора (Cэ)</td><td><input size=10 name=Сэ>,тыс. руб</font></td></tr></font>
-<tr><td>Тарифная ставка шофера(Tc)</td><td><input size=10 name=tarifstavka>, руб/ч</font></td></tr>
-<tr><td>Продолжительность смены (Tcм)</td><td><input size=10 name=prodsmeni>, ч</font></td></tr>
-<tr><td>Цена 1 кг дизтоплива(Цгор)</td><td><input size=10 name=Цгор>, руб/кг</font></td></tr>
-<tr><td>Стоимость 1 кВтч электроэнергии(Цэл)</td><td><input size=10 name=Цэл>, руб/кВтч</font></td></tr>
-<tr><td>Форма хранения автосамосвалов</td><td><select onchange=getStoimStroitelstva() name=tipstroy ;> <option value=открытое selected>открытое</option> <option value=в гараже>в гараже</option></select></td></tr>
-<tr><td>Категория дороги</td><td><select onchange=getStoimDorogi() name=katdorogi ;> <option value=первая selected>первая</option> <option value=вторая>вторая</option></select></td></tr>
-<tr><td>Режим работы карьера</td><td><select onchange=getКсп()+getregimKariera2() name=kolichestvodnei ;> <option value=305 selected>305</option> <option value=254>254</option></select>, дн &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Прерывная раб. неделя<td></td>
-<tr><td></td><td><input size=3 value=357>, дн <input type=checkbox onchange=getКсп() name=nepreriv> <font color=darkred>Если непрерывная раб. неделя, обязательно нажать на пустой квадрат</font></td></tr>
-</table>
 </form>
-<table border="1">
-<tr><td><input onclick=getЭAll() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<font size=2>ВСЕ ПАРАМЕТРЫ</font> </td></tr></tbody></table>
-<form name=rezultat_economic_racheta>
-<table border="1">
-<tr><td align=middle><font size=2><B>Введенные пользователем данные</B></font></td></tr>
-<tr><td><font size=2>Стоимость автосамосвала (Ca)</font></td><td><input size=10 name=StoimEcs2><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на хранение автосамосвала(Cх)</font></td><td><input size=10 name=zatratisave><font size=2>, руб</font></td></tr>
-<tr><td><font size=2>Затраты на строительство дороги(Cдор)</font></td><td><input size=10 name=zatratidorogi><font size=2>, руб</font></td></tr>
-<tr><td><font size=2>Режим работы карьера</font></td><td><input size=10 name=kolichestvodnei2><font size=2>, дн</font></td></tr>
-<tr><td><font size=2>Коэфициент списочного состава (Ксп)</font></td><td><input size=10 name=koofspissostava></td></tr>
-<tr><td><font size=2>Норма амортизационных отчислений на автотранспорт(Аа)</font></td><td><input size=10 name=amortizacia><font size=2>, %</font></td></tr>
-<tr><td><font size=2>Норма затрат на ТО автомобиля(Сто)</font></td><td><input size=10 name=normato><font size=2>, руб</font></td></tr>
-<tr><td><font size=2>Норма затрат на авторезину(Сш)</font></td><td><input size=10 name=normaavtorezina><font size=2>, руб</font></td></tr>
-<tr><td><font size=2>Расход топлива на 100 км пробега(Сгор)</font></td><td><input size=10 name=rashodtopliva><font size=2>, кг</font></td></tr>
-<tr><td><font size=2>Расход дизтоплива(Рдт)</font></td><td><input size=10 name=Рдт><font size=2>, т</font></td></tr>
-<tr><td><font size=2>Норма затрат на содержание автогаража(Эгж1)</font></td><td><input size=10 name=Эгж1><font size=2>, руб</font></td></tr>
-<tr><td><font size=2>Установленная мощность электродвигателя экскаватора(Мэу)</font></td><td><input size=10 name=Мэу><font size=2>, кВт</font></td></tr>
-<tr><td><font size=2>Расход электроэнергии за год(Рэл)</font></td><td><input size=10 name=Рэл><font size=2>,тыс.кВт.ч/год</font></td></tr></font>
-<tr><td align=middle><font size=2><B>Результаты экономического расчета</font></B></td></tr>
-<tr><td><font size=2>Затраты на автосамосвалы(Ка)</font></td><td><input size=10 name=avtozatrat><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на строительство гаража(Каг)</font></td><td><input size=10 name=garagzatrat><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на строит-во 1км. карьерной дороги(Кдор)</font></td><td><input size=10 name=dorogizatrat><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на автотранспорт всего (Ко)</font></td><td><input size=10 name=zatratiavtoall><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Списочный состав шоферов (n спис)</font></td><td><input size=10 name=nспис><font size=2>, чел.</font></td></tr>
-<tr><td><font size=2>Затраты на заработную плату шоферов (Эзш)</font></td><td><input size=10 name=Эзш><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на заработную плату рабочих вспомогательных служб (Эзвс)</font></td><td><input size=10 name=Эзвс><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на заработную плату рабочих всего (Эз о)</font></td><td><input size=10 name=Эзо><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Сумма амортизационных отчислений на автотранспорт (Эам)</font></td><td><input size=10 name=Эам><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на техническое обслуживание и текущий ремонт (Э то)</font></td><td><input size=10 name=Это><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на замену, восстановление и ремонт шин(Эш)</font></td><td><input size=10 name=Эш><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на горючее(Эгор)</font></td><td><input size=10 name=Эгор><font size=2>,тыс. руб</font></td></tr>
-<tr><td><font size=2>Затраты на смазочные материалы(Эм)</font></td><td><input size=10 name=Эм><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Затраты на содержание автогаража(Эгж)</font></td><td><input size=10 name=Эгж><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Эксплуатационные затраты на содержание и ремонт автодорог(Эдор)</font></td><td><input size=10 name=Эдор><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Эксплуатационные затраты на автлотранспорт всего(Эао)</font></td><td><input size=10 name=Эао><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Капитальные затраты на экскаваторы(Кэ)</font></td><td><input size=10 name=Кэ><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Затраты на заработную плату машинистов экскаваторов(Эз э)</font></td><td><input size=10 name=Эзэ><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Затраты на заработную плату рабочих вспомогательных служб(Эз всп)</font></td><td><input size=10 name=Эзвсп><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Затраты на заработную плату рабочих всего(Эз оэ)</font></td><td><input size=10 name=Эзоэ><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Сумма амортизационных отчислений на экскаваторы(Эаэ)</font></td><td><input size=10 name=Эаэ><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Затраты на техническое обслуживание и текущий ремонт(Этоэ)</font></td><td><input size=10 name=Этоэ><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Затраты на смазочные материалы и др. материалы(Эмэ)</font></td><td><input size=10 name=Эмэ><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Затраты на электроэнергию(Ээл)</font></td><td><input size=10 name=Ээл><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font size=2>Эксплуатационные затраты на экскаваторы всего(Ээо)</font></td><td><input size=10 name=Ээо><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font color=navy size=1>КАПИТАЛЬНЫЕ ЗАТРАТЫ ВСЕГО</font></td><td><input size=10 name=Квсего><font size=2>,тыс. руб/год</font></td></tr>
-<tr><td><font color=navy size=1>ЭКСПЛУАТАЦИОННЫЕ ЗАТРАТЫ ВСЕГО</font></td><td><input size=10 name=Эвсего><font size=2>,тыс. руб/год</font></td></tr></table>
-</form>
-</pre></body></html>
+</body>
+</html>
