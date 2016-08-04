@@ -48,7 +48,7 @@ require(["dijit/registry", "dojo/dom", "dijit/form/NumberTextBox", "dijit/form/B
 <script type="text/javascript">
 //function getTeoretProdoljCiklaExcavat() {
 //}
-	function getContinueCirclus(){
+	/*function getContinueCirclus(){
   var select = document.querySelector("#kubatura_excavatora");
   var output = document.querySelector("#teoret_prodolj_cikla_excavat");
   select.addEventListener("change", function() {
@@ -61,10 +61,110 @@ require(["dijit/registry", "dojo/dom", "dijit/form/NumberTextBox", "dijit/form/B
     output.textContent = number;
   });
  }
-
+*/
+var Peremennye={
+Ee: null, 
+tc:null, 
+Kp:null, 
+Kn:null, 
+Q:null, 
+EE:null, 
+W:null, 
+ng:null, 
+Ne:null, 
+W2:null, 
+NeBc:null, 
+NeObch:null, 
+ga:null,
+y:null, 
+Tpogr:null, 
+Y:null, 
+GA:null, 
+Ltr:null, 
+Va:null, 
+Tgr:null, 
+LTR:null, 
+Tpor:null, 
+Tr:null, 
+Qacm:null, 
+prd:null, 
+Npcm:null, 
+Lcyt:null, 
+Lgod:null, 
+K:null, 
+QIagod:null,
+Ca:null, 
+Ka:null, 
+KA:null, 
+Kag:null,
+Kdor:null,
+Ko:null,
+Npcm:null, 
+Nspis:null,
+Tc:null, 
+Tcm:null,
+Ezsh:null,
+Ezvs:null, 
+Ezo:null, 
+Aa:null, 
+Eam:null,
+Cto:null, 
+Eto:null,
+Ssh:null,
+Esh:null,
+Cgor:null,
+Egor:null,
+Rdt:null,
+Em:null,
+Egj:null,
+Egj1:null,
+Kdor:null,
+Edor:null,
+Ezo:null,
+Eao:null,
+Se:null,
+Ke:null,
+NeObch:null,
+Tc:null,
+ng:null,
+Eze:null,
+Ezvsp:null,
+Ezoe:null,
+Eae:null,
+Etoe:null,
+Eme:null,
+Mey:null,
+Rel:null,
+Cel:null,
+Eel:null,
+Eeo:null,
+Ke:null,
+Kvse:null,
+Eao:null,
+Evse:null
+}
+var KubaturaEscavators = new Array(4)
+KubaturaEscavators[0]="0-3"
+KubaturaEscavators[1]="5"
+KubaturaEscavators[2]="6-8"
+KubaturaEscavators[3]="10-20"
+var ContinueCirclus = new Array(4)
+ContinueCirclus[0]="23"
+ContinueCirclus[1]="25"
+ContinueCirclus[2]="28"
+ContinueCirclus[3]="30"
+ function getContinueCirclus()  {
+ var SelectedKubaturaEscavators=document.forms[0].kubatura_excavatora.value
+     for (var i = 0; i < KubaturaEscavators.length; i++){
+   if (KubaturaEscavators[i] == SelectedKubaturaEscavators){
+           break
+    }
+   }
+ document.forms[0].teoret_prodolj_cikla_excavat.value=ContinueCirclus[i]
+ }
  // конец  функции для формы получения даннх о теоритической прордолжительности цикла(тц)
 // массивы и функция для формы получения даннх о породах
-/*var NamePoroda = new Array(4)
+var NamePoroda = new Array(4)
 NamePoroda[0]="песок"
 NamePoroda[1]="глина"
 NamePoroda[2]="щебень"
@@ -80,7 +180,7 @@ KoofPorodaKN[1]="0.95"
 KoofPorodaKN[2]="0.85"
 KoofPorodaKN[3]="0.75"
  function getKoofPorodaKP()  {
- var SelectedNamePoroda=document.forms[0].nameporoda.value
+ var SelectedNamePoroda=document.forms[0].name_poroda.value
      for (var i = 0; i < NamePoroda.length; i++){
    if (NamePoroda[i] == SelectedNamePoroda){
            break
@@ -98,7 +198,7 @@ KoofPorodaKN[3]="0.75"
  document.forms[0].nameporoda2.value =NamePoroda[i]
  }
  function getKoofPorodaKN()  {
- var SelectedNamePoroda=document.forms[0].nameporoda.value
+ var SelectedNamePoroda=document.forms[0].name_poroda.value
      for (var i = 0; i < NamePoroda.length; i++){
    if (NamePoroda[i] == SelectedNamePoroda){
            break
@@ -119,7 +219,7 @@ SpeedVa[1]="30"
 SpeedVa[2]="32"
 SpeedVa[3]="30"
 function getAvtoSpeed() {
- var SelectedGruzAvto=document.forms[0].avtogruz.value
+ var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
@@ -142,14 +242,14 @@ ZakritXran[3]="1600000"
 
     function getStoimStroitelstva()  {
   
- var SelectedGruzAvto=document.forms[0].avtogruz.value
+ var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
          
     }
     }
-    if(document.forms[0].tipstroy.value=="открытое"){
+    if(document.forms[0].tip_hraneniya.value=="открытое"){
     document.forms[0].zatratisave.value =OtkritXran[i]
         }else{ document.forms[0].zatratisave.value =ZakritXran[i] }
        
@@ -167,7 +267,7 @@ SecondKat[2]="1200000"
 SecondKat[3]="1200000"
  
  function getStoimDorogi()  {
-   var SelectedGruzAvto=document.forms[0].avtogruz.value
+   var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
@@ -179,9 +279,9 @@ SecondKat[3]="1200000"
         }else{ document.forms[0].zatratidorogi.value =SecondKat[i] }
         }
         
- //Коэфициент списочного состава шоферов       
+ //Koэфициент списочного состава шоферов       
         
-     var KolichestvoRabDnei = new Array(2)
+var KolichestvoRabDnei = new Array(2)
 KolichestvoRabDnei[0]="305"
 KolichestvoRabDnei[1]="254"
 
@@ -192,11 +292,11 @@ KoeficentShofer[1]="1.18"
 var KoeficentDrugoy = new Array(1)
 KoeficentDrugoy[0]="1.54"
 
- function getКсп() {
+ function getKsp() {
  if (document.forms[0].nepreriv.checked )
  {document.forms[0].koofspissostava.value=1.54
   }else{
-   var SelectedKolichestvoRabDnei=document.forms[0].kolichestvodnei.value
+   var SelectedKolichestvoRabDnei=document.forms[0].kolichestvo_dnei.value
         for (var i = 0; i < KolichestvoRabDnei.length; i++){
    if (KolichestvoRabDnei[i] == SelectedKolichestvoRabDnei){
            break
@@ -209,7 +309,7 @@ KoeficentDrugoy[0]="1.54"
    function getRegimKariera2() { 
  if (document.forms[0].nepreriv.checked )
  {document.forms[0].kolichestvodnei2.value=357
-  }else{document.forms[0].kolichestvodnei2.value=document.forms[0].kolichestvodnei.value}
+  }else{document.forms[0].kolichestvodnei2.value=document.forms[0].kolichestvo_dnei.value}
   } 
             
         
@@ -252,15 +352,16 @@ Middle[1]="800"
 Middle[2]="780"
 Middle[3]="770"
     function getRabDnei() {
-   var SelectedKubaturaEscavators=document.getElementById("kubatura_excavatora");
+   var SelectedKubaturaEscavators=document.forms[0].kubatura_excavatora.value;
         for (var i=0; i<KubaturaEscavators.length; i++){
    if (KubaturaEscavators[i] == SelectedKubaturaEscavators){
            break
     }
     }
-    if(document.getElementById("region") == "северный"){
-    document.getElementById("rabdnei") = Sever[i]
-    }else{document.getElementById("rabdnei") = Middle[i] }
+    if(document.forms[0].region.value= "северный"){
+    document.forms[0].rabdnei.value = Sever[i]
+    }else{
+	document.forms[0].rabdnei.value = Middle[i] }
     
    
    }
@@ -274,7 +375,7 @@ Amortizacia[1]="0.37"
 Amortizacia[2]="0.3"
 Amortizacia[3]="0.25"
 function getAmortizacia() {
- var SelectedGruzAvto=document.forms[0].avtogruz.value
+ var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
@@ -289,7 +390,7 @@ NormaTo[1]="8200"
 NormaTo[2]="12000"
 NormaTo[3]="14000"
 function getNormaTo() {
- var SelectedGruzAvto=document.forms[0].avtogruz.value
+ var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
@@ -304,7 +405,7 @@ NormaAvtorezina[1]="33000"
 NormaAvtorezina[2]="42000"
 NormaAvtorezina[3]="50000"
 function getNormaAvtorezina() {
- var SelectedGruzAvto=document.forms[0].avtogruz.value
+ var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
@@ -319,7 +420,7 @@ RashodTopliva[1]="320"
 RashodTopliva[2]="420"
 RashodTopliva[3]="670"
 function getRashodTopliva() {
- var SelectedGruzAvto=document.forms[0].avtogruz.value
+ var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
@@ -334,13 +435,13 @@ SoderganieGaraga [1]="115"
 SoderganieGaraga [2]="140"
 SoderganieGaraga [3]="200"
 function getSoderganieGaraga () {
- var SelectedGruzAvto=document.forms[0].avtogruz.value
+ var SelectedGruzAvto=document.forms[0].avto_gruz.value
      for (var i = 0; i < GruzAvto.length; i++){
    if(GruzAvto[i] == SelectedGruzAvto){
            break
           } 
           }
-     document.forms[0].Эгж1.value=SoderganieGaraga [i]
+     document.forms[0].Egj1.value=SoderganieGaraga [i]
  }
  //Расход электроэнергии за год
    var RashodElektroenergii = new Array(4)
@@ -348,14 +449,14 @@ RashodElektroenergii [0]= "250"
 RashodElektroenergii [1]="320"
 RashodElektroenergii [2]="520"
 RashodElektroenergii[3]="1250-2250"
-function getМэу()  {
+function getMey()  {
  var SelectedKubaturaEscavators=document.getElementById("kubatura_excavatora");
      for (var i = 0; i < KubaturaEscavators.length; i++){
    if (KubaturaEscavators[i] == SelectedKubaturaEscavators){
            break
     }
    }
- document.forms[0].Мэу.value=RashodElektroenergii [i]
+ document.forms[0].Mey.value=RashodElektroenergii [i]
  }
 //Функции расчета по формулам по порядку
  //1. 
@@ -369,7 +470,7 @@ function getQ(){
   }
 //2.
     function getNe(){
-  W=document.forms[0].dobicha.value;
+  W=document.forms[0].godovoi_objem_dobichi.value;
   ng=document.forms[0].rabdnei.value;
   Q=document.forms[0].output1.value;
   Ne=document.forms[0].output2.value=formatResult((1.5*parseFloat(W)*1000)/(parseFloat(Q)*parseFloat(ng)))
@@ -381,19 +482,19 @@ function getQ(){
   }
 //4. 
 function getNeObch(){
-NeObch=document.forms[0].output.value=formatResult(parseFloat(Ne)+parseFloat(NeBc))
+NeObch=document.forms[0].output4.value=formatResult(parseFloat(Ne)+parseFloat(NeBc))
 }
 //5.
   function getTpogr(){
  ga=document.forms[0].gruzavto.value;
  y=document.forms[0].plotnst.value;
-  Tpogr=document.forms[0].output4.value=formatResult((parseFloat(ga)*parseFloat(tc)*parseFloat(Kp))/(40*parseFloat(y)*parseFloat(Ee)*parseFloat(Kn)))
+Tpogr=document.forms[0].output4.value=formatResult((parseFloat(ga)*parseFloat(tc)*parseFloat(Kp))/(40*parseFloat(y)*parseFloat(Ee)*parseFloat(Kn)))
  Y=document.forms[0].plotnst2.value=y;
 GA=document.forms[0].gruzavto2.value=ga;
   }
  //6. 
  function getTgr(){
- Ltr=document.forms[0].rast.value;
+ Ltr=document.forms[0].rastoyanie_tranpotrtirovanya.value;
  Va=document.forms[0].speed.value;
  Tgr=document.forms[0].output5.value=formatResult((60*(0.6*parseFloat(Ltr))/parseFloat(Va))+60*((0.4*parseFloat(Ltr))/(0.35*parseFloat(Va))))
 LTR=document.forms[0].rast2.value=Ltr;
@@ -437,7 +538,7 @@ if(L>=0 & L<50){document.forms[0].output16.value=0.94
  }
 //13.
  function getNcyt(){
- K=document.forms[0].output16.value
+K=document.forms[0].output16.value
 Ncyt=document.forms[0].output12.value=formatResult(parseFloat(Npcm)/parseFloat(K))
 }
 //14.
@@ -447,7 +548,31 @@ QIagod=document.forms[0].output13.value=formatResult((0.9*parseFloat(Lgod)*parse
 
 //Функция вычисления всего сразу есть сложение всех предыдущих функций.
 function getALL(){
-getContinueCirclus()+getKoofPorodaKN()+getKoofPorodaKP()+getNamePoroda()+getRabDnei()+getAvtoSpeed()+getAmortizacia()+getNormaTo()+ getPrd()+getRegion()+getQ()+getNe()+getNeBc()+getNeObch()+getTpogr()+getTgr()+getTpor()+getTr()+getQacm()+getNpcm()+getLcyt()+getLgod()+getk()+getNcyt()+getQIagod()
+this.getContinueCirclus();
+this.getKoofPorodaKN();
+this.getKoofPorodaKP();
+this.getNamePoroda();
+this.getRabDnei();
+this.getAvtoSpeed();
+this.getAmortizacia();
+this.getNormaTo();
+this.getPrd();
+this.getRegion();
+this.getQ();
+this.getNe();
+this.getNeBc();
+this.getNeObch();
+this.getTpogr();
+this.getTgr();
+this.getTpor();
+this.getTr();
+this.getQacm();
+this.getNpcm();
+this.getLcyt();
+this.getLgod();
+this.getk();
+this.getNcyt();
+this.getQIagod()
 }
  //Доработано Функция округления результата до сотых
 function format (expr, decplaces) {
@@ -472,167 +597,206 @@ Ka=document.forms[0].avtozatrat.value=Math.round((1.037*Ca*1000*parseFloat(Ncyt)
 KA=document.forms[0].StoimEcs2.value=Ca*1
 }
 //Таблица стоимости строительства гаража на 1 инвентарный автомобиль
-function getKaг(){
+function getKag(){
 Ncyt=document.forms[0].output12.value
-Kaг=document.forms[0].garagzatrat.value=Math.round((parseFloat(document.forms[0].zatratisave.value)*parseFloat(Ncyt))/1000)
+Kag=document.forms[0].garagzatrat.value=Math.round((parseFloat(document.forms[0].zatratisave.value)*parseFloat(Ncyt))/1000)
 } 
-function getKдор(){
-Ltr=document.forms[0].rast.value
-Kдор=document.forms[0].dorogizatrat.value=Math.round((parseFloat(document.forms[0].zatratidorogi.value)*5*parseFloat(Ltr))/1000)
+function getKdor(){
+Ltr=document.forms[0].rastoyanie_tranpotrtirovanya.value
+Kdor=document.forms[0].dorogizatrat.value=Math.round((parseFloat(document.forms[0].zatratidorogi.value)*5*parseFloat(Ltr))/1000)
 }
-function getKо(){
-Kaг=document.forms[0].garagzatrat.value
+function getKo(){
+Kag=document.forms[0].garagzatrat.value
 Ka=document.forms[0].avtozatrat.value
-Kдор=document.forms[0].dorogizatrat.value
-Ко=document.forms[0].zatratiavtoall.value=Math.round(parseFloat(Kaг)+parseFloat(Ka)+parseFloat(Kдор))
+Kdor=document.forms[0].dorogizatrat.value
+Ko=document.forms[0].zatratiavtoall.value=Math.round(parseFloat(Kag)+parseFloat(Ka)+parseFloat(Kdor))
 }
-//Списочный состав шоферов (nспис)
-function getNспис(){
+//Списочный состав шоферов (nspis)
+function getNspis(){
 Npcm=document.forms[0].output9.value
-Nспис=document.forms[0].nспис.value=Math.round(3* parseFloat(Npcm)*parseFloat(document.forms[0].koofspissostava.value))
+Nspis=document.forms[0].nspis.value=Math.round(3* parseFloat(Npcm)*parseFloat(document.forms[0].koofspissostava.value))
 }
 //Затраты на зарабатную плату шоферов
-function getЭзш(){
+function getEzsh(){
 Tc=document.forms[0].tarifstavka .value
 Tcm=document.forms[0].prodsmeni.value
-Nспис=document.forms[0].nспис.value
-Эзш=document.forms[0].Эзш.value=Math.round((1.65*254*1.12*parseFloat(Tc)*parseFloat(Tcm)*parseFloat(Nспис))/1000)
+Nspis=document.forms[0].nspis.value
+Ezsh=document.forms[0].Ezsh.value=Math.round((1.65*254*1.12*parseFloat(Tc)*parseFloat(Tcm)*parseFloat(Nspis))/1000)
 }
-function getЭзвс(){
-Эзш=document.forms[0].Эзш.value
-Эзвс=document.forms[0].Эзвс.value=Math.round((0.2*parseFloat(Эзш)*1000)/1000)
+function getEzvs(){
+Ezsh=document.forms[0].Ezsh.value
+Ezvs=document.forms[0].Ezvs.value=Math.round((0.2*parseFloat(Ezsh)*1000)/1000)
 }
-function getЭзо(){
-Эзш=document.forms[0].Эзш.value
-Эзвс=document.forms[0].Эзвс.value
-Эзо=document.forms[0].Эзо.value=Math.round(parseFloat(Эзш)+parseFloat(Эзвс))
+function getEzo(){
+Ezsh=document.forms[0].Ezsh.value
+Ezvs=document.forms[0].Ezvs.value
+Ezo=document.forms[0].Ezo.value=Math.round(parseFloat(Ezsh)+parseFloat(Ezvs))
 }
-function getЭам(){
+function getEam(){
 Ncyt=document.forms[0].output12.value;
-Аа=document.forms[0].amortizacia.value;
+Aa=document.forms[0].amortizacia.value;
 Ca=document.forms[0].StoimEcs.value;
 Lgod=document.forms[0].output11.value;
-Эам=document.forms[0].Эам.value=Math.round((parseFloat(Ncyt)*parseFloat(Аа)*parseFloat(Ca)*1000*parseFloat(Lgod)/100000)/1000);
+Eam=document.forms[0].Eam.value=Math.round((parseFloat(Ncyt)*parseFloat(Aa)*parseFloat(Ca)*1000*parseFloat(Lgod)/100000)/1000);
 }
-function getЭто(){
+function getEto(){
 Ncyt=document.forms[0].output12.value;
 Cto=document.forms[0].normato.value;
 Lgod=document.forms[0].output11.value;
-Это=document.forms[0].Это.value=Math.round((parseFloat(Ncyt)*parseFloat(Cto)*parseFloat(Lgod)/1000)/1000);
+Eto=document.forms[0].Eto.value=Math.round((parseFloat(Ncyt)*parseFloat(Cto)*parseFloat(Lgod)/1000)/1000);
 }
-function getЭш(){
+function getEsh(){
 Ncyt=document.forms[0].output12.value;
 Lgod=document.forms[0].output11.value;
-Сш=document.forms[0].normaavtorezina.value;
-Эш=document.forms[0].Эш.value=Math.round((parseFloat(Ncyt)*parseFloat(Сш)*parseFloat(Lgod)/1000)/1000);
+Ssh=document.forms[0].normaavtorezina.value;
+Esh=document.forms[0].Esh.value=Math.round((parseFloat(Ncyt)*parseFloat(Ssh)*parseFloat(Lgod)/1000)/1000);
 }
-function getЭгор(){
+function getEgor(){
 Ncyt=document.forms[0].output12.value;
 Lgod=document.forms[0].output11.value;
-Цгор=document.forms[0].Цгор.value;
-Сгор=document.forms[0].rashodtopliva.value;
-Эгор=document.forms[0].Эгор.value=Math.round((parseFloat(Ncyt)*parseFloat(Сгор)*parseFloat(Цгор)*(parseFloat(Lgod)/100))/1000);
+Cgor=document.forms[0].Cgor.value;
+Cgor=document.forms[0].rashodtopliva.value;
+Egor=document.forms[0].Egor.value=Math.round((parseFloat(Ncyt)*parseFloat(Cgor)*parseFloat(Cgor)*(parseFloat(Lgod)/100))/1000);
 }
-function getРдт(){
+function getRdt(){
 Ncyt=document.forms[0].output12.value;
 Lgod=document.forms[0].output11.value;
-Сгор=document.forms[0].rashodtopliva.value;
-Рдт=document.forms[0].Рдт.value=Math.round(parseFloat(Ncyt)*parseFloat(Сгор)*parseFloat(Lgod)/100000)
+Cgor=document.forms[0].rashodtopliva.value;
+Rdt=document.forms[0].Rdt.value=Math.round(parseFloat(Ncyt)*parseFloat(Cgor)*parseFloat(Lgod)/100000)
 }
-function getЭм(){
+function getEm(){
 Ncyt=document.forms[0].output12.value;
-Сгор=document.forms[0].rashodtopliva.value;
-Цгор=document.forms[0].Цгор.value;
+Cgor=document.forms[0].rashodtopliva.value;
+Cgor=document.forms[0].Cgor.value;
 Lgod=document.forms[0].output11.value;
-Эм=document.forms[0].Эм.value=Math.round((parseFloat(Ncyt)*0.084*parseFloat(Сгор)*5*parseFloat(Цгор)*parseFloat(Lgod)/100)/1000)
+Em=document.forms[0].Em.value=Math.round((parseFloat(Ncyt)*0.084*parseFloat(Cgor)*5*parseFloat(Cgor)*parseFloat(Lgod)/100)/1000)
 }
-function getЭгж(){
+function getEgj(){
 Ncyt=document.forms[0].output12.value;
-Эгж1=document.forms[0].Эгж1.value;
-Эгж=document.forms[0].Эгж.value=Math.round((5200*parseFloat(Ncyt)*parseFloat(Эгж1))/1000)
+Egj1=document.forms[0].Egj1.value;
+Egj=document.forms[0].Egj.value=Math.round((5200*parseFloat(Ncyt)*parseFloat(Egj1))/1000)
 }
-function getЭдор(){
-Kдор=document.forms[0].dorogizatrat.value;
-Эдор=document.forms[0].Эдор.value=Math.round((0.084*parseFloat(Kдор)*1000)/1000)
+function getEdor(){
+Kdor=document.forms[0].dorogizatrat.value;
+Edor=document.forms[0].Edor.value=Math.round((0.084*parseFloat(Kdor)*1000)/1000)
 }
-function getЭао(){
-Эзо=document.forms[0].Эзо.value;
-Эам=document.forms[0].Эам.value;
-Это=document.forms[0].Это.value;
-Эш=document.forms[0].Эш.value;
-Эгор=document.forms[0].Эгор.value;
-Эм=document.forms[0].Эм.value;
-Эгж=document.forms[0].Эгж.value;
-Эдор=document.forms[0].Эдор.value;
-Эао=document.forms[0].Эао.value=Math.round(parseFloat(Эзо)+parseFloat(Эам)+parseFloat(Это)+parseFloat(Эш)+parseFloat(Эгор)+parseFloat(Эм)+parseFloat(Эгж)+parseFloat(Эдор));
+function getEao(){
+Ezo=document.forms[0].Ezo.value;
+Eam=document.forms[0].Eam.value;
+Eto=document.forms[0].Eto.value;
+Esh=document.forms[0].Esh.value;
+Egor=document.forms[0].Egor.value;
+Em=document.forms[0].Em.value;
+Egj=document.forms[0].Egj.value;
+Edor=document.forms[0].Edor.value;
+Eao=document.forms[0].Eao.value=Math.round(parseFloat(Ezo)+parseFloat(Eam)+parseFloat(Eto)+parseFloat(Esh)+parseFloat(Egor)+parseFloat(Em)+parseFloat(Egj)+parseFloat(Edor));
 }
-function getКэ(){
-Сэ=document.forms[0].Сэ.value;
+function getKe(){
+Se=document.forms[0].Se.value;
 NeObch=document.forms[0].output.value
-Кэ=document.forms[0].Кэ.value=Math.round((Сэ*1000*parseFloat(NeObch))/1000);
+Ke=document.forms[0].Ke.value=Math.round((Se*1000*parseFloat(NeObch))/1000);
 }
-function getЭзэ(){
+function getEze(){
 NeObch=document.forms[0].output.value;
 Tcm=document.forms[0].prodsmeni.value;
 Tc=document.forms[0].tarifstavka .value;
 ng=document.forms[0].rabdnei.value;
-Эзэ=document.forms[0].Эзэ.value=Math.round((1.55*parseFloat(Tc)*2*parseFloat(NeObch)*parseFloat(Tcm)*parseFloat(ng)*1.12)/1000);
+Eze=document.forms[0].Eze.value=Math.round((1.55*parseFloat(Tc)*2*parseFloat(NeObch)*parseFloat(Tcm)*parseFloat(ng)*1.12)/1000);
 }
-function getЭзвсп(){
-Эзэ=document.forms[0].Эзэ.value;
-Эзвсп=document.forms[0].Эзвсп.value=Math.round((0.4*parseFloat(Эзэ)*1000)/1000);
+function getEzvsp(){
+Eze=document.forms[0].Eze.value;
+Ezvsp=document.forms[0].Ezvsp.value=Math.round((0.4*parseFloat(Eze)*1000)/1000);
 }
-function getЭзоэ(){
-Эзэ=document.forms[0].Эзэ.value;
-Эзвсп=document.forms[0].Эзвсп.value;
-Эзоэ=document.forms[0].Эзоэ.value=Math.round(1.9*parseFloat(Эзэ)+parseFloat(Эзвсп))
+function getEzoe(){
+Eze=document.forms[0].Eze.value;
+Ezvsp=document.forms[0].Ezvsp.value;
+Ezoe=document.forms[0].Ezoe.value=Math.round(1.9*parseFloat(Eze)+parseFloat(Ezvsp))
 }
-function getЭаэ(){
+function getEae(){
 NeObch=document.forms[0].output.value;
-Сэ=document.forms[0].Сэ.value;
-Эаэ=document.forms[0].Эаэ.value=Math.round((parseFloat(NeObch)*0.057*document.forms[0].Сэ.value*1000)/1000)
+Se=document.forms[0].Se.value;
+Eae=document.forms[0].Eae.value=Math.round((parseFloat(NeObch)*0.057*document.forms[0].Se.value*1000)/1000)
 }
-function getЭтоэ(){
+function getEtoe(){
 NeObch=document.forms[0].output.value;
-Сэ=document.forms[0].Сэ.value;
-Этоэ=document.forms[0].Этоэ.value=Math.round((0.15*parseFloat(Сэ)*1000*parseFloat(NeObch))/1000)
+Se=document.forms[0].Se.value;
+Etoe=document.forms[0].Etoe.value=Math.round((0.15*parseFloat(Se)*1000*parseFloat(NeObch))/1000)
 }
-function getЭмэ(){
+function getEme(){
 NeObch=document.forms[0].output.value;
-Сэ=document.forms[0].Сэ.value;
-Эмэ=document.forms[0].Эмэ.value=Math.round((0.07*parseFloat(Сэ)*1000*parseFloat(NeObch))/1000)
+Se=document.forms[0].Se.value;
+Eme=document.forms[0].Eme.value=Math.round((0.07*parseFloat(Se)*1000*parseFloat(NeObch))/1000)
 }
-function getРэл(){
+function getRel(){
 NeObch=document.forms[0].output.value;
 ng=document.forms[0].rabdnei.value;
-Мэу=document.forms[0].Мэу.value;
-Рэл=document.forms[0].Рэл.value=Math.round((1.1*0.7*0.7*parseFloat(Мэу)*((parseFloat(NeObch)*parseFloat(ng)*8)/0.5))/1000)
+Mey=document.forms[0].Mey.value;
+Rel=document.forms[0].Rel.value=Math.round((1.1*0.7*0.7*parseFloat(Mey)*((parseFloat(NeObch)*parseFloat(ng)*8)/0.5))/1000)
 }
-function getЭэл(){
-Рэл=document.forms[0].Рэл.value;
-Цэл=document.forms[0].Цэл.value;
-Ээл=document.forms[0].Ээл.value=Math.round((parseFloat(Рэл)*1000*parseFloat(Цэл))/1000)
+function getEel(){
+Rel=document.forms[0].Rel.value;
+Cel=document.forms[0].Cel.value;
+Eel=document.forms[0].Eel.value=Math.round((parseFloat(Rel)*1000*parseFloat(Cel))/1000)
 }
-function getЭэо(){
-Эзоэ=document.forms[0].Эзоэ.value;
-Эаэ=document.forms[0].Эаэ.value;
-Этоэ=document.forms[0].Этоэ.value;
-Эмэ=document.forms[0].Эмэ.value;
-Ээл=document.forms[0].Ээл.value;
-Ээо=document.forms[0].Ээо.value=Math.round(parseFloat(Эзоэ)+parseFloat(Эаэ)+parseFloat(Этоэ)+parseFloat(Эмэ)+parseFloat(Ээл));
+function getEeo(){
+Ezoe=document.forms[0].Ezoe.value;
+Eae=document.forms[0].Eae.value;
+Etoe=document.forms[0].Etoe.value;
+Eme=document.forms[0].Eme.value;
+Eel=document.forms[0].Eel.value;
+Eeo=document.forms[0].Eeo.value=Math.round(parseFloat(Ezoe)+parseFloat(Eae)+parseFloat(Etoe)+parseFloat(Eme)+parseFloat(Eel));
 }
-function getКвсе(){
-Ко=document.forms[0].zatratiavtoall.value;
-Кэ=document.forms[0].Кэ.value;
-Квсе=document.forms[0].Квсего.value=Math.round(parseFloat(Ко)+parseFloat(Кэ))
+function getKvse(){
+Ko=document.forms[0].zatratiavtoall.value;
+Ke=document.forms[0].Ke.value;
+Kvse=document.forms[0].Kvseго.value=Math.round(parseFloat(Ko)+parseFloat(Ke))
 }
-function getЭвсе(){
-Эао=document.forms[0].Эао.value;
-Ээо=document.forms[0].Ээо.value;
-Эвсе=document.forms[0].Эвсего.value=Math.round(parseFloat(Эао)+parseFloat(Ээо))
+function getEvse(){
+Eao=document.forms[0].Eao.value;
+Eeo=document.forms[0].Eeo.value;
+Evse=document.forms[0].Evsego.value=Math.round(parseFloat(Eao)+parseFloat(Eeo))
 }
-function getЭAll(){
-getAmortizacia()+getNormaAvtorezina()+getStoimDorogi()+getStoimStroitelstva()+getNormaTo()+getКсп()+getNormaAvtorezina()+getSoderganieGaraga ()+getRashodTopliva()+getRegimKariera2()+getМэу()+getKa()+getKaг()+getKдор()+getKо()+getNспис()+getЭзш()+getЭзвс()+getЭзо()+getЭам()+getЭто()+getЭш()+getЭгор()+getРдт()+getЭм()+getЭгж()+getЭдор()+getЭао()+getКэ()+getЭзэ()+getЭзвсп()+getЭзоэ()+getЭаэ()+getЭтоэ()+getЭмэ()+getРэл()+getЭэл()+getЭэо()+getКвсе()+ getЭвсе()
+function getEAll(){
+this.getAmortizacia();
+this.getNormaAvtorezina();
+this.getStoimDorogi();
+this.getStoimStroitelstva();
+this.getNormaTo();
+this.getKsp();
+this.getNormaAvtorezina();
+this.getSoderganieGaraga ();
+this.getRashodTopliva();
+this.getRegimKariera2();
+this.getMey();
+this.getKa();
+this.getKag();
+this.getKdor();
+this.getKo();
+this.getNspis();
+this.getEzsh();
+this.getEzvs();
+this.getEzo();
+this.getEam();
+this.getEto();
+this.getEsh();
+this.getEgor();
+this.getRdt();
+this.getEm();
+this.getEgj();
+this.getEdor();
+this.getEao();
+this.getKe();
+this.getEze();
+this.getEzvsp();
+this.getEzoe();
+this.getEae();
+this.getEtoe();
+this.getEme();
+this.getRel();
+this.getEel();
+this.getEeo();
+this.getKvse();
+this.getEvse()
 }
 function makeNewWindow(){
 var newWind=window.open("", "NewWindow", "status,resizable,location,dependent, scrollbars")
@@ -646,7 +810,7 @@ newWindow.close()
 newWindow=null
 }
 }
-*/
+
 </script>
 <form>
 <div class="wrapper">
@@ -662,7 +826,7 @@ newWindow=null
 		<div class="row">
             <div class="col"><label for="text">Емкость ковша экскаватора(Ee):</label></div>
 			<div class="col">
-			<select onchange="getContinueCirclus()" id="kubatura_excavatora" data-dojo-type="dijit/form/Select" name="kubatura_excavatora" >//+getrabDnei()+getМэу()
+			<select onchange="getContinueCirclus()" id="kubatura_excavatora" data-dojo-type="dijit/form/Select" name="kubatura_excavatora" >//+getrabDnei()+getMey()
 					<option value=0-3 selected>0-3</option> 
 					<option value=5>5</option> 
 					<option value=6-8>6-8</option> 
@@ -687,11 +851,11 @@ newWindow=null
         </div>
 		<div class="row">
 			<div class="col"><label for="text">Годовой объем добычи(перевозки)(Wг):</label></div>
-            <div class="col"><input type = "text" id="number2" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:1000, max:20000 }, invalidMessage:'Укажите значение в пределах 1000-20000 тонн.!'"  name="godovoi_objem_dobichi">, тыс. куб</div>
+            <div class="col"><input type = "text" id="godovoi_objem_dobichi" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:1000, max:20000 }, invalidMessage:'Укажите значение в пределах 1000-20000 тонн.!'"  name="godovoi_objem_dobichi">, тыс. куб</div>
 		</div> 
 		<div class="row">
 			<div class="col"><label for="text">Расстояние транспортирования(среднее) автотранспортом(Lтр):</label></div>
-            <div class="col"><input type = "text" id="number3" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:5, max:20 }, invalidMessage:'Укажите значение в пределах 5-20 км.!'"  maxlength=6 name="rastoyanie_tranpotrtirovanya">, км</div>
+            <div class="col"><input type = "text" id="rastoyanie_tranpotrtirovanya" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:5, max:20 }, invalidMessage:'Укажите значение в пределах 5-20 км.!'"  maxlength=6 name="rastoyanie_tranpotrtirovanya">, км</div>
 		</div> 
 		<div class="row">
 			<div class="col"><label for="text">Грузоподъемность самосвала(ga):</label></div>
@@ -706,7 +870,11 @@ newWindow=null
         </div>
 		<div class="row">
 			<div class="col"><label for="text">Уточните грузоподъемность самосвала(ga):</label></div>
-            <div class="col"><input type = "text" 	id="number4" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:27, max:200 }, invalidMessage:'Укажите значение в пределах 27-200 тонн!'" maxlength=6	name="gruzavto">, т</div>
+            <div class="col"><input type = "text" 	id="gruzavto" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:27, max:200 }, invalidMessage:'Укажите значение в пределах 27-200 тонн!'" maxlength=6	name="gruzavto">, т</div>
+		</div> 
+		<div class="row">
+			<div class="col"><label for="text">Плотность(объемный вес) горной массы(y):</label></div>
+            <div class="col"><input type = "text" 	id="plotnst" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:1, max:2 }, invalidMessage:'Укажите значение в пределах 27-200 тонн!'" maxlength=6	name="plotnst">, т/м. куб.</div>
 		</div> 
 		<div class="row">
 			<div class="col"><label for="text">Район проведения работ:</label></div>
@@ -720,7 +888,7 @@ newWindow=null
         <div class="row">
            <div class="col">
 				<button id="btn1" data-dojo-type="dijit/form/Button"
-								 data-dojo-props="onClick: function(){ console.log('First button was clicked!'); }">
+								 onClick= "getALL()">
 				ВЫЧИСЛИТЬ
 				</button>
 				&nbsp;ВСЕ ПАРАМЕТРЫ
@@ -737,27 +905,31 @@ newWindow=null
         </div> 
 		<div class="row">
 			<div class="col">Емкость ковша экскаватора (Ee)</div>
-            <div class="col"><input id="number5" required="true" data-dojo-type="dijit/form/NumberTextBox" name=sharpkubesk2>, куб</div>
+            <div class="col"><input id="sharpkubesk2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=sharpkubesk2>, куб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Теоретическая продолж. цикла экскав.(тц)</div>
             <div class="col"><input id="teoret_prodolj_cikla_excavat" required="true" data-dojo-type="dijit/form/NumberTextBox" name=teoret_prodolj_cikla_excavat>, с</div>
 		</div> 
 		<div class="row">
-			<div class="col">Кооф. наполнения ковша(Kn)</div>
-            <div class="col"><input id="number7" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofporodakn></div>
+			<div class="col">Koоф. наполнения ковша(Kn)</div>
+            <div class="col"><input id="koofporodakn" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofporodakn></div>
+		</div> 
+		<div class="row">
+			<div class="col">Кооф. разрыхления породы в ковше(Kp)</div>
+            <div class="col"><input id="koofporodakp" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofporodakp></div>
 		</div> 
 		<div class="row">
 			<div class="col">Продолжительность смены(Тсм)</div>
-            <div class="col"><input id="number8" required="true" data-dojo-type="dijit/form/NumberTextBox" value=8 name=Tcm>, ч</div>
+            <div class="col"><input id="Tcm" required="true" data-dojo-type="dijit/form/NumberTextBox" value=8 name=Tcm>, ч</div>
 		</div> 
 		<div class="row">
-			<div class="col">Кооф. использования экскав. в течении смены(n)</div>
-            <div class="col"><input id="number9" required="true" data-dojo-type="dijit/form/NumberTextBox" value=0.7 name=n></div>
+			<div class="col">Koоф. использования экскав. в течении смены(n)</div>
+            <div class="col"><input id="n" required="true" data-dojo-type="dijit/form/NumberTextBox" value=0.7 name=n></div>
 		</div> 
 		<div class="row">
 			<div class="col">Годовой объем добычи(перевозок)в массиве(Wг)</div>
-            <div class="col"><input id="number10" required="true" data-dojo-type="dijit/form/NumberTextBox" name=dobicha2>,тыс. куб</div>
+            <div class="col"><input id="dobicha2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=dobicha2>,тыс. куб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Число рабочих смен в году</div>
@@ -765,43 +937,43 @@ newWindow=null
 		</div> 
 		<div class="row">
 			<div class="col">Вид горной массы </div>
-            <div class="col"><input id="number12" required="true" data-dojo-type="dijit/form/NumberTextBox" name=nameporoda2></div>
+            <div class="col"><input id="nameporoda2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=nameporoda2></div>
 		</div> 
 		<div class="row">
 			<div class="col">Район работ </div>
-            <div class="col"><input id="number13" required="true" data-dojo-type="dijit/form/NumberTextBox" name=region2></div>
+            <div class="col"><input id="region2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=region2></div>
 		</div> 
 		<div class="row">
 			<div class="col">Плотность горной массы (y)</div>
-            <div class="col"><input id="number14" required="true" data-dojo-type="dijit/form/NumberTextBox" name=plotnst2></div>
+            <div class="col"><input id="plotnst2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=plotnst2></div>
 		</div> 
 		<div class="row">
 			<div class="col">Скорость движения автосамосв. (Va)</div>
-            <div class="col"><input id="number15" required="true" data-dojo-type="dijit/form/NumberTextBox" name=speed>, км/ч</div>
+            <div class="col"><input id="speed" required="true" data-dojo-type="dijit/form/NumberTextBox" name=speed>, км/ч</div>
 		</div> 
 		<div class="row">
 			<div class="col">Грузоподъемность самосвала (Ga) </div>
-            <div class="col"><input id="number16" required="true" data-dojo-type="dijit/form/NumberTextBox" name=gruzavto2>, т</div>
+            <div class="col"><input id="gruzavto2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=gruzavto2>, т</div>
 		</div> 
 		<div class="row">
 			<div class="col">Длина транспортирования(L тр)</div>
-            <div class="col"><input id="number17" required="true" data-dojo-type="dijit/form/NumberTextBox" name=rast2>, км</div>
+            <div class="col"><input id="rast2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=rast2>, км</div>
 		</div> 
 		<div class="row">
 			<div class="col">Время разгрузки автосамосв. (tr)</div>
-            <div class="col"><input id="number18" required="true" data-dojo-type="dijit/form/NumberTextBox" value=1 name=z>, мин</div>
+            <div class="col"><input id="z" required="true" data-dojo-type="dijit/form/NumberTextBox" value=1 name=z>, мин</div>
 		</div> 
 		<div class="row">
 			<div class="col">Время маневров и прочих задержек в пути,мин</div>
-            <div class="col"><input id="number19" required="true" data-dojo-type="dijit/form/NumberTextBox" value=2-4 name=x>, мин</div>
+            <div class="col"><input id="x" required="true" data-dojo-type="dijit/form/NumberTextBox" value=2-4 name=x>, мин</div>
 		</div> 
 		<div class="row">
-			<div class="col">Кооф. использования смены,(простои автосамосв.) </div>
-            <div class="col"><input id="number20" required="true" data-dojo-type="dijit/form/NumberTextBox" value=0.9 name=t></div>
+			<div class="col">Koоф. использования смены,(простои автосамосв.) </div>
+            <div class="col"><input id="t" required="true" data-dojo-type="dijit/form/NumberTextBox" value=0.9 name=t></div>
 		</div> 
 		<div class="row">
 			<div class="col">Число рабочих дней в году предприят. (прд)</div>
-            <div class="col"><input id="number21" required="true" data-dojo-type="dijit/form/NumberTextBox" name=prd>, смен</div>
+            <div class="col"><input id="prd" required="true" data-dojo-type="dijit/form/NumberTextBox" name=prd>, смен</div>
 		</div> 
 		<div class="row">        
             <div class="col"><b>Результаты расчетов</b></div>
@@ -809,63 +981,63 @@ newWindow=null
         </div> 
 		<div class="row">
 			<div class="col">1. Сменная производит. экскав.(O э см)</div>
-            <div class="col"><input id="number22" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output1>,куб/см</div>
+            <div class="col"><input id="output1" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output1>,куб/см</div>
 		</div> 
 		<div class="row">
-			<div class="col">2. Кол-во экскав. в забоях(N э.заб)</div>
-            <div class="col"><input id="number23" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output2>, ед</div>
+			<div class="col">2. Koл-во экскав. в забоях(N э.заб)</div>
+            <div class="col"><input id="output2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output2>, ед</div>
 		</div> 
 		<div class="row">
-			<div class="col">3. Кол-во экскав. на вспомогат. раб.(N э.вс)</div>
-            <div class="col"><input id="number24" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output3>, ед</div>
+			<div class="col">3. Koл-во экскав. на вспомогат. раб.(N э.вс)</div>
+            <div class="col"><input id="output3" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output3>, ед</div>
 		</div> 
 		<div class="row">
 			<div class="col">4. Общее необходим. кол-во экскав.(N э.общ)</div>
-            <div class="col"><input id="number25" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output4>, ед</div>
+            <div class="col"><input id="output" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output4>, ед</div>
 		</div> 
 		<div class="row">
 			<div class="col">5. Время погрузки автосам. экскав.(T погр)</div>
-            <div class="col"><input id="number26" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output5>, мин</div>
+            <div class="col"><input id="output4" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output5>, мин</div>
 		</div> 
 		<div class="row">
 			<div class="col">6. Время движен. гружен. автосам. (t гр)</div>
-            <div class="col"><input id="number27" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output6>, мин</div>
+            <div class="col"><input id="output5" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output6>, мин</div>
 		</div> 
 		<div class="row">
 			<div class="col">7. Время движен. порожняк. автосам.( t пор)</div>
-            <div class="col"><input id="number28" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output7>, мин</div>
+            <div class="col"><input id="output6" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output7>, мин</div>
 		</div> 
 		<div class="row">
 			<div class="col">8. Время одного рейса автосам.(tr)</div>
-            <div class="col"><input id="number29" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output8>, мин</div>
+            <div class="col"><input id="output7" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output8>, мин</div>
 		</div> 
 		<div class="row">
 			<div class="col">9. Сменная производит. одного автосам.(Q а.см)</div>
-            <div class="col"><input id="number30" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output9>, т/смену</div>
+            <div class="col"><input id="output8" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output9>, т/смену</div>
 		</div> 
 		<div class="row">
 			<div class="col">10. Расч. сменный парк автосам.(N р.см)</div>
-            <div class="col"><input id="number31" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output10>, ед</div>
+            <div class="col"><input id="output9" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output10>, ед</div>
 		</div> 
 		<div class="row">
 			<div class="col">11. Сут. пробег автосам.(L сут)</div>
-            <div class="col"><input id="number32" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output11>, км</div>
+            <div class="col"><input id="output10" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output11>, км</div>
 		</div> 
 		<div class="row">
-			<div class="col">12. Кооф. технич. готовности парка(Ktg)</div>
-            <div class="col"><input id="number33" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output12>,ед</div>
+			<div class="col">12. Koоф. технич. готовности парка(Ktg)</div>
+            <div class="col"><input id="output16" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output12>,ед</div>
 		</div> 
 		<div class="row">
 			<div class="col">13. Год. пробег автосам.(L год)</div>
-            <div class="col"><input id="number34" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output13>, км</div>
+            <div class="col"><input id="output11" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output13>, км</div>
 		</div> 
 		<div class="row">
 			<div class="col">14. Инвентарный парк автосам.(N сут)</div>
-            <div class="col"><input id="number35" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output14>,ед</div>
+            <div class="col"><input id="output12" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output14>,ед</div>
 		</div> 
 		<div class="row">
 			<div class="col">15. Среднегод. производит. 1 автосам.(Q 1а год)</div>
-            <div class="col"><input id="number36" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output15>, тыс. ткм/ год</div>
+            <div class="col"><input id="output13" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output15>, тыс. ткм/ год</div>
 		</div> 
 		<div class="row">
 			<div class="col"><p align=center>ЭКОНОМИЧЕСКИЙ РАСЧЕТ<br>экскаваторно-автомобильного комплекса<br>Исходные данные</p></div>
@@ -873,27 +1045,23 @@ newWindow=null
 		</div>  
 		<div class="row">
 			<div class="col">Стоимость автосамосвала (Ca)</div>
-			<div class="col"><input id="number37" required="true" data-dojo-type="dijit/form/NumberTextBox" name=StoimEcs>, тыс. руб</div>
+			<div class="col"><input id="StoimEcs" required="true" data-dojo-type="dijit/form/NumberTextBox" name=StoimEcs>, тыс. руб</div>
 		</div>  
 		<div class="row">
 			<div class="col">Стоимость экскаватора (Cэ)</div>
-			<div class="col"><input id="number38" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Сэ>,тыс. руб</div>
+			<div class="col"><input id="Se" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Se>,тыс. руб</div>
 		</div>  
 		<div class="row">
 			<div class="col">Тарифная ставка шофера(Tc)</div>
-			<div class="col"><input id="number39" required="true" data-dojo-type="dijit/form/NumberTextBox" name=tarifstavka>, руб/ч</div>
+			<div class="col"><input id="tarifstavka" required="true" data-dojo-type="dijit/form/NumberTextBox" name=tarifstavka>, руб/ч</div>
 		</div>  
 		<div class="row">
 			<div class="col">Продолжительность смены (Tcм)</div>
-			<div class="col"><input id="number40" required="true" data-dojo-type="dijit/form/NumberTextBox" name=prodsmeni>, ч</div>
+			<div class="col"><input id="prodsmeni" required="true" data-dojo-type="dijit/form/NumberTextBox" name=prodsmeni>, ч</div>
 		</div> 
 		<div class="row">
-			<div class="col">Цена 1 кг дизтоплива(Цгор)</div>
-			<div class="col"><input id="number41" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Цгор>, руб/кг</div>
-		</div> 
-		<div class="row">
-			<div class="col">Стоимость 1 кВтч электроэнергии(Цэл)</div>
-			<div class="col"><input id="number42" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Цэл>, руб/кВтч</div>
+			<div class="col">Цена 1 кг дизтоплива(Cgor)</div>
+			<div class="col"><input id="Cgor" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Cgor>, руб/кг</div>
 		</div> 
 		<div class="row">
 			<div class="col">Форма хранения автосамосвалов</div>
@@ -907,20 +1075,20 @@ newWindow=null
 		<div class="row">
 			<div class="col">Категория дороги</div>
 			<div class="col">
-				<select id="katdorogii" data-dojo-type="dijit/form/Select"  onchange=getStoimDorogi() name=katdorogii>
+				<select id="katdorogi" data-dojo-type="dijit/form/Select"  onchange=getStoimDorogi() name=katdorogi>
 					<option value=первая selected>первая</option> 
 					<option value=вторая>вторая</option>
 				</select>
 			</div>
 		</div> 
 		<div class="row">
-			<div class="col">Стоимость 1 кВтч электроэнергии(Цэл)</div>
-			<div class="col"><input id="number43" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Цэл>, руб/кВтч</div>
+			<div class="col">Стоимость 1 кВтч электроэнергии(Cel)</div>
+			<div class="col"><input id="Cel" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Cel>, руб/кВтч</div>
 		</div> 
 		<div class="row">
 			<div class="col">Режим работы карьера</div>
 			<div class="col">
-				<select id="kolichestvo_dnei" data-dojo-type="dijit/form/Select" onchange=getКсп()+getregimKariera2() name=kolichestvo_dnei> 
+				<select id="kolichestvo_dnei" data-dojo-type="dijit/form/Select" onchange=getKsp()+getregimKariera2() name=kolichestvo_dnei> 
 					<option value=305 selected>305</option> 
 					<option value=254>254</option>
 				</select>, дн&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Прерывная раб. неделя
@@ -928,12 +1096,12 @@ newWindow=null
 		</div> 
 		<div class="row">
 			<div class="col"></div>
-			<div class="col"><input size=3 value=357>, дн<input type=checkbox id="nepreriv" data-dojo-type="dijit/form/CheckBox" onchange=getКсп() name=nepreriv><label for="nepreriv">Если непрерывная раб. неделя, нажать на квадрат</label></div>
+			<div class="col"><input size=3 value=357>, дн<input type=checkbox id="nepreriv" data-dojo-type="dijit/form/CheckBox" onchange=getKsp() name=nepreriv><label for="nepreriv">Если непрерывная раб. неделя, нажать на квадрат</label></div>
 		</div> 
 		<div class="row">
 			<div class="col">
 				<button id="btn2" data-dojo-type="dijit/form/Button"
-								 data-dojo-props="onClick: function(){ console.log('First button was clicked!'); }">
+								 onClick= "getEALL()">
 				ВЫЧИСЛИТЬ
 				</button>
 				&nbsp;ВСЕ ПАРАМЕТРЫ
@@ -946,59 +1114,55 @@ newWindow=null
 		</div> 
 		<div class="row">
 			<div class="col">Стоимость автосамосвала (Ca)</div>
-			<div class="col"><input id="number44" required="true" data-dojo-type="dijit/form/NumberTextBox" name=StoimEcs2>,тыс. руб</div>
+			<div class="col"><input id="StoimEcs2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=StoimEcs2>,тыс. руб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на хранение автосамосвала(Cх)</div>
-			<div class="col"><input id="number45" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratisave>, руб</div>
+			<div class="col"><input id="zatratisave" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratisave>, руб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на строительство дороги(Cдор)</div>
-			<div class="col"><input id="number46" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratidorogi>, руб</div>
+			<div class="col"><input id="zatratidorogi" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratidorogi>, руб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Режим работы карьера</div>
-			<div class="col"><input id="number47" required="true" data-dojo-type="dijit/form/NumberTextBox" name=kolichestvodnei2>, дн</div>
+			<div class="col"><input id="kolichestvodnei2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=kolichestvodnei2>, дн</div>
 		</div> 
 		<div class="row">
-			<div class="col">Коэфициент списочного состава (Ксп)</div>
-			<div class="col"><input id="number48" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofspissostava></div>
+			<div class="col">Koэфициент списочного состава (Ksp)</div>
+			<div class="col"><input id="koofspissostava" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofspissostava></div>
 		</div> 
 		<div class="row">
-			<div class="col">Норма амортизационных отчислений на автотранспорт(Аа)</div>
-			<div class="col"><input id="number49" required="true" data-dojo-type="dijit/form/NumberTextBox" name=amortizacia>, %</div>
+			<div class="col">Норма амортизационных отчислений на автотранспорт(Aa)</div>
+			<div class="col"><input id="amortizacia" required="true" data-dojo-type="dijit/form/NumberTextBox" name=amortizacia>, %</div>
 		</div> 
 		<div class="row">
 			<div class="col">Норма затрат на ТО автомобиля(Сто)</div>
-			<div class="col"><input id="number50" required="true" data-dojo-type="dijit/form/NumberTextBox" name=normato>, руб</div>
+			<div class="col"><input id="normato" required="true" data-dojo-type="dijit/form/NumberTextBox" name=normato>, руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Норма затрат на авторезину(Сш)</div>
-			<div class="col"><input id="number51" required="true" data-dojo-type="dijit/form/NumberTextBox" name=normaavtorezina>, руб</div>
+			<div class="col">Норма затрат на авторезину(Ssh)</div>
+			<div class="col"><input id="normaavtorezina" required="true" data-dojo-type="dijit/form/NumberTextBox" name=normaavtorezina>, руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Расход топлива на 100 км пробега(Сгор)</div>
-			<div class="col"><input id="number52" required="true" data-dojo-type="dijit/form/NumberTextBox" name=rashodtopliva>, кг</div>
+			<div class="col">Расход топлива на 100 км пробега(Cgor)</div>
+			<div class="col"><input id="rashodtopliva" required="true" data-dojo-type="dijit/form/NumberTextBox" name=rashodtopliva>, кг</div>
 		</div> 
 		<div class="row">
-			<div class="col">Расход дизтоплива(Рдт)</div>
-			<div class="col"><input id="number53" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Рдт>, т</div>
+			<div class="col">Расход дизтоплива(Rdt)</div>
+			<div class="col"><input id="Rdt" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Rdt>, т</div>
 		</div> 
 		<div class="row">
-			<div class="col">Норма затрат на содержание автогаража(Эгж1)</div>
-			<div class="col"><input id="number54" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эгж1>, руб</div>
+			<div class="col">Норма затрат на содержание автогаража(Egj1)</div>
+			<div class="col"><input id="Egj1" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Egj1>, руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Норма затрат на содержание автогаража(Эгж1)</div>
-			<div class="col"><input id="number55" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эгж1>, руб</div>
+			<div class="col">Установленная мощность электродвигателя экскаватора(Mey)</div>
+			<div class="col"><input id="Mey" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Mey>, кВт</div>
 		</div> 
 		<div class="row">
-			<div class="col">Установленная мощность электродвигателя экскаватора(Мэу)</div>
-			<div class="col"><input id="number56" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Мэу>, кВт</div>
-		</div> 
-		<div class="row">
-			<div class="col">Расход электроэнергии за год(Рэл)</div>
-			<div class="col"><input id="number57" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Рэл>,тыс.кВт.ч/год</div>
+			<div class="col">Расход электроэнергии за год(Rel)</div>
+			<div class="col"><input id="Rel" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Rel>,тыс.кВт.ч/год</div>
 		</div> 
 		<div class="row">
 			<div class="col"><b>Результаты экономического расчета</b></div>
@@ -1006,15 +1170,7 @@ newWindow=null
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на автосамосвалы(Ка)</div>
-			<div class="col"><input id="number58" required="true" data-dojo-type="dijit/form/NumberTextBox" name=avtozatrat>,тыс. руб</div>
-		</div> 
-		<div class="row">
-			<div class="col">Затраты на автосамосвалы(Ка)</div>
 			<div class="col"><input id="number59" required="true" data-dojo-type="dijit/form/NumberTextBox" name=avtozatrat>,тыс. руб</div>
-		</div> 
-		<div class="row">
-			<div class="col">Затраты на строительство гаража(Каг)</div>
-			<div class="col"><input id="number60" required="true" data-dojo-type="dijit/form/NumberTextBox" name=garagzatrat>,тыс. руб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на строительство гаража(Каг)</div>
@@ -1022,103 +1178,99 @@ newWindow=null
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на строит-во 1км. карьерной дороги(Кдор)</div>
-			<div class="col"><input id="number62" required="true" data-dojo-type="dijit/form/NumberTextBox" name=dorogizatrat>,тыс. руб</div>
+			<div class="col"><input id="dorogizatrat" required="true" data-dojo-type="dijit/form/NumberTextBox" name=dorogizatrat>,тыс. руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на автотранспорт всего (Ко)</div>
-			<div class="col"><input id="number63" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratiavtoall>,тыс. руб</div>
-		</div> 
-		<div class="row">
-			<div class="col">Затраты на автотранспорт всего (Ко)</div>
-			<div class="col"><input id="number64" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratiavtoall>,тыс. руб</div>
+			<div class="col">Затраты на автотранспорт всего (Ko)</div>
+			<div class="col"><input id="zatratiavtoall" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratiavtoall>,тыс. руб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Списочный состав шоферов (n спис)</div>
-			<div class="col"><input id="number65" required="true" data-dojo-type="dijit/form/NumberTextBox" name=nспис>, чел.</div>
+			<div class="col"><input id="nspis" required="true" data-dojo-type="dijit/form/NumberTextBox" name=nspis>, чел.</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на заработную плату шоферов (Эзш)</div>
-			<div class="col"><input id="number66" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эзш>,тыс. руб</div>
+			<div class="col">Затраты на заработную плату шоферов (Ezsh)</div>
+			<div class="col"><input id="Ezsh" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezsh>,тыс. руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на заработную плату рабочих вспомогательных служб (Эзвс)</div>
-			<div class="col"><input id="number67" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эзвс>,тыс. руб</div>
+			<div class="col">Затраты на заработную плату рабочих вспомогательных служб (Ezvs)</div>
+			<div class="col"><input id="Ezvs" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezvs>,тыс. руб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на заработную плату рабочих всего (Эз о)</div>
-			<div class="col"><input id="number68" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эзо>,тыс. руб</div>
+			<div class="col"><input id="Ezo" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezo>,тыс. руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Сумма амортизационных отчислений на автотранспорт (Эам)</div>
-			<div class="col"><input id="number69" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эам>,тыс. руб</div>
+			<div class="col">Сумма амортизационных отчислений на автотранспорт (Eam)</div>
+			<div class="col"><input id="Eam" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eam>,тыс. руб</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на техническое обслуживание и текущий ремонт (Э то)</div>
-			<div class="col"><input id="number70" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Это>,тыс. руб</div>
+			<div class="col"><input id="Eto" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eto>,тыс. руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на горючее(Эгор)</div>
-			<div class="col"><input id="number71" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эгор>,тыс. руб</div>
+			<div class="col">Затраты на горючее(Egor)</div>
+			<div class="col"><input id="Egor" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Egor>,тыс. руб</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на смазочные материалы(Эм)</div>
-			<div class="col"><input id="number72" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эм>,тыс. руб/год</div>
+			<div class="col">Затраты на смазочные материалы(Em)</div>
+			<div class="col"><input id="Em" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Em>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на содержание автогаража(Эгж)</div>
-			<div class="col"><input id="number73" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эгж>,тыс. руб/год</div>
+			<div class="col">Затраты на содержание автогаража(Egj)</div>
+			<div class="col"><input id="Egj" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Egj>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Эксплуатационные затраты на содержание и ремонт автодорог(Эдор)</div>
-			<div class="col"><input id="number74" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эдор>,тыс. руб/год</div>
+			<div class="col">Эксплуатационные затраты на содержание и ремонт автодорог(Edor)</div>
+			<div class="col"><input id="Edor" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Edor>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Эксплуатационные затраты на автлотранспорт всего(Эао)</div>
-			<div class="col"><input id="number75" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эао>,тыс. руб/год</div>
+			<div class="col">Эксплуатационные затраты на автлотранспорт всего(Eao)</div>
+			<div class="col"><input id="Eao" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eao>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Капитальные затраты на экскаваторы(Кэ)</div>
-			<div class="col"><input id="number76" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Кэ>,тыс. руб/год</div>
+			<div class="col">Капитальные затраты на экскаваторы(Ke)</div>
+			<div class="col"><input id="Ke" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ke>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на заработную плату машинистов экскаваторов(Эз э)</div>
-			<div class="col"><input id="number77" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эзэ>,тыс. руб/год</div>
+			<div class="col"><input id="Eze" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eze>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на заработную плату рабочих вспомогательных служб(Эз всп)</div>
-			<div class="col"><input id="number78" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эзвсп>,тыс. руб/год</div>
+			<div class="col"><input id="Ezvsp" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezvsp>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
 			<div class="col">Затраты на заработную плату рабочих всего(Эз оэ)</div>
-			<div class="col"><input id="number79" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эзоэ>,тыс. руб/год</div>
+			<div class="col"><input id="Ezoe" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezoe>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Сумма амортизационных отчислений на экскаваторы(Эаэ)</div>
-			<div class="col"><input id="number80" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эаэ>,тыс. руб/год</div>
+			<div class="col">Сумма амортизационных отчислений на экскаваторы(Eae)</div>
+			<div class="col"><input id="Eae" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eae>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на техническое обслуживание и текущий ремонт(Этоэ)</div>
-			<div class="col"><input id="number81" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Этоэ>,тыс. руб/год</div>
+			<div class="col">Затраты на техническое обслуживание и текущий ремонт(Etoe)</div>
+			<div class="col"><input id="Etoe" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Etoe>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на смазочные материалы и др. материалы(Эмэ)</div>
-			<div class="col"><input id="number82" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эмэ>,тыс. руб/год</div>
+			<div class="col">Затраты на смазочные материалы и др. материалы(Eme)</div>
+			<div class="col"><input id="Eme" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eme>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Затраты на электроэнергию(Ээл)</div>
-			<div class="col"><input id="number83" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ээл>,тыс. руб/год</div>
+			<div class="col">Затраты на электроэнергию(Eel)</div>
+			<div class="col"><input id="Eel" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eel>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
-			<div class="col">Эксплуатационные затраты на экскаваторы всего(Ээо)</div>
-			<div class="col"><input id="number84" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ээо>,тыс. руб/год</div>
+			<div class="col">Эксплуатационные затраты на экскаваторы всего(Eeo)</div>
+			<div class="col"><input id="Eeo" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eeo>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
 			<div class="col">КАПИТАЛЬНЫЕ ЗАТРАТЫ ВСЕГО</div>
-			<div class="col"><input id="number85" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Квсего>,тыс. руб/год</div>
+			<div class="col"><input id="Kvseго" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Kvseго>,тыс. руб/год</div>
 		</div> 
 		<div class="row">
 			<div class="col">ЭКСПЛУАТАЦИОННЫЕ ЗАТРАТЫ ВСЕГО</div>
-			<div class="col"><input id="number86" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Эвсего>,тыс. руб/год</div>
+			<div class="col"><input id="Evsego" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Evsego>,тыс. руб/год</div>
 		</div> 
 	</div>
 </div>
