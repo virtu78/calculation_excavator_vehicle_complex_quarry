@@ -461,64 +461,64 @@ function getMey()  {
 //Функции расчета по формулам по порядку
  //1. 
 function getQ(){
- Ee=document.forms[0].tocnaya_kubatura_excavatora.value;
- tc=document.forms[0].teoret_prodolj_cikla_excavat.value;
- Kp=document.forms[0].koofporodakp.value;
- Kn=document.forms[0].koofporodakn.value;
- Q=document.forms[0].output1.value=formatResult((3600*parseFloat(Ee))/(1.3*tc)*(parseFloat(Kn)/parseFloat(Kp))*8*0.7);
- EE=document.forms[0].sharpkubesk2.value=Ee*1;
+this.Ee=document.forms[0].tocnaya_kubatura_excavatora.value;
+this.tc=document.forms[0].teoret_prodolj_cikla_excavat.value;
+this.Kp=document.forms[0].koofporodakp.value;
+this.Kn=document.forms[0].koofporodakn.value;
+this.Q=document.forms[0].output1.value=formatResult((3600*parseFloat(Ee))/(1.3*tc)*(parseFloat(Kn)/parseFloat(Kp))*8*0.7);
+this.EE=document.forms[0].sharpkubesk2.value=Ee*1;
   }
 //2.
     function getNe(){
-  W=document.forms[0].godovoi_objem_dobichi.value;
-  ng=document.forms[0].rabdnei.value;
-  Q=document.forms[0].output1.value;
-  Ne=document.forms[0].output2.value=formatResult((1.5*parseFloat(W)*1000)/(parseFloat(Q)*parseFloat(ng)))
-  W2=document.forms[0].dobicha2.value=W*1;
+this.W=document.forms[0].godovoi_objem_dobichi.value;
+this.ng=document.forms[0].rabdnei.value;
+this.Q=document.forms[0].output1.value;
+this.Ne=document.forms[0].output2.value=formatResult((1.5*parseFloat(W)*1000)/(parseFloat(Q)*parseFloat(ng)))
+this.W2=document.forms[0].dobicha2.value=W*1;
   }
 //3.
   function getNeBc(){
-  NeBc=document.forms[0].output3.value=formatResult(0.35*parseFloat(Ne))
+this.NeBc=document.forms[0].output3.value=formatResult(0.35*parseFloat(Ne))
   }
 //4. 
 function getNeObch(){
-NeObch=document.forms[0].output4.value=formatResult(parseFloat(Ne)+parseFloat(NeBc))
+this.NeObch=document.forms[0].output4.value=formatResult(parseFloat(Ne)+parseFloat(NeBc))
 }
 //5.
   function getTpogr(){
- ga=document.forms[0].gruzavto.value;
- y=document.forms[0].plotnst.value;
-Tpogr=document.forms[0].output4.value=formatResult((parseFloat(ga)*parseFloat(tc)*parseFloat(Kp))/(40*parseFloat(y)*parseFloat(Ee)*parseFloat(Kn)))
- Y=document.forms[0].plotnst2.value=y;
-GA=document.forms[0].gruzavto2.value=ga;
+this.ga=document.forms[0].gruzavto.value;
+this.y=document.forms[0].plotnst.value;
+this.Tpogr=document.forms[0].output4.value=formatResult((parseFloat(ga)*parseFloat(tc)*parseFloat(Kp))/(40*parseFloat(y)*parseFloat(Ee)*parseFloat(Kn)))
+this.Y=document.forms[0].plotnst2.value=y;
+this.GA=document.forms[0].gruzavto2.value=ga;
   }
  //6. 
  function getTgr(){
- Ltr=document.forms[0].rastoyanie_tranpotrtirovanya.value;
- Va=document.forms[0].speed.value;
- Tgr=document.forms[0].output5.value=formatResult((60*(0.6*parseFloat(Ltr))/parseFloat(Va))+60*((0.4*parseFloat(Ltr))/(0.35*parseFloat(Va))))
-LTR=document.forms[0].rast2.value=Ltr;
+this.Ltr=document.forms[0].rastoyanie_tranpotrtirovanya.value;
+this.Va=document.forms[0].speed.value;
+this.Tgr=document.forms[0].output5.value=formatResult((60*(0.6*parseFloat(Ltr))/parseFloat(Va))+60*((0.4*parseFloat(Ltr))/(0.35*parseFloat(Va))))
+this.LTR=document.forms[0].rast2.value=Ltr;
  }
 //7.
  function getTpor(){
- Tpor=document.forms[0].output6.value=formatResult(parseFloat(Tgr)/1.05)
+this.Tpor=document.forms[0].output6.value=formatResult(parseFloat(Tgr)/1.05)
  }
 //8.
  function getTr(){
- Tr=document.forms[0].output7.value=formatResult(parseFloat(Tpogr)+parseFloat(Tgr)+parseFloat(Tpor)+1+4)
+this.Tr=document.forms[0].output7.value=formatResult(parseFloat(Tpogr)+parseFloat(Tgr)+parseFloat(Tpor)+1+4)
  }
 //9.
  function getQacm(){
- Qacm=document.forms[0].output8.value=formatResult(60*(0.7*parseFloat(ga)*8/parseFloat(Tr)))
+this.Qacm=document.forms[0].output8.value=formatResult(60*(0.7*parseFloat(ga)*8/parseFloat(Tr)))
  }
 //10.
  function getNpcm(){
- prd=document.forms[0].prd.value
- Npcm=document.forms[0].output9.value=formatResult((parseFloat(W)*1000*(y))/(parseFloat(Qacm)*3*parseFloat(prd)))
+this.prd=document.forms[0].prd.value
+this.Npcm=document.forms[0].output9.value=formatResult((parseFloat(W)*1000*(y))/(parseFloat(Qacm)*3*parseFloat(prd)))
  }
 //11.
  function getLcyt(){
- Lcyt=document.forms[0].output10.value=formatResult((1.05*parseFloat(Qacm)*2*parseFloat(Ltr))/(0.5*parseFloat(ga)*0.9))
+this.Lcyt=document.forms[0].output10.value=formatResult((1.05*parseFloat(Qacm)*2*parseFloat(Ltr))/(0.5*parseFloat(ga)*0.9))
  }
  function getk(){
 var L=document.forms[0].output10.value
@@ -534,16 +534,16 @@ if(L>=0 & L<50){document.forms[0].output16.value=0.94
 }
 //12.
  function getLgod(){
- Lgod=document.forms[0].output11.value=formatResult(parseFloat(Lcyt)*parseFloat(prd))
+this.Lgod=document.forms[0].output11.value=formatResult(parseFloat(Lcyt)*parseFloat(prd))
  }
 //13.
  function getNcyt(){
-K=document.forms[0].output16.value
-Ncyt=document.forms[0].output12.value=formatResult(parseFloat(Npcm)/parseFloat(K))
+this.K=document.forms[0].output16.value
+this.Ncyt=document.forms[0].output12.value=formatResult(parseFloat(Npcm)/parseFloat(K))
 }
 //14.
 function  getQIagod(){
-QIagod=document.forms[0].output13.value=formatResult((0.9*parseFloat(Lgod)*parseFloat(ga))/1000)
+this.QIagod=document.forms[0].output13.value=formatResult((0.9*parseFloat(Lgod)*parseFloat(ga))/1000)
 }
 
 //Функция вычисления всего сразу есть сложение всех предыдущих функций.
@@ -591,170 +591,170 @@ function formatResult (expr) {
 
 //ЭКОНОМИЧЕСКИЙ РАСЧЕТ
 function getKa(){
-Ca=document.forms[0].StoimEcs.value
-Ncyt=document.forms[0].output12.value
-Ka=document.forms[0].avtozatrat.value=Math.round((1.037*Ca*1000*parseFloat(Ncyt))/1000)
-KA=document.forms[0].StoimEcs2.value=Ca*1
+this.Ca=document.forms[0].StoimEcs.value
+this.Ncyt=document.forms[0].output12.value
+this.Ka=document.forms[0].avtozatrat.value=Math.round((1.037*Ca*1000*parseFloat(Ncyt))/1000)
+this.KA=document.forms[0].StoimEcs2.value=Ca*1
 }
 //Таблица стоимости строительства гаража на 1 инвентарный автомобиль
 function getKag(){
-Ncyt=document.forms[0].output12.value
-Kag=document.forms[0].garagzatrat.value=Math.round((parseFloat(document.forms[0].zatratisave.value)*parseFloat(Ncyt))/1000)
+this.Ncyt=document.forms[0].output12.value
+this.Kag=document.forms[0].garagzatrat.value=Math.round((parseFloat(document.forms[0].zatratisave.value)*parseFloat(Ncyt))/1000)
 } 
 function getKdor(){
-Ltr=document.forms[0].rastoyanie_tranpotrtirovanya.value
-Kdor=document.forms[0].dorogizatrat.value=Math.round((parseFloat(document.forms[0].zatratidorogi.value)*5*parseFloat(Ltr))/1000)
+this.Ltr=document.forms[0].rastoyanie_tranpotrtirovanya.value
+this.Kdor=document.forms[0].dorogizatrat.value=Math.round((parseFloat(document.forms[0].zatratidorogi.value)*5*parseFloat(Ltr))/1000)
 }
 function getKo(){
-Kag=document.forms[0].garagzatrat.value
-Ka=document.forms[0].avtozatrat.value
-Kdor=document.forms[0].dorogizatrat.value
-Ko=document.forms[0].zatratiavtoall.value=Math.round(parseFloat(Kag)+parseFloat(Ka)+parseFloat(Kdor))
+this.Kag=document.forms[0].garagzatrat.value
+this.Ka=document.forms[0].avtozatrat.value
+this.Kdor=document.forms[0].dorogizatrat.value
+this.Ko=document.forms[0].zatratiavtoall.value=Math.round(parseFloat(Kag)+parseFloat(Ka)+parseFloat(Kdor))
 }
 //Списочный состав шоферов (nspis)
 function getNspis(){
-Npcm=document.forms[0].output9.value
-Nspis=document.forms[0].nspis.value=Math.round(3* parseFloat(Npcm)*parseFloat(document.forms[0].koofspissostava.value))
+this.Npcm=document.forms[0].output9.value
+this.Nspis=document.forms[0].nspis.value=Math.round(3* parseFloat(Npcm)*parseFloat(document.forms[0].koofspissostava.value))
 }
 //Затраты на зарабатную плату шоферов
 function getEzsh(){
-Tc=document.forms[0].tarifstavka .value
-Tcm=document.forms[0].prodsmeni.value
-Nspis=document.forms[0].nspis.value
-Ezsh=document.forms[0].Ezsh.value=Math.round((1.65*254*1.12*parseFloat(Tc)*parseFloat(Tcm)*parseFloat(Nspis))/1000)
+this.Tc=document.forms[0].tarifstavka .value
+this.Tcm=document.forms[0].prodsmeni.value
+this.Nspis=document.forms[0].nspis.value
+this.Ezsh=document.forms[0].Ezsh.value=Math.round((1.65*254*1.12*parseFloat(Tc)*parseFloat(Tcm)*parseFloat(Nspis))/1000)
 }
 function getEzvs(){
-Ezsh=document.forms[0].Ezsh.value
-Ezvs=document.forms[0].Ezvs.value=Math.round((0.2*parseFloat(Ezsh)*1000)/1000)
+this.Ezsh=document.forms[0].Ezsh.value
+this.Ezvs=document.forms[0].Ezvs.value=Math.round((0.2*parseFloat(Ezsh)*1000)/1000)
 }
 function getEzo(){
-Ezsh=document.forms[0].Ezsh.value
-Ezvs=document.forms[0].Ezvs.value
-Ezo=document.forms[0].Ezo.value=Math.round(parseFloat(Ezsh)+parseFloat(Ezvs))
+this.Ezsh=document.forms[0].Ezsh.value
+this.Ezvs=document.forms[0].Ezvs.value
+this.Ezo=document.forms[0].Ezo.value=Math.round(parseFloat(Ezsh)+parseFloat(Ezvs))
 }
 function getEam(){
-Ncyt=document.forms[0].output12.value;
-Aa=document.forms[0].amortizacia.value;
-Ca=document.forms[0].StoimEcs.value;
-Lgod=document.forms[0].output11.value;
-Eam=document.forms[0].Eam.value=Math.round((parseFloat(Ncyt)*parseFloat(Aa)*parseFloat(Ca)*1000*parseFloat(Lgod)/100000)/1000);
+this.Ncyt=document.forms[0].output12.value;
+this.Aa=document.forms[0].amortizacia.value;
+this.Ca=document.forms[0].StoimEcs.value;
+this.Lgod=document.forms[0].output11.value;
+this.Eam=document.forms[0].Eam.value=Math.round((parseFloat(Ncyt)*parseFloat(Aa)*parseFloat(Ca)*1000*parseFloat(Lgod)/100000)/1000);
 }
 function getEto(){
-Ncyt=document.forms[0].output12.value;
-Cto=document.forms[0].normato.value;
-Lgod=document.forms[0].output11.value;
-Eto=document.forms[0].Eto.value=Math.round((parseFloat(Ncyt)*parseFloat(Cto)*parseFloat(Lgod)/1000)/1000);
+this.Ncyt=document.forms[0].output12.value;
+this.Cto=document.forms[0].normato.value;
+this.Lgod=document.forms[0].output11.value;
+this.Eto=document.forms[0].Eto.value=Math.round((parseFloat(Ncyt)*parseFloat(Cto)*parseFloat(Lgod)/1000)/1000);
 }
 function getEsh(){
-Ncyt=document.forms[0].output12.value;
-Lgod=document.forms[0].output11.value;
-Ssh=document.forms[0].normaavtorezina.value;
-Esh=document.forms[0].Esh.value=Math.round((parseFloat(Ncyt)*parseFloat(Ssh)*parseFloat(Lgod)/1000)/1000);
+this.Ncyt=document.forms[0].output12.value;
+this.Lgod=document.forms[0].output11.value;
+this.Ssh=document.forms[0].normaavtorezina.value;
+this.Esh=document.forms[0].Esh.value=Math.round((parseFloat(Ncyt)*parseFloat(Ssh)*parseFloat(Lgod)/1000)/1000);
 }
 function getEgor(){
-Ncyt=document.forms[0].output12.value;
-Lgod=document.forms[0].output11.value;
-Cgor=document.forms[0].Cgor.value;
-Cgor=document.forms[0].rashodtopliva.value;
-Egor=document.forms[0].Egor.value=Math.round((parseFloat(Ncyt)*parseFloat(Cgor)*parseFloat(Cgor)*(parseFloat(Lgod)/100))/1000);
+this.Ncyt=document.forms[0].output12.value;
+this.Lgod=document.forms[0].output11.value;
+this.Cgor=document.forms[0].Cgor.value;
+this.Cgor=document.forms[0].rashodtopliva.value;
+this.Egor=document.forms[0].Egor.value=Math.round((parseFloat(Ncyt)*parseFloat(Cgor)*parseFloat(Cgor)*(parseFloat(Lgod)/100))/1000);
 }
 function getRdt(){
-Ncyt=document.forms[0].output12.value;
-Lgod=document.forms[0].output11.value;
-Cgor=document.forms[0].rashodtopliva.value;
-Rdt=document.forms[0].Rdt.value=Math.round(parseFloat(Ncyt)*parseFloat(Cgor)*parseFloat(Lgod)/100000)
+this.Ncyt=document.forms[0].output12.value;
+this.Lgod=document.forms[0].output11.value;
+this.Cgor=document.forms[0].rashodtopliva.value;
+this.Rdt=document.forms[0].Rdt.value=Math.round(parseFloat(Ncyt)*parseFloat(Cgor)*parseFloat(Lgod)/100000)
 }
 function getEm(){
-Ncyt=document.forms[0].output12.value;
-Cgor=document.forms[0].rashodtopliva.value;
-Cgor=document.forms[0].Cgor.value;
-Lgod=document.forms[0].output11.value;
-Em=document.forms[0].Em.value=Math.round((parseFloat(Ncyt)*0.084*parseFloat(Cgor)*5*parseFloat(Cgor)*parseFloat(Lgod)/100)/1000)
+this.Ncyt=document.forms[0].output12.value;
+this.Cgor=document.forms[0].rashodtopliva.value;
+this.Cgor=document.forms[0].Cgor.value;
+this.Lgod=document.forms[0].output11.value;
+this.Em=document.forms[0].Em.value=Math.round((parseFloat(Ncyt)*0.084*parseFloat(Cgor)*5*parseFloat(Cgor)*parseFloat(Lgod)/100)/1000)
 }
 function getEgj(){
-Ncyt=document.forms[0].output12.value;
-Egj1=document.forms[0].Egj1.value;
-Egj=document.forms[0].Egj.value=Math.round((5200*parseFloat(Ncyt)*parseFloat(Egj1))/1000)
+this.Ncyt=document.forms[0].output12.value;
+this.Egj1=document.forms[0].Egj1.value;
+this.Egj=document.forms[0].Egj.value=Math.round((5200*parseFloat(Ncyt)*parseFloat(Egj1))/1000)
 }
 function getEdor(){
-Kdor=document.forms[0].dorogizatrat.value;
-Edor=document.forms[0].Edor.value=Math.round((0.084*parseFloat(Kdor)*1000)/1000)
+this.Kdor=document.forms[0].dorogizatrat.value;
+this.Edor=document.forms[0].Edor.value=Math.round((0.084*parseFloat(Kdor)*1000)/1000)
 }
 function getEao(){
-Ezo=document.forms[0].Ezo.value;
-Eam=document.forms[0].Eam.value;
-Eto=document.forms[0].Eto.value;
-Esh=document.forms[0].Esh.value;
-Egor=document.forms[0].Egor.value;
-Em=document.forms[0].Em.value;
-Egj=document.forms[0].Egj.value;
-Edor=document.forms[0].Edor.value;
-Eao=document.forms[0].Eao.value=Math.round(parseFloat(Ezo)+parseFloat(Eam)+parseFloat(Eto)+parseFloat(Esh)+parseFloat(Egor)+parseFloat(Em)+parseFloat(Egj)+parseFloat(Edor));
+this.Ezo=document.forms[0].Ezo.value;
+this.Eam=document.forms[0].Eam.value;
+this.Eto=document.forms[0].Eto.value;
+this.Esh=document.forms[0].Esh.value;
+this.Egor=document.forms[0].Egor.value;
+this.Em=document.forms[0].Em.value;
+this.Egj=document.forms[0].Egj.value;
+this.Edor=document.forms[0].Edor.value;
+this.Eao=document.forms[0].Eao.value=Math.round(parseFloat(Ezo)+parseFloat(Eam)+parseFloat(Eto)+parseFloat(Esh)+parseFloat(Egor)+parseFloat(Em)+parseFloat(Egj)+parseFloat(Edor));
 }
 function getKe(){
-Se=document.forms[0].Se.value;
-NeObch=document.forms[0].output.value
-Ke=document.forms[0].Ke.value=Math.round((Se*1000*parseFloat(NeObch))/1000);
+this.Se=document.forms[0].Se.value;
+this.NeObch=document.forms[0].output.value
+this.Ke=document.forms[0].Ke.value=Math.round((Se*1000*parseFloat(NeObch))/1000);
 }
 function getEze(){
-NeObch=document.forms[0].output.value;
-Tcm=document.forms[0].prodsmeni.value;
-Tc=document.forms[0].tarifstavka .value;
-ng=document.forms[0].rabdnei.value;
-Eze=document.forms[0].Eze.value=Math.round((1.55*parseFloat(Tc)*2*parseFloat(NeObch)*parseFloat(Tcm)*parseFloat(ng)*1.12)/1000);
+this.NeObch=document.forms[0].output.value;
+this.Tcm=document.forms[0].prodsmeni.value;
+this.Tc=document.forms[0].tarifstavka .value;
+this.ng=document.forms[0].rabdnei.value;
+this.Eze=document.forms[0].Eze.value=Math.round((1.55*parseFloat(Tc)*2*parseFloat(NeObch)*parseFloat(Tcm)*parseFloat(ng)*1.12)/1000);
 }
 function getEzvsp(){
-Eze=document.forms[0].Eze.value;
-Ezvsp=document.forms[0].Ezvsp.value=Math.round((0.4*parseFloat(Eze)*1000)/1000);
+this.Eze=document.forms[0].Eze.value;
+this.Ezvsp=document.forms[0].Ezvsp.value=Math.round((0.4*parseFloat(Eze)*1000)/1000);
 }
 function getEzoe(){
-Eze=document.forms[0].Eze.value;
-Ezvsp=document.forms[0].Ezvsp.value;
-Ezoe=document.forms[0].Ezoe.value=Math.round(1.9*parseFloat(Eze)+parseFloat(Ezvsp))
+this.Eze=document.forms[0].Eze.value;
+this.Ezvsp=document.forms[0].Ezvsp.value;
+this.Ezoe=document.forms[0].Ezoe.value=Math.round(1.9*parseFloat(Eze)+parseFloat(Ezvsp))
 }
 function getEae(){
-NeObch=document.forms[0].output.value;
-Se=document.forms[0].Se.value;
-Eae=document.forms[0].Eae.value=Math.round((parseFloat(NeObch)*0.057*document.forms[0].Se.value*1000)/1000)
+this.NeObch=document.forms[0].output.value;
+this.Se=document.forms[0].Se.value;
+this.Eae=document.forms[0].Eae.value=Math.round((parseFloat(NeObch)*0.057*document.forms[0].Se.value*1000)/1000)
 }
 function getEtoe(){
-NeObch=document.forms[0].output.value;
-Se=document.forms[0].Se.value;
-Etoe=document.forms[0].Etoe.value=Math.round((0.15*parseFloat(Se)*1000*parseFloat(NeObch))/1000)
+this.NeObch=document.forms[0].output.value;
+this.Se=document.forms[0].Se.value;
+this.Etoe=document.forms[0].Etoe.value=Math.round((0.15*parseFloat(Se)*1000*parseFloat(NeObch))/1000)
 }
 function getEme(){
-NeObch=document.forms[0].output.value;
-Se=document.forms[0].Se.value;
-Eme=document.forms[0].Eme.value=Math.round((0.07*parseFloat(Se)*1000*parseFloat(NeObch))/1000)
+this.NeObch=document.forms[0].output.value;
+this.Se=document.forms[0].Se.value;
+this.Eme=document.forms[0].Eme.value=Math.round((0.07*parseFloat(Se)*1000*parseFloat(NeObch))/1000)
 }
 function getRel(){
-NeObch=document.forms[0].output.value;
-ng=document.forms[0].rabdnei.value;
-Mey=document.forms[0].Mey.value;
-Rel=document.forms[0].Rel.value=Math.round((1.1*0.7*0.7*parseFloat(Mey)*((parseFloat(NeObch)*parseFloat(ng)*8)/0.5))/1000)
+this.NeObch=document.forms[0].output.value;
+this.ng=document.forms[0].rabdnei.value;
+this.Mey=document.forms[0].Mey.value;
+this.Rel=document.forms[0].Rel.value=Math.round((1.1*0.7*0.7*parseFloat(Mey)*((parseFloat(NeObch)*parseFloat(ng)*8)/0.5))/1000)
 }
 function getEel(){
-Rel=document.forms[0].Rel.value;
-Cel=document.forms[0].Cel.value;
-Eel=document.forms[0].Eel.value=Math.round((parseFloat(Rel)*1000*parseFloat(Cel))/1000)
+this.Rel=document.forms[0].Rel.value;
+this.Cel=document.forms[0].Cel.value;
+this.Eel=document.forms[0].Eel.value=Math.round((parseFloat(Rel)*1000*parseFloat(Cel))/1000)
 }
 function getEeo(){
-Ezoe=document.forms[0].Ezoe.value;
-Eae=document.forms[0].Eae.value;
-Etoe=document.forms[0].Etoe.value;
-Eme=document.forms[0].Eme.value;
-Eel=document.forms[0].Eel.value;
-Eeo=document.forms[0].Eeo.value=Math.round(parseFloat(Ezoe)+parseFloat(Eae)+parseFloat(Etoe)+parseFloat(Eme)+parseFloat(Eel));
+this.Ezoe=document.forms[0].Ezoe.value;
+this.Eae=document.forms[0].Eae.value;
+this.Etoe=document.forms[0].Etoe.value;
+this.Eme=document.forms[0].Eme.value;
+this.Eel=document.forms[0].Eel.value;
+this.Eeo=document.forms[0].Eeo.value=Math.round(parseFloat(Ezoe)+parseFloat(Eae)+parseFloat(Etoe)+parseFloat(Eme)+parseFloat(Eel));
 }
 function getKvse(){
-Ko=document.forms[0].zatratiavtoall.value;
-Ke=document.forms[0].Ke.value;
-Kvse=document.forms[0].Kvseго.value=Math.round(parseFloat(Ko)+parseFloat(Ke))
+this.Ko=document.forms[0].zatratiavtoall.value;
+this.Ke=document.forms[0].Ke.value;
+this.Kvse=document.forms[0].Kvseго.value=Math.round(parseFloat(Ko)+parseFloat(Ke))
 }
 function getEvse(){
-Eao=document.forms[0].Eao.value;
-Eeo=document.forms[0].Eeo.value;
-Evse=document.forms[0].Evsego.value=Math.round(parseFloat(Eao)+parseFloat(Eeo))
+this.Eao=document.forms[0].Eao.value;
+this.Eeo=document.forms[0].Eeo.value;
+this.Evse=document.forms[0].Evsego.value=Math.round(parseFloat(Eao)+parseFloat(Eeo))
 }
 function getEAll(){
 this.getAmortizacia();
