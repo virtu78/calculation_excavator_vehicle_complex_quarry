@@ -1,0 +1,586 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+<style>
+#results li.pass {color:green;}
+#results li.fail {color:red;}
+</style>
+<SCRIPT language=javascript>
+var Peremennye={
+Dc: null, 
+hy:null, 
+Lc:null, 
+Dc2:null, 
+hy2:null, 
+P:null, 
+y:null, 
+q:null, 
+y2:null, 
+w:null, 
+f:null, 
+m:null, 
+f2:null,
+a:null, 
+b:null, 
+Vc:null, 
+Qz:null, 
+Wg:null, 
+nc:null, 
+Wg2:null, 
+Qm:null, 
+Ldsh:null, 
+Qkb:null, 
+ggm:null, 
+nb:null, 
+Tsm:null, 
+Tsm1:null, 
+Poc:null, 
+Qsm:null, 
+ngb:null, 
+Qgb:null, 
+Nb:null, 
+Sb:null,
+Sb2:null, 
+Kb:null,
+Tb:null, 
+Tb2:null,
+Ezb:null,
+Ezvsb:null, 
+Ezob:null, 
+Eab:null, 
+Etob:null,
+Emb:null, 
+Mby:null,
+Relb:null,
+Cel:null,
+Cel2:null,
+Eelb:null,
+Ebo:null,
+Qm:null,
+Cgor:null,
+Cgor2:null,
+Evv:null,
+Nvzm:null,
+Evzv:null,
+Nvzv:null,
+Kap:null,
+E:null
+}
+/*function assert(value, desc){
+var li = document.createElement("li");
+li.className = value ? "pass" : "fail";
+li.appendChild(document.createTextNode(desc));
+document.getElementById("results").appendChild(li);}
+*/
+//Вычисление  n гб
+var DiametrScvajin = new Array(4)
+DiametrScvajin[0]="150-200";
+DiametrScvajin[1]="210-250";
+DiametrScvajin[2]="255-270";
+DiametrScvajin[3]="270-320";
+var Severi = new Array(4)
+Severi[0]="685";
+Severi[1]="685";
+Severi[2]="670";
+Severi[3]="655";
+var Middlen = new Array(4)
+Middlen[0]="705";
+Middlen[1]="705";
+Middlen[2]="695";
+Middlen[3]="680";
+    function getNgb() {
+   var SelectedDiametrScvajin=document.forms[0].scvajina.value
+        for (var i = 0; i < DiametrScvajin.length; i++){
+   if (DiametrScvajin[i] == SelectedDiametrScvajin){
+           break
+    }
+    }
+    if(document.forms[0].regioni.value =="северный"){
+    document.forms[0].region2.value =document.forms[0].regioni.value;
+    document.forms[0].rabdneii.value =Severi[i]
+    }else{document.forms[0].rabdneii.value =Middlen[i];document.forms[0].region2.value =document.forms[0].regioni.value }
+    }
+    var MoshnostiElektroDvigatel = new Array(4)
+MoshnostiElektroDvigatel[0]="350";
+MoshnostiElektroDvigatel[1]="410";
+MoshnostiElektroDvigatel[2]="520";
+MoshnostiElektroDvigatel[3]="712";
+function getMby()  {
+ var SelectedDiametrScvajin=document.forms[0].scvajina.value
+     for (var i = 0; i < DiametrScvajin.length; i++){
+   if (DiametrScvajin[i] == SelectedDiametrScvajin){
+           break
+    }
+   }
+ document.forms[0].Mby.value=MoshnostiElektroDvigatel [i]
+ }
+  var ChastotaVrashenia = new Array(4)
+ChastotaVrashenia [0]="180";
+ChastotaVrashenia [1]="160";
+ChastotaVrashenia [2]="150";
+ChastotaVrashenia [3]="120";
+function getnb()  {
+ var SelectedDiametrScvajin=document.forms[0].scvajina.value
+     for (var i = 0; i < DiametrScvajin.length; i++){
+   if (DiametrScvajin[i] == SelectedDiametrScvajin){
+           break
+    }
+   }
+ document.forms[0].nb.value=ChastotaVrashenia [i]
+ }
+ var NamePoroda = new Array(4)
+NamePoroda[0]="песок";
+NamePoroda[1]="глина";
+NamePoroda[2]="щебень";
+NamePoroda[3]="руда";
+var PlotnostGornoiMass = new Array(4)
+PlotnostGornoiMass[0]="1.39";
+PlotnostGornoiMass[1]="1.55";
+PlotnostGornoiMass[2]="0.9-1.37";
+PlotnostGornoiMass[3]="2.5-3.8";
+ function getPlotnostGornoiMass()  {
+ var SelectedNamePoroda=document.forms[0].nameporoda.value
+     for (var i = 0; i < NamePoroda.length; i++){
+   if (NamePoroda[i] == SelectedNamePoroda){
+           break
+    }
+   }
+ document.forms[0].plotnost.value =PlotnostGornoiMass[i]
+ }
+ function getNamePoroda()  {
+ var SelectedPlotnostGornoiMass=document.forms[0].plotnost.value
+     for (var i = 0; i < PlotnostGornoiMass.length; i++){
+   if (PlotnostGornoiMass[i] == SelectedPlotnostGornoiMass){
+           break
+    }
+   }
+ document.forms[0].nameporoda2.value =NamePoroda[i]
+ }
+ var DiametrScvajin = new Array(4)
+DiametrScvajin[0]="150-200";
+DiametrScvajin[1]="210-250";
+DiametrScvajin[2]="255-270";
+DiametrScvajin[3]="270-320";
+var Usilie = new Array(4)
+Usilie[0]="25";
+Usilie[1]="30";
+Usilie[2]="35";
+Usilie[3]="55";
+ function getUsilie()  {
+ var SelectedDiametrScvajin=document.forms[0].scvajina.value
+     for (var i = 0; i < DiametrScvajin.length; i++){
+   if (DiametrScvajin[i] == SelectedDiametrScvajin){
+           break
+    }
+   }
+document.forms[0].usilie.value =Usilie[i]
+ }
+//Функции расчета по формулам по порядку
+ //1. 
+function getLc(){
+this.Dc=document.forms[0].Dc.value;
+
+this.hy=document.forms[0].hy.value;
+this.Lc=document.forms[0].output1.value=formatResult(parseFloat(hy)+0.015*parseFloat(Dc));
+this.Dc2=document.forms[0].Dc2.value=Dc*1;
+this.hy2=document.forms[0].hy2.value=hy*1;
+}
+
+
+  //2
+function getP(){
+this.Dc=document.forms[0].Dc.value;
+this.P=document.forms[0].output2.value=formatResult(0.0001*7.065*parseFloat(Dc)*parseFloat(Dc));
+}
+//3.
+function getq(){
+this.y=document.forms[0].y.value;
+this.q=document.forms[0].output3.value=formatResult(0.175*parseFloat(y));
+this.y2=document.forms[0].y2.value=y*1;
+}
+//4.
+function getW(){
+this.Dc=document.forms[0].Dc.value;
+this.w=document.forms[0].output4.value=formatResult(0.024*parseFloat(Dc)*(Math.sqrt(1.05/parseFloat(q))));
+} 
+//5. 
+function getM(){
+this.f=document.forms[0].f.value;
+this.m=document.forms[0].output5.value=formatResult(1.66-(0.066*parseFloat(f)));
+this.f2=document.forms[0].f2.value=f*1;
+}
+//6.
+function getA(){
+this.m=document.forms[0].output5.value;
+this.w=document.forms[0].output4.value;
+this.a=document.forms[0].output6.value=formatResult(parseFloat(m)*parseFloat(w));
+}
+//7. 
+function getB(){
+this.w=document.forms[0].output4.value;
+this.b=document.forms[0].output7.value=formatResult(0.9*parseFloat(w));
+}
+//8.
+function getVc(){
+this.a=document.forms[0].output6.value;
+this.b=document.forms[0].output7.value;
+this.hy=document.forms[0].hy.value;
+this.Vc=document.forms[0].output8.value=formatResult(parseFloat(a)*parseFloat(b)*parseFloat(hy));
+}
+//9.
+ function getQz(){
+this.q=document.forms[0].output3.value;
+this.Vc=document.forms[0].output8.value;
+this.Qz=document.forms[0].output9.value=formatResult(parseFloat(q)*parseFloat(Vc));
+ }
+//10.
+ function getnc(){
+this.Vc=document.forms[0].output8.value;
+this.Wg=document.forms[0].Wg.value;
+this.nc=document.forms[0].output10.value=Math.round(((parseFloat(Wg)*1000)/parseFloat(Vc))*1.02);
+this.Wg2=document.forms[0].Wg2.value=Wg*1;
+ }
+//11.
+ function getQm(){
+this.nc=document.forms[0].output10.value;
+this.Qz=document.forms[0].output9.value;
+this.Qm=document.forms[0].output11.value=formatResult((parseFloat(nc)*parseFloat(Qz))/1000);
+ }
+ 
+//12.
+ function getLdsh(){
+this.nc=document.forms[0].output10.value;
+this.Lc=document.forms[0].output1.value;
+this.Ldsh=document.forms[0].output12.value=Math.round(1.15*parseFloat(nc)*parseFloat(Lc)*parseFloat(b));
+ }
+ //13.
+ function getQkb(){
+this.nc=document.forms[0].output10.value;
+this.Lc=document.forms[0].output1.value;
+this.Qkb=document.forms[0].output13.value=formatResult(parseFloat(nc)*parseFloat(Lc));
+ }
+  //14.
+ function getggm(){
+this.Wg=document.forms[0].Wg.value;
+this.Qkb=document.forms[0].output13.value;
+this.ggm=document.forms[0].output14.value=formatResult((parseFloat(Wg)*1000)/parseFloat(Qkb));
+ }
+  //15.
+ function getQsm(){
+this.Dc=document.forms[0].Dc.value;
+this.nb=document.forms[0].nb.value;
+this.f=document.forms[0].f.value;
+this.Tsm=document.forms[0].Tsm.value;
+this.Tsm1=document.forms[0].Tsm1.value=document.forms[0].Tsm.value;
+this.Poc=document.forms[0].usilie.value;
+this.Qsm=document.forms[0].output15.value=formatResult(0.078*Tsm*((Poc*Math.pow(nb,0.8))/(Math.pow(f,1.6)*0.01*Dc)));
+console.log(Dc); 
+console.log(nb);
+console.log(f);
+console.log(Tsm);
+console.log(Tsm1);
+console.log(Poc);
+console.log(Qsm);}
+  //16.
+ function getQgb(){
+this.ngb=document.forms[0].rabdneii.value;
+this.Qsm=document.forms[0].output15.value;
+this.Qgb=document.forms[0].output16.value=formatResult((parseFloat(Qsm))*parseFloat(ngb));
+ }
+  //17.
+ function getNb(){
+this.Wg=document.forms[0].Wg.value;
+this.Qgb=document.forms[0].output16.value;
+this.ggm=document.forms[0].output14.value;
+this.Nb=document.forms[0].output17.value=formatResult((1.15*(parseFloat(Wg)*1000))/(parseFloat(Qgb)*parseFloat(ggm)));
+ }
+ //Экономические показатели
+  //18.1
+ function getKb(){
+this.Sb=document.forms[0].Sb.value;
+this.Nb=document.forms[0].output17.value;
+this.Sb2=document.forms[0].Sb2.value=Sb*1;
+this.Kb=document.forms[0].output18.value=Math.round((parseFloat(Nb)*parseFloat(Sb)*1000)/1000);
+}
+//Эксплуатационные затраты
+//19.2
+ function getEzb(){
+this.Nb=document.forms[0].output17.value;
+this.Tb=document.forms[0].Tb.value;
+this.ngb=document.forms[0].rabdneii.value;
+this.Tb2=document.forms[0].Tb2.value=Tb*1;
+this.Ezb=document.forms[0].output19.value=Math.round((1.55*parseFloat(Tb)*2*parseFloat(Nb)*8*parseFloat(ngb)*1.12)/1000);
+}
+//20.3
+function getEzvsb(){
+this.Ezb=document.forms[0].output19.value;
+this.Ezvsb=document.forms[0].output20.value=Math.round((parseFloat(Ezb)*0.4)/1000);
+}
+//21.4
+function getEzob(){
+this.Ezvsb=document.forms[0].output20.value;
+this.Ezb=document.forms[0].output19.value;
+this.Ezob=document.forms[0].output21.value=Math.round((1.7*parseFloat(Ezb))+parseFloat(Ezvsb));
+}
+//22.5
+function getEab(){
+this.Nb=document.forms[0].output17.value;
+this.Sb=document.forms[0].Sb.value;
+this.Eab=document.forms[0].output22.value=Math.round((parseFloat(Nb)*0.25*parseFloat(Sb)*1000)/1000);
+}
+//23.6
+function getEtob(){
+this.Nb=document.forms[0].output17.value;
+this.Sb=document.forms[0].Sb.value;
+this.Etob=document.forms[0].output23.value=Math.round((parseFloat(Nb)*0.15*parseFloat(Sb)*1000)/1000);
+}
+//24.7
+function getEmb(){
+this.Nb=document.forms[0].output17.value;
+this.Sb=document.forms[0].Sb.value;
+this.Emb=document.forms[0].output24.value=Math.round((0.1*parseFloat(Nb)*parseFloat(Sb)*1000)/1000);
+}
+//25.8
+function getRelb(){
+this.Nb=document.forms[0].output17.value;
+this.Mby=document.forms[0].Mby.value;
+this.ngb=document.forms[0].rabdneii.value;
+this.Relb=document.forms[0].output25.value=formatResult(((1.1*0.75*0.7*parseFloat(Mby)*parseFloat(Nb)*parseFloat(ngb)*8)/0.5)/1000);
+}
+//26.9
+function getEelb(){
+this.Cel=document.forms[0].Cel.value;
+this.Relb=document.forms[0].output25.value;
+this.Cel2=document.forms[0].Cel2.value=Cel*1;
+this.Eelb=document.forms[0].output26.value=Math.round((parseFloat(Cel)*parseFloat(Relb)*1000)/1000);
+}
+//27.10
+function getEbo(){
+this.Ezob=document.forms[0].output21.value;
+this.Eab=document.forms[0].output22.value;
+this.Etob=document.forms[0].output23.value;
+this.Emb=document.forms[0].output24.value;
+this.Eelb=document.forms[0].output26.value;
+this.Ebo=document.forms[0].output27.value=Math.round(parseFloat(Ezob)+parseFloat(Eab)+parseFloat(Etob)+parseFloat(Emb)+parseFloat(Eelb));
+}
+//28.11
+function getEvv(){
+this.Ldsh=document.forms[0].output12.value;
+this.Qm=document.forms[0].output11.value;
+this.Cgor=document.forms[0].Cgor.value;
+this.Cgor2=document.forms[0].Cgor2.value=Cgor*1;
+this.Evv=document.forms[0].output28.value=Math.round(((parseFloat(Cgor)*parseFloat(Qm)*1000)+(parseFloat(Ldsh)*0.15))/1000);
+}
+//29.12
+function getNvzv(){
+this.Qm=document.forms[0].output11.value;
+this.Dc=document.forms[0].Dc.value;
+this.nc=document.forms[0].output10.value;
+this.Nvzv=document.forms[0].output29.value=formatResult((0.14*0.01*parseFloat(Qm)*1000)+(5.2*0.01*0.02*parseFloat(Dc)*parseFloat(nc))+(2.8*0.01*parseFloat(nc)));
+}
+//30.13
+function getEvzv(){
+this.Nvzv=document.forms[0].output29.value;
+this.Tb=document.forms[0].Tb.value;
+this.Evzv=document.forms[0].output30.value=Math.round((0.8*parseFloat(Tb)*parseFloat(Nvzv))/1000);
+}
+function getKap(){
+this.Kap=document.forms[0].output31.value=document.forms[0].output18.value;
+}
+function getE(){
+this.Ebo=document.forms[0].output27.value;
+this.Evv=document.forms[0].output28.value;
+this.Evzv=document.forms[0].output30.value;
+this.E=document.forms[0].output32.value=(parseFloat(Ebo)+parseFloat(Evv)+parseFloat(Evzv));
+}
+function getAll(){
+this.getLc();
+this.getP();
+this.getq();
+this.getW();
+this.getM();
+this.getA();
+this.getB();
+this.getVc();
+this.getQz();
+this.getnc();
+this.getQm();
+this.getNgb();
+this.getLdsh();
+this.getQkb();
+this.getggm();
+this.getQsm();
+this.getQgb();
+this.getNb();
+this.getKb();
+this.getEzb();
+this.getEzvsb();
+this.getEzob();
+this.getEab();
+this.getEtob();
+this.getEmb();
+this.getMby();
+this.getnb();
+this.getRelb();
+this.getEelb();
+this.getEbo();
+this.getEvv();
+this.getNvzv();
+this.getEvzv();
+this.getKap();
+this.getE();
+this.getNamePoroda();
+this.getPlotnostGornoiMass();
+this.getNamePoroda();
+this.getUsilie();
+}
+
+ //Доработано Функция округления результата до сотых
+function format (expr, decplaces) {
+	var str = "" + Math.round (eval(expr) * Math.pow(10,decplaces))
+	while (str.length <= decplaces) {
+		str = "0" + str
+	}
+	var decpoint = str.length - decplaces
+	return str.substring(0,decpoint) + "." + str.substring(decpoint,str.length);
+}
+function formatResult (expr) {
+	return  format(expr,1)
+}
+
+/*window.onload = function(){
+assert(typeof Dc==='number', "Dc - число");};
+*/
+
+
+</SCRIPT>
+
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY bgColor=#e8e8e8><!--Создаем таблицу-->
+<TABLE><!--Создаем ячейку вертикальную-->
+  <TBODY>
+  <TR><!--Создаем ячейку горизонтальную и вставляем в нее картинку-->
+    <TD><IMG height=249 witdh=189 src="/localhost/raschet/bvr.files/2.jpg">
+     </TD><!--Во вторую ячейку горизонтальную вставляем текст заголовка-->
+    <TD align=middle><FONT face=serif size=5>ТЕХНИКО-ЭКОНОМИЧЕСКИЙ РАСЧЕТ<BR>
+      показателей буровзрывных работ<BR>рудного карьера</FONT> 
+</TD></TR></TBODY></TABLE><!-- Закрываем таблицу--><BR><BR>
+<P align=center>ИСХОДНЫЕ ДАННЫЕ ДЛЯ ПРОГРАММЫ<BR>(вводятся пользователем)</P>
+<SCRIPT language=javascript>
+//Функции запускаются по мере загрузки страницы все подряд
+
+</SCRIPT>
+
+<FORM name=EscKub><!--Данные представлены в виде таблицы, чтобы выровнять вертикально ячейки для данных друг под другом-->
+<TABLE><!--Указана граница в 1px, чтобы таблицу--><!--можно было видеть Если убрать border=1 bordercolor=black границ таблицы не будет видно-->
+  <TBODY>
+  
+  <TR>
+    <TD>Объем работ(W г)</TD>
+    <TD><INPUT size=10 name=Wg>, тыс. м3</TD></TR>
+    
+  <TR>
+       <TD>Диаметр скважины (Dc)</TD>
+    <TD><INPUT size=10 name=Dc>, мм</TD></TR>
+    <TR>
+    <TD>Диаметр скважины</TD>
+    <TD><SELECT 
+      onchange="getNgb()+getMby()+getnb()+getUsilie()" 
+      name=scvajina ;> <OPTION value=150-200 selected>150-200</OPTION> <OPTION 
+        value=210-250>210-250</OPTION> <OPTION value=255-270>255-270</OPTION> <OPTION 
+        value=270-320>270-320</OPTION></SELECT>, мм</TD></TR>
+  <TR>
+    <TD>Высота уступа в карьере(hy)</TD>
+    <TD><INPUT size=10 name=hy>, м</TD>
+  </TR>
+   <TR>
+    <TD>Вид горной массы </TD>
+    <TD><SELECT 
+      onchange="getPlotnostGornoiMass()+getNamePoroda()" 
+      name=nameporoda ;> <OPTION value=песок selected>песок, суглинок</OPTION> 
+        <OPTION value=глина>глина, уголь</OPTION> <OPTION 
+        value=щебень>щебень(разрыхленный известняк)</OPTION> <OPTION 
+        value=руда>руда(разрыхленные изверженные породы)</OPTION></SELECT></TD></TR>
+     <TR>
+    <TD>Плотность(объемный вес) горной массы(y)</TD>
+    <TD><INPUT size=10 name=y>, т/м3</TD></TR>
+  <TR>
+    <TD>Коэфициент крепости породы по Протодьяконову(f)</TD>
+    <TD><INPUT size=10 name=f></TD></TR>
+    <TR>
+    <TD>Район проведения работ</TD>
+    <TD><SELECT onchange=" getNgb()" name=regioni ;> <OPTION 
+        value=северный selected>северный</OPTION> <OPTION 
+        value=средний>средний</OPTION></SELECT></TD></TR>
+         <TR>
+        
+       <TD>Стоимость бурового станка(Sb)</TD><TD><INPUT size=10 name=Sb>,тыс. руб</TR>
+      <TR>  <TD>Тарифная ставка машиниста бурстанка(Тб) </TD><TD><INPUT size=10 name=Tb>, руб/ч</TR>
+      <TR>  <TD>Продолжительность смены(Tsm) </TD><TD><INPUT size=10 name=Tsm>, ч</TR>
+        <TR><TD>Цена 1 кг взрывчатого вещества (Cgor)</TD><TD><INPUT size=10 name=Cgor>, руб/кг</TR>
+        <TR><TD>Стоимость 1 кВтч электроэнергии(Cel) </TD><TD><INPUT size=10 name=Cel>, руб/кВтч</TR>
+        </TBODY></TABLE><!--Конец таблицы--><!--Далле по порядку идут формы куда возвращаются промежуточные --><!--результаты, например Kn, Kp, Va, W г, K т.г и т.д. Они обозначены как hidden т.е. --><!--не видимы. Если их изменить на text поля в которые возвращаются--><!--промежуточные результаты станут видимыми и можно будет проверить работают ли все формулы--><PRE> 
+<TABLE><TBODY><TR><TD><INPUT onclick=getAll() type=button value=ВЫЧИСЛИТЬ name=5>&nbsp;<FONT size=2>ВСЕ ПАРАМЕТРЫ</FONT> </TR></TBODY></TABLE></TR></TD> 
+
+<FONT size=2>РЕЗУЛЬТАТЫ РАСЧЕТОВ ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО КОМПЛЕКСА</FONT>
+
+<TABLE>
+<TBODY >
+<TR>
+<TD align=middle><FONT size=2><B>Введенные пользователем данные</B></FONT></TD></TR>
+<TR><TD><FONT size=2>Диаметр скважины (Dc)</FONT></TD><TD><INPUT size=13 name=Dc2><FONT size=2>, мм</FONT></TD></TR>
+<TR><TD><FONT size=2>Высота уступа в карьере(hy)</FONT></TD><TD><INPUT size=13 name=hy2><FONT size=2>, м</FONT></TD></TR>
+<TR><TD><FONT size=2>Стоимость бурового станка(Sb)</FONT></TD><TD><INPUT size=13 name=Sb2><FONT size=2>,тыс. руб</FONT></TR>
+<TR><TD><FONT size=2>Тарифная ставка машиниста бурстанка(Тб)</FONT> </TD><TD><INPUT size=13 name=Tb2><FONT size=2>, руб/ч</FONT></TR>
+<TR><FONT size=2> <TD>Продолжительность смены(Tsm) </FONT></TD><TD><INPUT size=13 name=Tsm1><FONT size=2>, ч</FONT></TR>
+<TR><TD><FONT size=2>Цена 1 кг взрывчатого вещества (Cgor)</FONT></TD><TD><INPUT size=13 name=Cgor2><FONT size=2>, руб/кг</FONT></TR>
+<TR><TD><FONT size=2>Стоимость 1 кВтч электроэнергии(Cel) </FONT></TD><TD><INPUT size=13 name=Cel2><FONT size=2>, руб/кВтч</FONT></TR>
+<TR><TD><FONT size=2>Коэфициент крепости породы по Протодьяконову(f)</FONT></TD><TD><INPUT size=13 name=f2></TD></TR>
+<TR><TD><FONT size=2>Годовой объем добычи(перевозок)в массиве(Wg)</FONT></TD><TD><INPUT size=13 name=Wg2><FONT size=2>,тыс. м3</FONT></TD></TR>
+<TR><TD><FONT size=2>Вид горной массы </FONT></TD><TD><INPUT size=13 name=nameporoda2></TD><TD><FONT size=2> </FONT></TD><TD><INPUT  TYPE=HIDDEN size=13 name=plotnost></TD></TR><!--Плотность горной породы справочно в скрытом поле Нужно для того, чтобы указать вид горной породы в веденных пользователем данных. Не убирать! Чтобы активиовать стереть TYPE=HIDDEN в этой строке-->
+<TR><TD><FONT size=2>Район работ </FONT></TD><TD><INPUT size=13 name=region2></TD></TR></FONT>
+<TR><TD><FONT size=2>Плотность горной массы (y)</FONT></TD><TD><INPUT size=13 name=y2><FONT size=2>т/м3</FONT></TD></TR>
+<TR><TD><FONT size=2>Число рабочих дней в году предприят. (ngb)</FONT></TD><TD><INPUT size=13 name=rabdneii><FONT size=2>, смен</FONT></TD></TR>
+<TR><TD><FONT size=2>Установленная мощность электродвигателей. (Mby)</FONT></TD><TD><INPUT size=13 name=Mby><FONT size=2>, кВт</FONT></TD></TR>
+<TR><TD><FONT size=2>Частота ьвращения долота. (nb)</FONT></TD><TD><INPUT size=13 name=nb><FONT size=2>, об/мин</FONT></TD></TR>
+<TR><TD><FONT size=2>Осевое усилие (Poc)</FONT></TD><TD><INPUT size=13 name=usilie><FONT size=2></FONT></TD></TR>
+<TR><TD align=middle><FONT size=2><B>Результаты расчетов</B></FONT></TD></TR>
+<TR><TD><FONT size=2>1.Глубина скважины.(Lc)</FONT></TD><TD><INPUT size=13 name=output1><FONT size=2>,м</FONT></TD></TR>
+<TR><TD><FONT size=2>2.Вместимость заряда в 1 м скважины(P)</FONT></TD><TD><INPUT size=13 name=output2><FONT size=2><FONT size=2>, кг/м</FONT></FONT></TD>
+<TR><TD><FONT size=2>3.Удельный расход ВВ (q)</FONT></TD><TD><INPUT size=13 name=output3><FONT size=2>,  кг/м</FONT></TD></TR>
+<TR><TD><FONT size=2>4.Расчетная линия сопротивления по подошве (w)</FONT></TD><TD><INPUT size=13 name=output4><FONT size=2>, м</FONT></TD></TR>
+<TR><TD><FONT size=2>5.Коэффициент сближения скважин(m)</FONT></TD><TD><INPUT size=13 name=output5><FONT size=2>, м</FONT></TD></TR>
+<TR><TD><FONT size=2>6.Расстояние между скважинами в ряду(а)</FONT></TD></TD><TD><INPUT size=13 name=output6><FONT size=2>, м</FONT></TD></TR>
+<TR><TD><FONT size=2>7.Расстояние между рядами скважин(b)</FONT></TD><TD><INPUT size=13 name=output7><FONT size=2>, м</FONT></TD></TR>
+<TR><TD><FONT size=2>8.Средний выход породы с одной скважины(Vc)</FONT></TD><TD><INPUT size=13 name=output8><FONT size=2>, м3</FONT></TD></TR>
+<TR><TD><FONT size=2>9.Масса скважинного заряда (Qz) </FONT></TD><TD><INPUT size=13 name=output9><FONT size=2>, кг</FONT></TD></TR>
+<TR><TD><FONT size=2>10.Необходимое количество скважин(nc)</FONT></TD><TD><INPUT size=13 name=output10><FONT size=2>, шт</FONT></TD></TR>
+<TR><TD><FONT size=2>11.Необходимое количество взрывчатого вещества для массового взрыва (Qм)</FONT></TD><TD><INPUT size=13 name=output11><FONT size=2>, т</FONT></TD></TR>
+<TR><TD><FONT size=2>12.Количество детонирующего шнура для массового взрыва (Ldsh)</FONT></TD><TD><INPUT size=13 name=output12><FONT size=2>,м</FONT></TD></TR>
+<TR><TD><FONT size=2>13.Объем буровых работ в карьере (Qkb)</FONT></TD><TD><INPUT size=13 name=output13><FONT size=2>, м</FONT></TD></TR>
+<TR><TD><FONT size=2>14.Выход взорванной горной массы с 1 м скважины(g гм)</FONT></TD><TD><INPUT size=13 name=output14><FONT size=2>,м3</FONT></TD></TR>
+<TR><TD><FONT size=2>15.Сменная производительность бурового станка при 8-час смене (Qsm б)</FONT></TD><TD><INPUT size=13 name=output15><FONT size=2>, м/см</FONT></TD></TR>
+<TR><TD><FONT size=2>16.Годовая производительность бурового станка (Qг б)</FONT></TD><TD><INPUT size=13 name=output16><FONT size=2>,м/год</FONT></TD></TR>
+<TR><TD><FONT size=2>17.Инвентарный парк буровых станков (  N б)</FONT></TD><TD><INPUT size=13 name=output17><FONT size=2><FONT size=2>, ед</FONT></TD>
+<TR><TD align=middle><FONT size=2><B>Экономические показатели</B></FONT></TD></TR>
+<TR><TD><FONT size=2>1.Капитальные затраты на бурстанки (Кб) </FONT></TD><TD><INPUT size=13 name=output18><FONT size=2>, тыс. руб</FONT></TD></TR>
+<TR><TD align=middle><FONT size=2><B>Эксплуатационные затраты</B></FONT></TD></TR>
+<TR><TD><FONT size=2>2.Затраты на заработную плату машинистов бурстанков( Эз б)</FONT></TD><TD><INPUT size=13 name=output19><FONT size=2>,тыс. руб</FONT></TD></TR>
+<TR><TD><FONT size=2>3.Затраты на заработную плату рабочих вспомогательных служб, (Эз вб)</FONT></TD><TD><INPUT size=13 name=output20><FONT size=2>,тыс. руб</FONT></TD></TR>
+<TR><TD><FONT size=2>4.Затраты на заработную плату рабочих всего(Эз об)</FONT></TD></TD><TD><INPUT size=13 name=output21><FONT size=2>,тыс. руб</FONT></TD></TR>
+<TR><TD><FONT size=2>5.Сумма амортизационных отчислений на бурстанки(Eab)</FONT></TD><TD><INPUT size=13 name=output22><FONT size=2>,тыс. руб</FONT></TD></TR>
+<TR><TD><FONT size=2>6.Затраты на техобслуживание и текущий ремонт бурстанков(Э тоб)</FONT></TD><TD><INPUT size=13 name=output23><FONT size=2>,тыс. руб/год</FONT></TD></TR>
+<TR><TD><FONT size=2>7.Затраты на смазочные материалы и другие материалы(Emb ) </FONT></TD><TD><INPUT size=13 name=output24><FONT size=2>,тыс. руб/год</FONT></TD></TR>
+<TR><TD><FONT size=2>8.Ррасход электроэнергии бурстанков за год(Рэл б)</FONT></TD><TD><INPUT size=13 name=output25><FONT size=2>,тыс.Квт.ч/год</FONT></TD></TR>
+<TR><TD><FONT size=2>9.Затраты на электроэнергию(Ээл б)</FONT></TD><TD><INPUT size=13 name=output26><FONT size=2>,тыс. руб</FONT></TD></TR>
+<TR><TD><FONT size=2>10.Эксплуатационные затраты на буровые станки ВСЕГО (Ebo)</FONT></TD><TD><INPUT size=13 name=output27><FONT size=2>,тыс.руб/год</FONT></TD></TR>
+<TR><TD><FONT size=2>11.Затраты на взрывчатые вещества и средства взрывания(Evv)</FONT></TD><TD><INPUT size=13 name=output28><FONT size=2>,тыс. руб/год</FONT></TD></TR>
+<TR><TD><FONT size=2>12.Эксплуатационные затраты на заработную плату взрывников(Evzv)</FONT></TD><TD><INPUT size=13 name=output29><FONT size=2>,тыс.руб/год</FONT></TD></TR>
+<TR><TD><FONT size=2>13.Норма времени на заряжание и взрывание скважин масс.взрыва(Nvzv)</FONT></TD><TD><INPUT size=13 name=output30><FONT size=2>,чел/час</FONT></TD></TR>
+<TR><TD align=middle><FONT size=2><B>ЗАТРАТЫ НА БУРОВЗРЫВНЫЕ РАБОТЫ, ВСЕГО</B></FONT></TD></TR>
+<TR><TD><FONT  color=navy size=2>КАПИТАЛЬНЫЕ</FONT></TD><TD><INPUT size=13 name=output31><FONT size=2>,тыс.руб</FONT></TD></TR>
+<TR><TD><FONT color=navy size=2>ЭКСПЛУАТАЦИОННЫЕ</FONT></TD><TD><INPUT size=13 name=output32><FONT size=2>,тыс.руб</FONT></TD></TR>
+</TBODY></TABLE>
+</FORM>
+<ul id="results"></ul>
+</PRE></BODY></HTML>
