@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="cp1251">
 <title>
 </title>
 <meta charset="utf-8">
@@ -25,6 +26,27 @@
     border:1px solid black;
 	width:70%; 
 }
+.initialData{
+background-color:#CB8C1D;
+display:table-row;
+color:#000000;
+
+
+}
+.title{
+background-color:#4C3327;
+display:table-row;
+color:#CB8C1D;
+}
+.result{
+background-color:#996600;
+display:table-row;
+color:#000000;
+
+
+}
+
+
 </style>
 </head>
 <body class="tundra">
@@ -769,40 +791,40 @@ newWindow=null
 <form name="form">
 <div class="wrapper">
     <div class="table">
-        <div class="row">
+        <div class="title">
             <div class="col"><h1 align=center id="greeting">РАСЧЕТ ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО<br>КОМПЛЕКСА КАРЬЕРА</h1> </div>
 			<div class="col"></div>
 	    </div>
-        <div class="row">
+        <div class="initialData">
             <div class="col"><p align=center>ИСХОДНЫЕ ДАННЫЕ ДЛЯ ПРОГРАММЫ<br>(вводятся пользователем)</p></div>
 			<div class="col"></div>
         </div>  
-		<div class="row">
+		<div class="initialData">
             <div class="col"><label for="text">Емкость ковша экскаватора(Ee):</label></div>
 			<div class="col">
 			<div  id="kubatura_excavatora" >					
 				</div>, м.куб 
 			</div>
         </div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Уточните значение(Ee):</label></div>
             <div class="col"><input type="text" id="tocnaya_kubatura_excavatora" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:0, max:20 }, invalidMessage:'Укажите значение в пределах 0-20 м.куб.!'" name="tocnaya_kubatura_excavatora">, м.куб</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Вид горной массы:</label></div>
 			<div class="col">
 				<div id="name_poroda"></div>
 			</div>
         </div>
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Годовой объем добычи(перевозки)(Wг):</label></div>
             <div class="col"><input type = "text" id="godovoi_objem_dobichi" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:1000, max:20000 }, invalidMessage:'Укажите значение в пределах 1000-20000 тонн.!'"  name="godovoi_objem_dobichi">, тыс. куб</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Расстояние транспортирования(среднее) автотранспортом(Lтр):</label></div>
             <div class="col"><input type = "text" id="rastoyanie_tranpotrtirovanya" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:5, max:20 }, invalidMessage:'Укажите значение в пределах 5-20 км.!'"  maxlength=6 name="rastoyanie_tranpotrtirovanya">, км</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Грузоподъемность самосвала(ga):</label></div>
 			<div class="col">
 				<select id="avto_gruz" data-dojo-type="dijit/form/Select" onchange="getAvtoSpeed()+ getAmortizacia()+ getNormaTo()+ getNormaAvtorezina()+ getrashodTopliva()+ getSoderganieGaraga ()+getStoimStroitelstva()+getStoimDorogi()" name=avto_gruz> 
@@ -813,15 +835,15 @@ newWindow=null
 				</select>, т
 			</div>
         </div>
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Уточните грузоподъемность самосвала(ga):</label></div>
             <div class="col"><input type = "text" 	id="gruzavto" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:27, max:200 }, invalidMessage:'Укажите значение в пределах 27-200 тонн!'" maxlength=6	name="gruzavto">, т</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Плотность(объемный вес) горной массы(y):</label></div>
             <div class="col"><input type = "text" 	id="plotnst" required="true" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isInRange,  constraints:{ min:1, max:2 }, invalidMessage:'Укажите значение в пределах 27-200 тонн!'" maxlength=6	name="plotnst">, т/м. куб.</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col"><label for="text">Район проведения работ:</label></div>
 			<div class="col">
 				<select id="region" data-dojo-type="dijit/form/Select" onchange=" getPrd()+getrabDnei()" name=region ;> 
@@ -830,7 +852,7 @@ newWindow=null
 				</select>
 			</div>
         </div>    
-        <div class="row">
+        <div class="initialData">
            <div class="col">
 				<button id="btn1" data-dojo-type="dijit/form/Button"
 								 onClick= "getALL()">
@@ -840,175 +862,175 @@ newWindow=null
 			</div>
 			<div class="col"></div>
         </div>
-        <div class="row">
+        <div class="result">
 			<div class="col"><p align=center>РЕЗУЛЬТАТЫ РАСЧЕТОВ<br>ЭСКАВАТОРНО-АВТОМОБИЛЬНОГО КОМПЛЕКСА</p></div>
 			<div class="col"></div>
 		</div>  
-		<div class="row">        
+		<div class="result">        
             <div class="col"><b>Введенные пользователем данные</b></div>
 			<div class="col"></div>
         </div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Емкость ковша экскаватора (Ee)</div>
             <div class="col"><input id="sharpkubesk2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=sharpkubesk2>, куб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Теоретическая продолж. цикла экскав.(тц)</div>
             <div class="col"><input id="teoret_prodolj_cikla_excavat" required="true" data-dojo-type="dijit/form/NumberTextBox" name=teoret_prodolj_cikla_excavat>, с</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Koоф. наполнения ковша(Kn)</div>
             <div class="col"><input id="koofporodakn" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofporodakn></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Кооф. разрыхления породы в ковше(Kp)</div>
             <div class="col"><input id="koofporodakp" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofporodakp></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Продолжительность смены(Тсм)</div>
             <div class="col"><input id="Tcm" required="true" data-dojo-type="dijit/form/NumberTextBox" value=8 name=Tcm>, ч</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Koоф. использования экскав. в течении смены(n)</div>
             <div class="col"><input id="n" required="true" data-dojo-type="dijit/form/NumberTextBox" value=0.7 name=n></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Годовой объем добычи(перевозок)в массиве(Wг)</div>
             <div class="col"><input id="dobicha2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=dobicha2>,тыс. куб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Число рабочих смен в году</div>
             <div class="col"><input id="rabdnei" required="true" data-dojo-type="dijit/form/NumberTextBox" name=rabdnei>,смен</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Вид горной массы </div>
             <div class="col"><input id="vid_gornoi_massi" required="true" data-dojo-type="dijit/form/NumberTextBox" name=vid_gornoi_massi></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Район работ </div>
             <div class="col"><input id="region2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=region2></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Плотность горной массы (y)</div>
             <div class="col"><input id="plotnst2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=plotnst2></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Скорость движения автосамосв. (Va)</div>
             <div class="col"><input id="speed" required="true" data-dojo-type="dijit/form/NumberTextBox" name=speed>, км/ч</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Грузоподъемность самосвала (Ga) </div>
             <div class="col"><input id="gruzavto2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=gruzavto2>, т</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Длина транспортирования(L тр)</div>
             <div class="col"><input id="rast2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=rast2>, км</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Время разгрузки автосамосв. (tr)</div>
             <div class="col"><input id="z" required="true" data-dojo-type="dijit/form/NumberTextBox" value=1 name=z>, мин</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Время маневров и прочих задержек в пути,мин</div>
             <div class="col"><input id="x" required="true" data-dojo-type="dijit/form/NumberTextBox" value=2-4 name=x>, мин</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Koоф. использования смены,(простои автосамосв.) </div>
             <div class="col"><input id="t" required="true" data-dojo-type="dijit/form/NumberTextBox" value=0.9 name=t></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Число рабочих дней в году предприят. (прд)</div>
             <div class="col"><input id="prd" required="true" data-dojo-type="dijit/form/NumberTextBox" name=prd>, смен</div>
 		</div> 
-		<div class="row">        
+		<div class="result">        
             <div class="col"><b>Результаты расчетов</b></div>
 			<div class="col"></div>
         </div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">1. Сменная производит. экскав.(O э см)</div>
             <div class="col"><input id="output1" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output1>,куб/см</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">2. Koл-во экскав. в забоях(N э.заб)</div>
             <div class="col"><input id="output2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output2>, ед</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">3. Koл-во экскав. на вспомогат. раб.(N э.вс)</div>
             <div class="col"><input id="output3" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output3>, ед</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">4. Общее необходим. кол-во экскав.(N э.общ)</div>
             <div class="col"><input id="output" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output4>, ед</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">5. Время погрузки автосам. экскав.(T погр)</div>
             <div class="col"><input id="output4" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output5>, мин</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">6. Время движен. гружен. автосам. (t гр)</div>
             <div class="col"><input id="output5" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output6>, мин</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">7. Время движен. порожняк. автосам.( t пор)</div>
             <div class="col"><input id="output6" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output7>, мин</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">8. Время одного рейса автосам.(tr)</div>
             <div class="col"><input id="output7" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output8>, мин</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">9. Сменная производит. одного автосам.(Q а.см)</div>
             <div class="col"><input id="output8" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output9>, т/смену</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">10. Расч. сменный парк автосам.(N р.см)</div>
             <div class="col"><input id="output9" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output10>, ед</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">11. Сут. пробег автосам.(L сут)</div>
             <div class="col"><input id="output10" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output11>, км</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">12. Koоф. технич. готовности парка(Ktg)</div>
             <div class="col"><input id="output16" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output12>,ед</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">13. Год. пробег автосам.(L год)</div>
             <div class="col"><input id="output11" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output13>, км</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">14. Инвентарный парк автосам.(N сут)</div>
             <div class="col"><input id="output12" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output14>,ед</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">15. Среднегод. производит. 1 автосам.(Q 1а год)</div>
             <div class="col"><input id="output13" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output15>, тыс. ткм/ год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col"><p align=center>ЭКОНОМИЧЕСКИЙ РАСЧЕТ<br>экскаваторно-автомобильного комплекса<br>Исходные данные</p></div>
 			<div class="col"></div>
 		</div>  
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Стоимость автосамосвала (Ca)</div>
 			<div class="col"><input id="StoimEcs" required="true" data-dojo-type="dijit/form/NumberTextBox" name=StoimEcs>, тыс. руб</div>
 		</div>  
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Стоимость экскаватора (Cэ)</div>
 			<div class="col"><input id="Se" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Se>,тыс. руб</div>
 		</div>  
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Тарифная ставка шофера(Tc)</div>
 			<div class="col"><input id="tarifstavka" required="true" data-dojo-type="dijit/form/NumberTextBox" name=tarifstavka>, руб/ч</div>
 		</div>  
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Продолжительность смены (Tcм)</div>
 			<div class="col"><input id="prodsmeni" required="true" data-dojo-type="dijit/form/NumberTextBox" name=prodsmeni>, ч</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Цена 1 кг дизтоплива(Cgor)</div>
 			<div class="col"><input id="Cgor" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Cgor>, руб/кг</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Форма хранения автосамосвалов</div>
 			<div class="col">
 				<select id="tip_hraneniya" data-dojo-type="dijit/form/Select" onchange=getStoimStroitelstva() name=tip_hraneniya> 
@@ -1017,7 +1039,7 @@ newWindow=null
 				</select>
 			</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Категория дороги</div>
 			<div class="col">
 				<select id="katdorogi" data-dojo-type="dijit/form/Select"  onchange=getStoimDorogi() name=katdorogi>
@@ -1026,11 +1048,11 @@ newWindow=null
 				</select>
 			</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Стоимость 1 кВтч электроэнергии(Cel)</div>
 			<div class="col"><input id="Cel" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Cel>, руб/кВтч</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col">Режим работы карьера</div>
 			<div class="col">
 				<select id="kolichestvo_dnei" data-dojo-type="dijit/form/Select" onchange=getKsp()+getregimKariera2() name=kolichestvo_dnei> 
@@ -1039,11 +1061,11 @@ newWindow=null
 				</select>, дн&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Прерывная раб. неделя
 			</div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col"></div>
 			<div class="col"><input size=3 value=357>, дн<input type=checkbox id="nepreriv" data-dojo-type="dijit/form/CheckBox" onchange=getKsp() name=nepreriv><label for="nepreriv">Если непрерывная раб. неделя, нажать на квадрат</label></div>
 		</div> 
-		<div class="row">
+		<div class="initialData">
 			<div class="col">
 				<button id="btn2" data-dojo-type="dijit/form/Button"
 								 onClick= "getEALL()">
@@ -1053,167 +1075,167 @@ newWindow=null
 			</div>
 			<div class="col"></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col"><b>Введенные пользователем данные</b></div>
 			<div class="col"></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Стоимость автосамосвала (Ca)</div>
 			<div class="col"><input id="StoimEcs2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=StoimEcs2>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на хранение автосамосвала(Cх)</div>
 			<div class="col"><input id="zatratisave" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratisave>, руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на строительство дороги(Cдор)</div>
 			<div class="col"><input id="zatratidorogi" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratidorogi>, руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Режим работы карьера</div>
 			<div class="col"><input id="kolichestvodnei2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=kolichestvodnei2>, дн</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Koэфициент списочного состава (Ksp)</div>
 			<div class="col"><input id="koofspissostava" required="true" data-dojo-type="dijit/form/NumberTextBox" name=koofspissostava></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Норма амортизационных отчислений на автотранспорт(Aa)</div>
 			<div class="col"><input id="amortizacia" required="true" data-dojo-type="dijit/form/NumberTextBox" name=amortizacia>, %</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Норма затрат на ТО автомобиля(Сто)</div>
 			<div class="col"><input id="normato" required="true" data-dojo-type="dijit/form/NumberTextBox" name=normato>, руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Норма затрат на авторезину(Ssh)</div>
 			<div class="col"><input id="normaavtorezina" required="true" data-dojo-type="dijit/form/NumberTextBox" name=normaavtorezina>, руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Расход топлива на 100 км пробега(Cgor)</div>
 			<div class="col"><input id="rashodtopliva" required="true" data-dojo-type="dijit/form/NumberTextBox" name=rashodtopliva>, кг</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Расход дизтоплива(Rdt)</div>
 			<div class="col"><input id="Rdt" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Rdt>, т</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Норма затрат на содержание автогаража(Egj1)</div>
 			<div class="col"><input id="Egj1" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Egj1>, руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Установленная мощность электродвигателя экскаватора(Mey)</div>
 			<div class="col"><input id="Mey" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Mey>, кВт</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Расход электроэнергии за год(Rel)</div>
 			<div class="col"><input id="Rel" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Rel>,тыс.кВт.ч/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col"><b>Результаты экономического расчета</b></div>
 			<div class="col"></div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на автосамосвалы(Ка)</div>
 			<div class="col"><input id="number59" required="true" data-dojo-type="dijit/form/NumberTextBox" name=avtozatrat>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на строительство гаража(Каг)</div>
 			<div class="col"><input id="number61" required="true" data-dojo-type="dijit/form/NumberTextBox" name=garagzatrat>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на строит-во 1км. карьерной дороги(Кдор)</div>
 			<div class="col"><input id="dorogizatrat" required="true" data-dojo-type="dijit/form/NumberTextBox" name=dorogizatrat>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на автотранспорт всего (Ko)</div>
 			<div class="col"><input id="zatratiavtoall" required="true" data-dojo-type="dijit/form/NumberTextBox" name=zatratiavtoall>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Списочный состав шоферов (n спис)</div>
 			<div class="col"><input id="nspis" required="true" data-dojo-type="dijit/form/NumberTextBox" name=nspis>, чел.</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на заработную плату шоферов (Ezsh)</div>
 			<div class="col"><input id="Ezsh" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezsh>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на заработную плату рабочих вспомогательных служб (Ezvs)</div>
 			<div class="col"><input id="Ezvs" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezvs>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на заработную плату рабочих всего (Эз о)</div>
 			<div class="col"><input id="Ezo" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezo>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Сумма амортизационных отчислений на автотранспорт (Eam)</div>
 			<div class="col"><input id="Eam" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eam>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на техническое обслуживание и текущий ремонт (Э то)</div>
 			<div class="col"><input id="Eto" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eto>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на горючее(Egor)</div>
 			<div class="col"><input id="Egor" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Egor>,тыс. руб</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на смазочные материалы(Em)</div>
 			<div class="col"><input id="Em" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Em>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на содержание автогаража(Egj)</div>
 			<div class="col"><input id="Egj" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Egj>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Эксплуатационные затраты на содержание и ремонт автодорог(Edor)</div>
 			<div class="col"><input id="Edor" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Edor>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Эксплуатационные затраты на автлотранспорт всего(Eao)</div>
 			<div class="col"><input id="Eao" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eao>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Капитальные затраты на экскаваторы(Ke)</div>
 			<div class="col"><input id="Ke" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ke>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на заработную плату машинистов экскаваторов(Эз э)</div>
 			<div class="col"><input id="Eze" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eze>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на заработную плату рабочих вспомогательных служб(Эз всп)</div>
 			<div class="col"><input id="Ezvsp" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezvsp>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на заработную плату рабочих всего(Эз оэ)</div>
 			<div class="col"><input id="Ezoe" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Ezoe>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Сумма амортизационных отчислений на экскаваторы(Eae)</div>
 			<div class="col"><input id="Eae" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eae>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на техническое обслуживание и текущий ремонт(Etoe)</div>
 			<div class="col"><input id="Etoe" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Etoe>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на смазочные материалы и др. материалы(Eme)</div>
 			<div class="col"><input id="Eme" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eme>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Затраты на электроэнергию(Eel)</div>
 			<div class="col"><input id="Eel" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eel>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">Эксплуатационные затраты на экскаваторы всего(Eeo)</div>
 			<div class="col"><input id="Eeo" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eeo>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">КАПИТАЛЬНЫЕ ЗАТРАТЫ ВСЕГО</div>
 			<div class="col"><input id="Kvseго" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Kvseго>,тыс. руб/год</div>
 		</div> 
-		<div class="row">
+		<div class="result">
 			<div class="col">ЭКСПЛУАТАЦИОННЫЕ ЗАТРАТЫ ВСЕГО</div>
 			<div class="col"><input id="Evsego" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Evsego>,тыс. руб/год</div>
 		</div> 
