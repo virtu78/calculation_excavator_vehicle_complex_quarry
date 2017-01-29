@@ -1,0 +1,32 @@
+.wrapper{
+   width:80%;
+}
+.table{
+   display:table;
+   width:100%;
+}
+.row{
+   display:table-row;
+}
+.col{
+    display:table-cell;
+    border:1px solid black;
+        width:70%;
+}
+.initialData{
+background-color:#CB8C1D;
+display:table-row;
+color:#000000;
+}
+.title{
+background-color:#4C3327;
+display:table-row;
+color:#CB8C1D;
+}
+.result{
+background-color:#996600;
+display:table-row;
+color:#000000;
+}
+
+

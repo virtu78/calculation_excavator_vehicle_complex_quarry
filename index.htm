@@ -7,47 +7,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/tundra/tundra.css">
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/resources/dojo.css" >
-<style type="text/css">
-.wrapper{
-   width:80%;   
-}
- 
-.table{
-   display:table;   
-   width:100%;
-}
- 
-.row{
-   display:table-row;   
-}
- 
-.col{
-    display:table-cell; 
-    border:1px solid black;
-	width:70%; 
-}
-.initialData{
-background-color:#CB8C1D;
-display:table-row;
-color:#000000;
-
-
-}
-.title{
-background-color:#4C3327;
-display:table-row;
-color:#CB8C1D;
-}
-.result{
-background-color:#996600;
-display:table-row;
-color:#000000;
-
-
-}
-
-
-</style>
+<link rel="stylesheet" type="text/css" href="styles.css" >   
 </head>
 <body class="tundra">
 
@@ -67,18 +27,8 @@ color:#000000;
 require(["dojo", "dijit/registry", "dojo/on", "dojo/dom",  "dojo/_base/array", "dijit/form/NumberTextBox", "dijit/form/Button", "dijit/form/Select", "dojo/parser", "dojo/json", 
 "dojo/_base/config", "dojo/domReady!", "dijit/Dialog", "dijit/form/ValidationTextBox",  "dojox/validate", "dojox/validate/check", "dojox/validate/web"], 
 function(dojo, registry, on, dom,  array, NumberTextBox, Button, Select, parser, JSON, config, Dialog, ValidationTextBox,  validate, check, web){
-
-//на нативном JS обработка <select> 
-	/*getContinueCirclus = function(evt){    
-	var KubaturaEscavators=document.getElementById("kubatura_excavatora");
-	var selIndex = KubaturaEscavators.selectedIndex;	  
-	var SelectedKubaturaEscavators =KubaturaEscavators.options[selIndex].value;		
-	}
-	*/
-
-    var getContinueCirclus = new Select({
+var getContinueCirclus = new Select({
                 name: "kubatura_excavatora",
-               
                 options: [
                     {
                         value: "23",
@@ -100,34 +50,28 @@ function(dojo, registry, on, dom,  array, NumberTextBox, Button, Select, parser,
                  ],   
                 onChange: function(value){
                     dojo.byId("tocnaya_kubatura_excavatora").value = value;
-                    
-                }
+                                 }
             }, "kubatura_excavatora");
             getContinueCirclus.startup();
-        
-
-       
-
-
 var getKoofPoroda = new Select({
                 name: "name_poroda",
                
                 options: [
                     {
-                        value: "песок, суглинок",
+                        value: "песок",
                         label: "песок, суглинок",
                         selected: true
                     },
                     {
-                        value: "глина, уголь",
+                        value: "глина",
                         label: "глина, уголь"
                     },
                     {
-                        value: "щебень(разрыхленный известн€к)",
+                        value: "щебень",
                         label: "щебень(разрыхленный известн€к)"
                     },
                     {
-                        value: "руда(разрыхленные изверженные породы)",
+                        value: "руда",
                         label: "руда(разрыхленные изверженные породы)"
                     }
                  ],   
@@ -135,7 +79,7 @@ var getKoofPoroda = new Select({
 				dojo.byId("vid_gornoi_massi").value = value;
 				
                 var KoofPorodaKP = [1.2, 1.25, 1.45, 1.5];
-					KoofPorodaKN = [1, 0.95, 0.85, 0.75];
+       		var KoofPorodaKN = [1, 0.95, 0.85, 0.75];
 
 
  
@@ -148,10 +92,11 @@ var getKoofPoroda = new Select({
 	console.log("ERROR");
 	}
 	
-       
-   
-	
-  
+       } 
+
+ 
+
+/*  
    
    var getKoofPorodaKP=dojo.byId("koofporodakp");
   getKoofPorodaKP=KoofPorodaKP[i];
@@ -786,6 +731,8 @@ newWindow.close()
 newWindow=null
 }
 }
+*/
+
 });
 </script>
 <form name="form">
@@ -795,16 +742,21 @@ newWindow=null
             <div class="col"><h1 align=center id="greeting">–ј—„≈“ Ё— ј¬ј“ќ–Ќќ-ј¬“ќћќЅ»Ћ№Ќќ√ќ<br> ќћѕЋ≈ —ј  ј–№≈–ј</h1> </div>
 			<div class="col"></div>
 	    </div>
-        <div class="initialData">
+        <div class="title">
             <div class="col"><p align=center>»—’ќƒЌџ≈ ƒјЌЌџ≈ ƒЋя ѕ–ќ√–јћћџ<br>(ввод€тс€ пользователем)</p></div>
 			<div class="col"></div>
         </div>  
 		<div class="initialData">
             <div class="col"><label for="text">≈мкость ковша экскаватора(Ee):</label></div>
 			<div class="col">
-			<div  id="kubatura_excavatora" >					
-				</div>, м.куб 
-			</div>
+			<div  id="kubatura_excavatora" >
+ <select id="kubatura_excavatora" data-dojo-type="dijit/form/Select" onchange="" name="kubatura_excavatora">
+                                          <option value=0-3 selected>0-3</option>
+                                          <option value=5>5</option>
+                                          <option value=6-8>6-8</option>
+                                          <option value=10-20>10-20</option>
+                                  </select>, м.куб</div>
+	</div>
         </div> 
 		<div class="initialData">
 			<div class="col"><label for="text">”точните значение(Ee):</label></div>
@@ -813,7 +765,14 @@ newWindow=null
 		<div class="initialData">
 			<div class="col"><label for="text">¬ид горной массы:</label></div>
 			<div class="col">
-				<div id="name_poroda"></div>
+				<div id="name_porodia"> 
+<select id="name_poroda" data-dojo-type="dijit/form/Select" onchange="getKoofPoroda()" name="name_poroda">
+                                            <option value=песок selected>песок, суглинок</option>
+                                            <option value=глина>глина, уголь</option>
+                                            <option value=щебень>щебень</option>
+                                            <option value=руда>руда</option>
+                                    </select></div>
+ </div>
 			</div>
         </div>
 		<div class="initialData">
@@ -862,11 +821,11 @@ newWindow=null
 			</div>
 			<div class="col"></div>
         </div>
-        <div class="result">
+        <div class="title">
 			<div class="col"><p align=center>–≈«”Ћ№“ј“џ –ј—„≈“ќ¬<br>Ё— ј¬ј“ќ–Ќќ-ј¬“ќћќЅ»Ћ№Ќќ√ќ  ќћѕЋ≈ —ј</p></div>
 			<div class="col"></div>
 		</div>  
-		<div class="result">        
+		<div class="title">        
             <div class="col"><b>¬веденные пользователем данные</b></div>
 			<div class="col"></div>
         </div> 
@@ -942,7 +901,7 @@ newWindow=null
 			<div class="col">„исло рабочих дней в году предпри€т. (прд)</div>
             <div class="col"><input id="prd" required="true" data-dojo-type="dijit/form/NumberTextBox" name=prd>, смен</div>
 		</div> 
-		<div class="result">        
+		<div class="title">        
             <div class="col"><b>–езультаты расчетов</b></div>
 			<div class="col"></div>
         </div> 
@@ -1006,7 +965,7 @@ newWindow=null
 			<div class="col">15. —реднегод. производит. 1 автосам.(Q 1а год)</div>
             <div class="col"><input id="output13" required="true" data-dojo-type="dijit/form/NumberTextBox" name=output15>, тыс. ткм/ год</div>
 		</div> 
-		<div class="result">
+		<div class="title">
 			<div class="col"><p align=center>Ё ќЌќћ»„≈— »… –ј—„≈“<br>экскаваторно-автомобильного комплекса<br>»сходные данные</p></div>
 			<div class="col"></div>
 		</div>  
@@ -1075,7 +1034,7 @@ newWindow=null
 			</div>
 			<div class="col"></div>
 		</div> 
-		<div class="result">
+		<div class="title">
 			<div class="col"><b>¬веденные пользователем данные</b></div>
 			<div class="col"></div>
 		</div> 
@@ -1131,7 +1090,7 @@ newWindow=null
 			<div class="col">–асход электроэнергии за год(Rel)</div>
 			<div class="col"><input id="Rel" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Rel>,тыс.к¬т.ч/год</div>
 		</div> 
-		<div class="result">
+		<div class="title">
 			<div class="col"><b>–езультаты экономического расчета</b></div>
 			<div class="col"></div>
 		</div> 
@@ -1231,11 +1190,11 @@ newWindow=null
 			<div class="col">Ёксплуатационные затраты на экскаваторы всего(Eeo)</div>
 			<div class="col"><input id="Eeo" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Eeo>,тыс. руб/год</div>
 		</div> 
-		<div class="result">
+		<div class="title">
 			<div class="col"> јѕ»“јЋ№Ќџ≈ «ј“–ј“џ ¬—≈√ќ</div>
 			<div class="col"><input id="Kvseго" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Kvseго>,тыс. руб/год</div>
 		</div> 
-		<div class="result">
+		<div class="title">
 			<div class="col">Ё —ѕЋ”ј“ј÷»ќЌЌџ≈ «ј“–ј“џ ¬—≈√ќ</div>
 			<div class="col"><input id="Evsego" required="true" data-dojo-type="dijit/form/NumberTextBox" name=Evsego>,тыс. руб/год</div>
 		</div> 
