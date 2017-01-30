@@ -55,7 +55,6 @@ var getContinueCirclus = new Select({
             getContinueCirclus.startup();
 var getKoofPoroda = new Select({
                 name: "name_poroda",
-               
                 options: [
                     {
                         value: "песок, суглинок",
@@ -83,19 +82,12 @@ var getKoofPoroda = new Select({
                 var KoofPorodaKP = [1.2, 1.25, 1.45, 1.5];
        		var KoofPorodaKN = [1, 0.95, 0.85, 0.75];
 
-
- 
- 
-  
  if(array.some(KoofPorodaKP, function(item){return item==2})){		
 		dojo.byId("koofporodakp").value=1.2;
 	}else{
 	
 	console.log("ERROR");
 	}
-	
-   
-
 });
 
 /*  
