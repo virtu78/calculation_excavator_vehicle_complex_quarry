@@ -49,7 +49,7 @@ var getContinueCirclus = new Select({
                     }
                  ],   
                 onChange: function(value){
-                    dojo.byId("tocnaya_kubatura_excavatora").value = value;
+                    dojo.byId("kubatura_excavatora_res").value = value;
                                  }
             }, "kubatura_excavatora");
             getContinueCirclus.startup();
@@ -58,26 +58,28 @@ var getKoofPoroda = new Select({
                
                 options: [
                     {
-                        value: "песок",
+                        value: "песок, суглинок",
                         label: "песок, суглинок",
                         selected: true
                     },
                     {
-                        value: "глина",
+                        value: "глина, уголь",
                         label: "глина, уголь"
                     },
                     {
-                        value: "щебень",
-                        label: "щебень(разрыхленный известняк)"
+                        value: "щебень(разрыхленный известняк)",
+                        label: "щебень"
                     },
                     {
-                        value: "руда",
-                        label: "руда(разрыхленные изверженные породы)"
+                        value: "руда(разрыхленные изверженные породы)",
+                        label: "руда"
                     }
                  ],   
                 onChange: function(value){
 				dojo.byId("vid_gornoi_massi").value = value;
-				
+				}
+				}, "name_poroda");
+            getKoofPoroda.startup();
                 var KoofPorodaKP = [1.2, 1.25, 1.45, 1.5];
        		var KoofPorodaKN = [1, 0.95, 0.85, 0.75];
 
@@ -92,9 +94,9 @@ var getKoofPoroda = new Select({
 	console.log("ERROR");
 	}
 	
-       } 
+   
 
- 
+});
 
 /*  
    
@@ -733,7 +735,7 @@ newWindow=null
 }
 */
 
-});
+
 </script>
 <form name="form">
 <div class="wrapper">
@@ -831,7 +833,7 @@ newWindow=null
         </div> 
 		<div class="result">
 			<div class="col">Емкость ковша экскаватора (Ee)</div>
-            <div class="col"><input id="sharpkubesk2" required="true" data-dojo-type="dijit/form/NumberTextBox" name=sharpkubesk2>, куб</div>
+            <div class="col"><input id="kubatura_excavatora_res" required="true" data-dojo-type="dijit/form/NumberTextBox" name=sharpkubesk2>, куб</div>
 		</div> 
 		<div class="result">
 			<div class="col">Теоретическая продолж. цикла экскав.(тц)</div>
